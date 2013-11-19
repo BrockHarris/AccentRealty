@@ -1,9 +1,9 @@
 class ContactMailer < ActionMailer::Base
-  default :from => "inquiries@accentrealtyus.com"
-  default :to => "btharris781@gmail.com"
+  default :from => "forwarding@accentrealtyus.com"
+  # default :to => "inna@innarealestate.com"
 
   def new_message(message)
     @message = message
-    mail(:subject => "New Accent Realty inquiry from: #{message.name}")
+    mail(:subject => "New web message from: #{message.name}")
   end
 end

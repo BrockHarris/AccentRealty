@@ -9,7 +9,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :lastname
       t.boolean   :upadtes_news, :default=>true
       t.boolean   :updates_blog_posts, :default=>false
-
       t.datetime  :deleted_at
       t.string 		:state
       t.string    :mode

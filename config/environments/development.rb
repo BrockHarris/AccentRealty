@@ -34,4 +34,5 @@ AccentRealty::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  SITE_URL_HOST = "localhost:3000"
 end
