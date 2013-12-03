@@ -1,0 +1,38 @@
+Admin Dashboard
+
+<%= link_to "Sign out", adminsignout_path %>
+
+<div class="list-group sm_form_width">
+  <a href="#" class="list-group-item active">
+    Cras justo odio
+  </a>
+  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+  <a href="#" class="list-group-item">Morbi leo risus</a>
+  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+  <a href="#" class="list-group-item">Vestibulum at eros</a>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Published Blog Posts</h3>
+  </div>
+  <div class="panel-body">
+		<%= render 'blogposts/blogpost_list' %>
+	</div>
+</div>
+
+<h3>Creat a new blog post</h3>
+<%= render 'blogposts/blog_form' %>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Site Administrators</h3>
+  </div>
+  <div class="panel-body">
+		<%= render 'admins/admin_list' %>
+	</div>
+</div>
+
+<h3>Add a new admin user:</h3>
+<%= render 'admins/new_admin_form' %>

@@ -1,0 +1,7 @@
+<h3>Password Recovery:</h3>
+<p>Enter your email below to request a password reset:</p>
+
+<%= form_tag do %>
+  <%= text_field_tag :email, @email, :size => 40, :placeholder => "Email" %> <br/>
+  <%= submit_tag 'Submit' %>
+<% end -%>

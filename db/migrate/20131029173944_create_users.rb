@@ -7,11 +7,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :password_salt
       t.string    :firstname
       t.string    :lastname
-      t.boolean   :upadtes_news, :default=>true
+      t.boolean   :updates_news, :default=>true
       t.boolean   :updates_blog_posts, :default=>false
       t.datetime  :deleted_at
-      t.string 		:state
-      t.string    :mode
+      t.string 		:state #nix
+      t.string    :mode #nix
       t.string    :activation_code, :limit=>100
       t.datetime  :activated_at
       t.datetime  :activation_email_sent_at

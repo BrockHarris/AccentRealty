@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117195609) do
+ActiveRecord::Schema.define(:version => 20131122214235) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -26,12 +26,14 @@ ActiveRecord::Schema.define(:version => 20131117195609) do
   end
 
   create_table "blogposts", :force => true do |t|
-    t.string   "title"
     t.integer  "admin_id"
+    t.string   "title"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "blogposts", ["admin_id"], :name => "index_blogposts_on_admin_id"
 
   create_table "messages", :force => true do |t|
     t.string   "name"
@@ -49,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20131117195609) do
     t.string   "password_salt"
     t.string   "firstname"
     t.string   "lastname"
-    t.boolean  "upadtes_news",                            :default => true
+    t.boolean  "updates_news",                            :default => true
     t.boolean  "updates_blog_posts",                      :default => false
     t.datetime "deleted_at"
     t.string   "state"

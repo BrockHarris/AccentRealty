@@ -1,13 +1,15 @@
 class AdminsessionsController < ApplicationController
 
 	def create
-    admin = Admin.authenticate(params[:login], params[:password])
+    admin = Admin.authenticate(params[:session][:login].downcase, params[:session][:password])
     if admin
       session[:admin_id] = admin.id
+      redirect_to admin_dashboard_path
+      flash[:success] = "You are now signed in as an administrator."
     else
-      flash[:error] = "There was a problem with your username or password."
+      flash[:success] = "There was a problem with your username or password."
+      redirect_to admin_path
     end
-    redirect_to admin_path
   end
 
   def destroy

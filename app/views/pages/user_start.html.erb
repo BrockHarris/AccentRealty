@@ -1,0 +1,11 @@
+<h3>User accounts</h3>
+
+<%= render 'users/new_user_form' %>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+  <%= f.text_field :login, :placeholder => "Email" %><br/>
+  <%= f.password_field :password, :placeholder => "Password" %><br/>
+  <%= f.submit "Sign in", class: "" %>
+<% end %>
+
+<%= link_to "Forgot password?", assist_path %>

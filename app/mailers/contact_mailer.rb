@@ -4,6 +4,6 @@ class ContactMailer < ActionMailer::Base
 
   def new_message(message)
     @message = message
-    mail(:subject => "New web message from: #{message.name}")
+    mail(:subject => "New website inquiry from: #{message.name}")
   end
 end
