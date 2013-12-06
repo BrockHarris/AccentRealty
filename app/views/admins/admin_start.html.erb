@@ -2,16 +2,21 @@
   <div class="placeholder_login_panel center">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title center_text">Admin Panel Sign in</h3>
+        <h3 class="panel-title center_text">Admin Access Panel</h3>
       </div>
       
       <div class="panel-body">
         <div class="form-group sm_form_width center">
           <%= form_for(:session, url: adminsessions_path) do |f| %>
-          <%= f.text_field :login, :placeholder => "Email or username", :class => "form-control" %><br/>
-          <%= f.password_field :password, :placeholder => "Password", :class => "form-control" %><br/>
-  <%= f.submit "Sign in", :class => "btn btn-warning" %>
-<% end %>
+            <br/>
+            <%= f.label :login, "Username or Email" %>
+            <%= f.text_field :login, :class => "form-control" %>
+            
+            <%= f.label :password, "Password" %>
+            <%= f.password_field :password, :class => "form-control" %><br/>
+
+            <%= f.submit "Sign in", :class => "btn btn-warning pull-right" %>
+          <% end %>
         </div>
       </div>
     </div>

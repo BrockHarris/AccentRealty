@@ -1,0 +1,42 @@
+<div class="modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal_short_width">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+      </div>
+      <div class="modal-body">
+      <div class="form-group sm_form_width center">
+        <%= form_for(:user, url: users_path) do |f| %>
+          <%= f.label :email, "Email" %>  
+          <%= f.text_field :email, :class => "form-control" %>
+
+          <%= f.label :firstname, "First name" %>  
+          <%= f.text_field :firstname, :class => "form-control" %> 
+
+          <%= f.label :lastname, "Last name" %>  
+          <%= f.text_field :lastname, :class => "form-control" %> 
+
+          <%= f.label :password, "Password" %>
+          <%= f.password_field :password, :class => "form-control" %>
+
+          <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %>
+          
+          <%= f.check_box :updates_news, {}, true, false %>
+          <%= f.label "Recieve listing updates" %><br/>
+
+          <%= f.check_box :updates_blog_posts, {}, true, false %>
+          <%= f.label "Recieve blog updates" %><br/>
+
+          </div>
+      </div>
+      <div class="modal-footer">
+          <div class="sm_form_width center">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <%= f.submit "Sign up", :class => "btn btn-warning" %>
+        <% end %>
+ </div>
+      </div>
+    </div>
+  </div>
+</div>

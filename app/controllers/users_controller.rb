@@ -64,4 +64,31 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  def settings
+    @user = current_user
+  end
+
+  def update
+    if @user.pending?
+      if @user.update_attributes(params[:user])
+        flash[:notice] = "Thanks for signing up! An email has been sent to #{@user.email} with instructions on how to immediately activate your account."
+        session[:user_id] = nil
+        redirect_to root_url
+      else
+        flash[:error] = "There was a problem with your info, please try again."
+        redirect_to (:back)
+      end
+    else
+      respond_to do |format|
+        if @user.update_attributes(params[:user])
+          format.html { redirect_to((:back), :notice => 'Your account has been updated!') }
+          format.json { respond_with_bip(@user) }
+        else
+          format.html { redirect_to((:back), :notice => 'There was a problem with your info, please try again.') }
+          format.json { respond_with_bip(@user) }
+        end
+      end
+    end
+  end
 end

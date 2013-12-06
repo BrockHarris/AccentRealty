@@ -1,77 +1,46 @@
-<%= image_tag "main_logo.png", :size => "250x110"%>
+<%= render "shared/flash_messages" %>
 
-<% unless flash[:success].blank? %>
-  <div class="alert alert-success alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <%= content_tag :div, flash[:success] %>
-  </div>
-<% end %>
+<%= render "shared/contact_modal" %>
+<%= render "shared/signin_modal" %>
+<%= render "shared/signup_modal" %>
 
-<% unless flash[:notice].blank? %>
-  <div class="alert alert-warning alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <%= content_tag :div, flash[:notice] %>
-  </div>
-<% end %>
+<div class="row">
 
-<% unless flash[:error].blank? %>
-  <div class="alert alert-danger alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <%= content_tag :div, flash[:error] %>
-  </div>
-<% end %>
-
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    <%= image_tag "main_logo.png", :size => "250x110", :class => "header_logo"%>
 
 
 
-<nav class="navbar navbar-default header_width center" role="navigation">
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li class="active"><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Blog", blog_path %></li>
-      <li><%= link_to "Contact us", contact_path %></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <b class="caret"></b></a>
+    <ul class="nav nav-pills pull-right nav_placeholder">
+      <li class="<%= nav_state('home')%>"><%= link_to "Home", root_path %></li>
+      <li class="<%= nav_state('listings')%>"><%= link_to "Listings", listings_path %></li>
+      <li class="<%= nav_state('blog')%>"><%= link_to "Blog", blog_path %></li>
+      <li class="<%= nav_state('resources')%>"><%= link_to "Resources", resources_path %></li>
+      <li class="nav_link"><a href="#" data-toggle="modal" data-target="#contactmodal">Contact</a></li> 
+
+      <li class="dropdown nav_link">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          My Account <span class="caret" style="border-top: 4px solid #666;"></span>
+        </a>
+
         <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-          <li class="divider"></li>
-          <li><a href="#">One more separated link</a></li>
+          <li role="presentation">
+            <% if current_user %> 
+              <%= link_to "Settings", settings_path %>
+            <% else %>
+              <a href="#" data-toggle="modal" role="menuitem" tabindex="-1" data-target="#signinmodal">Sign in</a>
+            <% end %>
+          </li>
+          <li role="presentation">
+            <% if current_user %> 
+              <%= link_to "Sign out", usersignout_path %>
+            <% else %>
+              <a href="#" data-toggle="modal" role="menuitem" tabindex="-1" data-target="#signupmodal">Sign up</a>
+            <% end %> 
+          </li>
         </ul>
-        <li>
-          <% if current_user %> 
-            <%= link_to "Sign out", usersignout_path %>
-          <% else %>
-            <%= link_to "My Account", subscribe_path %>
-          <% end %> 
-        </li>
       </li>
     </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
+
+</div>
+<div class="nav-wrapper clearfix">
+</div>

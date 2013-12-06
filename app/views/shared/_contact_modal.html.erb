@@ -1,0 +1,31 @@
+<div class="modal fade" id="contactmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Contact Accent Realty</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(:message, url: messages_path) do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name, :class => "form-control" %>
+
+          <%= f.label :email %>
+          <%= f.text_field :email, :class => "form-control" %>
+
+          <%= f.label :subject %>
+          <%= f.text_field :subject, :class => "form-control" %>
+
+          <%= f.label :body %>
+          <%= f.text_area :body, :rows =>"7", :class => "form-control" %>
+      </div>
+      <div class="modal-footer">
+          
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <%= f.submit "Send", :class => "btn btn-warning" %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

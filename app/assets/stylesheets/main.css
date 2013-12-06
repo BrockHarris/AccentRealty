@@ -1,3 +1,58 @@
+html {
+  height:100%;
+}
+body {
+  background-color: #FFF8F2;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.nav-wrapper {
+background: url(nav_bg.jpg) repeat-x;
+height: 47px;
+width: 100%;
+margin-bottom: 0px;
+border-bottom: 0px solid #e5e5e5;
+border-top: 0px solid #e5e5e5;
+box-shadow: 0px 1px 3px #c3c2c3;
+-webkit-box-shadow: 0px 1px 3px #c3c2c3;
+-moz-box-shadow: 0px 1px 3px #c3c2c3;
+behavior: url(PIE/PIE.htc);
+z-index: 200;
+}
+
+.nav_link a{
+  color:#666;
+  font-size:11pt;
+}
+.nav_link_active a{
+  color:#F08024;
+  font-size:11pt;
+}
+
+.header_logo {
+  margin-left:40px;
+}
+
+.nav_placeholder {
+  margin-right:30px;
+  margin-top:20px;
+}
+.page_container {
+  background-color: #FFF;
+  width:960px;
+  min-height: 100%;
+  margin: auto auto;
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(69,62,54,0.30);
+  -moz-box-shadow: 0px 0px 15px 1px rgba(69,62,54,0.30);
+  box-shadow: 0px 0px 15px 1px rgba(69,62,54,0.30);
+}
+
+.modal_short_width {
+  width:450px;
+  margin: auto auto;
+}
 .center {
 	margin-left:auto;
 	margin-right:auto;
@@ -14,27 +69,18 @@
 }
 
 .btn:focus {
-    outline:0px !important;
-    -webkit-appearance:none;
+  outline:0px !important;
+  -webkit-appearance:none;
         }
-
-.btn-orange {
-  background-color: hsl(42, 100%, 49%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f9ae00", endColorstr="#f9ae00");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#f9ae00), to(#f9ae00));
-  background-image: -moz-linear-gradient(top, #f9ae00, #f9ae00);
-  background-image: -ms-linear-gradient(top, #f9ae00, #f9ae00);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9ae00), color-stop(100%, #f9ae00));
-  background-image: -webkit-linear-gradient(top, #f9ae00, #f9ae00);
-  background-image: -o-linear-gradient(top, #f9ae00, #f9ae00);
-  background-image: linear-gradient(#f9ae00, #f9ae00);
-  border-color: #f9ae00 #f9ae00 hsl(42, 100%, 49%);
-  color: #fff !important;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
-  -webkit-font-smoothing: antialiased;
+.form-control {
+  margin-bottom:10px;
 }
 
 .sm_form_width {
 	width:300px;
+}
+.carousel_container {
+  width:960px;
+  height:420px;
+  border:1px;
 }
