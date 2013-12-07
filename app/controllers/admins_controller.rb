@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
 	
 	def admin_start
+		@hide_user_menu = true
 		if admin_user
 			redirect_to dashboard_admin_path
 		else
@@ -9,6 +10,7 @@ class AdminsController < ApplicationController
 	end
 
 	def dashboard
+		@hide_user_menu = true
 		if admin_user
 			@blogpost = Blogpost.new
 			@add_admin = Admin.new

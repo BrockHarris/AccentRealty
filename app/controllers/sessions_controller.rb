@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       redirect_to myaccount_path
     else
       flash[:error] = "There was a problem with your email or password."
-      redirect_to subscribe_path
+      redirect_to (:back)
     end
   end
 
