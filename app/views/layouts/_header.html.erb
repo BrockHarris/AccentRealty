@@ -13,6 +13,7 @@
     <li class="<%= nav_state('blog')%>"><%= link_to "Blog", blog_path %></li>
     <li class="<%= nav_state('resources')%>"><%= link_to "Resources", resources_path %></li>
     <li class="nav_link"><a href="#" data-toggle="modal" data-target="#contactmodal">Contact</a></li> 
+    <li class="<%= nav_state('resources')%>"><%= link_to "Sample", sample_path %></li>
 
     <% unless @hide_user_menu %>
     <li class="dropdown pull-right nav_link">

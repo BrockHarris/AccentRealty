@@ -6,6 +6,9 @@ class PagesController < ApplicationController
 	def listings
 	end
 
+	def sample
+	end
+
 	def contact
 		@message = Message.new
 	end

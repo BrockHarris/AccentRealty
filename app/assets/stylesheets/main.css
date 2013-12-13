@@ -7,6 +7,12 @@ body {
   padding: 0;
   height: 100%;
 }
+.sample_pic {
+  width:757px;
+  display:block;
+  margin:50px auto 0 auto;
+}
+
 
 .header_logo {
   margin-left:30px;
