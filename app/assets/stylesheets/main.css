@@ -118,23 +118,60 @@ body {
   border:1px;
 }
 
+.caption_mod {
+  width:300px;
+  background-color:rgba(0,0,0,0.5);
+  left:0%;
+  bottom:0%;
+  text-align: left;
+}
+
 /** Listing Styles **/
 
 .search_container {
   width:100%;
   background-color: #EEE;
-  height:150px;
+  padding:10px;
+  overflow:hidden;
+}
+.search_field_col_left {
+  float:left;
+  margin-left:32px;
+  margin-right:45px;
+}
+.search_field_col {
+  float:left;
+  margin-right:45px;
+}
+.search_field_col_right {
+  float:left;
+  width:auto;
+}
+.search_fields_wide {
+  width:150px;
+  margin:-2px 0 9px 0;
+}
+.search_fields {
+  width:130px;
+  margin:-2px 0 9px 0;
+}
+.search_btn {
+  float:right;
+  margin-top:22px;
+  margin-right:30px;
 }
 
 .listings_container {
-  height:100%;
+  margin-top:16px;
+  min-height:100%;
+  overflow:hidden;
 }
 
 .listing_item {
   float:left;
   width:220px;
   height:280px;
-  margin-left:16px;
+  margin:0 0 16px 16px;
   background-color:#EEE;
 }
 

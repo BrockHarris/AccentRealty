@@ -1,45 +1,167 @@
-pages#listings
-
 <h3>Listings page here</h3>
 
 <div class="search_container">
+	<form class="form-inline" role="form">
+  	<div class="form-group">
+  	<div class="search_field_col_left">
+  		<label class="control-label">Style</label><br/>
+  		<select class="form-control search_fields_wide" >
+  			<option>Any</option>
+  			<option>Tudor</option>
+  			<option>Victorian</option>
+  			<option>Colonial</option>
+			</select><br/>
 
+			<label class="control-label">Location</label><br/>
+    	<select class="form-control search_fields_wide">
+    		<option>Select</option>
+    		<option>City 1</option>
+ 				<option>City 2</option>
+  			<option>City 3</option>
+  			<option>City 4</option>
+			</select><br/>
+		</div>
+
+		<div class="search_field_col">
+			<label class="control-label">Bedrooms</label><br/>
+  		<select class="form-control search_fields">
+  			<option>Any</option>
+  			<option>1+</option>
+  			<option>2+</option>
+  			<option>3+</option>
+  			<option>4+</option>
+  			<option>5+</option>
+			</select><br/>
+
+			<label class="control-label">Baths</label><br/>
+  		<select class="form-control search_fields">
+  			<option>Any</option>
+  			<option>1+</option>
+  			<option>2+</option>
+  			<option>3+</option>
+  			<option>4+</option>
+			</select><br/>
+		</div>
+
+		<div class="search_field_col">
+			<label class="control-label">Year Built</label><br/>
+			<select class="form-control search_fields">
+  			<option>Any</option>
+  			<option>2000 or newer</option>
+  			<option>1990 or newer</option>
+  			<option>1980 or newer</option>
+  			<option>1970 or newer</option>
+  			<option>1960 or older</option>
+			</select><br/>
+
+			<label class="control-label">Garages</label><br/>
+  		<select class="form-control search_fields">
+  			<option>Any</option>
+  			<option>None</option>
+  			<option>1+</option>
+  			<option>2+</option>
+  			<option>3+</option>
+  			<option>4+</option>
+			</select><br/>
+		</div>
+
+		<div class="search_field_col">		
+			<label class="control-label">Min Price</label><br/>
+    	<select class="form-control search_fields_wide">
+  			<option>None</option>
+  			<option>$75,000</option>
+  		  <option>$150,000</option>
+  			<option>$200,000</option>
+  			<option>$250,000</option>
+  			<option>$300,000</option>
+  			<option>$350,000</option>
+  			<option>$400,000</option>
+  			<option>$450,000</option>
+  			<option>$500,000</option>
+  			<option>$600,000</option>
+  			<option>$700,000</option>
+  			<option>$800,000</option>
+  			<option>$900,000</option>
+  			<option>$1,000,000</option>
+  			<option>$1,500,000</option>
+  			<option>$2,000,000</option>
+  			<option>$2,500,000</option>
+			</select><br/>
+
+			<label class="control-label">Max Price</label><br/>
+			<select class="form-control search_fields_wide">
+  			<option>None</option>
+  			<option>$75,000</option>
+  		  <option>$150,000</option>
+  			<option>$200,000</option>
+  			<option>$250,000</option>
+  			<option>$300,000</option>
+  			<option>$350,000</option>
+  			<option>$400,000</option>
+  			<option>$450,000</option>
+  			<option>$500,000</option>
+  			<option>$600,000</option>
+  			<option>$700,000</option>
+  			<option>$800,000</option>
+  			<option>$900,000</option>
+  			<option>$1,000,000</option>
+  			<option>$1,500,000</option>
+  			<option>$2,000,000</option>
+  			<option>$2,500,000</option>
+			</select><br/>
+</div>
+			<div class="search_field_col_right">	
+
+			<label class="control-label">ML #</label><br/>
+  		<input class="form-control search_fields" placeholder="(optional)"><br/>
+
+  		<button type="submit" class="btn btn-warning search_btn">Search</button>
+  		
+  	</div>
+  	</div>
+		
+	</form>
 </div>
 
-<div class="listings_container clearfix">
-	
+<div class="listings_container">
 	<div class="listing_item">
- 
 	 	<%= image_tag "listing1.jpg", :class=>"listing_image" %> 
-
-
-	 <div class="listing_caption">
-	 123 Some Street <br/>
-	 Anytown, state
-	 </div>
+		<div class="listing_caption">123 Some Street <br/>Anytown, State</div>
 	</div>
 
 	<div class="listing_item">
-	 <%= image_tag "listing1.jpg", :class=>"listing_image" %> 
-	 
-	 <div class="listing_caption">
-
-	 </div>
+	 	<%= image_tag "listing1.jpg", :class=>"listing_image" %> 
+		<div class="listing_caption">123 Some Street <br/>Anytown, State</div>
 	</div>
 
 	<div class="listing_item">
-	 <%= image_tag "listing1.jpg", :class=>"listing_image" %> 
-	 
-	 <div class="listing_caption">
-
-	 </div>
+	 	<%= image_tag "listing1.jpg", :class=>"listing_image" %> 
+		<div class="listing_caption">123 Some Street <br/>Anytown, State</div>
 	</div>
 
 	<div class="listing_item">
-	 <%= image_tag "listing1.jpg", :class=>"listing_image" %> 
-	 
-	 <div class="listing_caption">
+	 	<%= image_tag "listing1.jpg", :class=>"listing_image" %> 
+		<div class="listing_caption">123 Some Street <br/>Anytown, State</div>
+	</div>
 
-	 </div>
+
+	<div class="listing_item">
+	 	<%= image_tag "listing1.jpg", :class=>"listing_image" %> 
+		<div class="listing_caption">123 Some Street <br/>Anytown, State</div>
+	</div>
+
+	<div class="listing_item">
+	 	<%= image_tag "listing1.jpg", :class=>"listing_image" %> 
+		<div class="listing_caption">123 Some Street <br/>Anytown, State</div>
+	</div>
+
+	<div class="listing_item">
+	 	<%= image_tag "listing1.jpg", :class=>"listing_image" %> 
+		<div class="listing_caption">123 Some Street <br/>Anytown, State</div>
+	</div>
+
+	<div class="listing_item">
+	 	<%= image_tag "listing1.jpg", :class=>"listing_image" %> 
+		<div class="listing_caption">123 Some Street <br/>Anytown, State</div>
 	</div>
 </div>
