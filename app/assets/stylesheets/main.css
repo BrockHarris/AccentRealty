@@ -121,15 +121,14 @@ body {
 	width:300px;
 }
 .home_side_col {
-  float:right;
   border:1px solid green;
-  width:240px;
-  margin-top:-320px;
+  width:100%;
+  margin-top:;
   height:320px;
 }
 .carousel_container {
-  width:720px;
-  height:320px;
+  width:960px;
+  height:420px;
   border:1px;
 }
 
