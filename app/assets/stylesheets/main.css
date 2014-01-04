@@ -120,9 +120,16 @@ body {
 .sm_form_width {
 	width:300px;
 }
+.home_side_col {
+  float:right;
+  border:1px solid green;
+  width:240px;
+  margin-top:-320px;
+  height:320px;
+}
 .carousel_container {
-  width:960px;
-  height:420px;
+  width:720px;
+  height:320px;
   border:1px;
 }
 
