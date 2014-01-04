@@ -1,40 +1,59 @@
 <div class="row below_header_margin">
   <div class="placeholder_login_panel center">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title center_text">Admin Access Panel</h3>
-      </div>
       
-      <div class="panel-body">
-        <div class="form-group sm_form_width center">
-          <%= form_for(:session, url: adminsessions_path) do |f| %>
-            <br/>
-            <%= f.label :login, "Username or Email" %>
-            <%= f.text_field :login, :class => "form-control" %>
-            
-            <%= f.label :password, "Password" %>
-            <%= f.password_field :password, :class => "form-control" %><br/>
-
-            <%= f.submit "Sign in", :class => "btn btn-warning pull-right" %>
-          <% end %>
+      <% unless @initial_setup %>
+      
+        <div class="panel-heading">
+          <h3 class="panel-title center_text">Administrator Signin Panel</h3>
         </div>
-      </div>
+
+        <div class="panel-body">
+          <div class="form-group sm_form_width center">
+            <%= form_for(:session, url: adminsessions_path) do |f| %><br/>
+              <%= f.label :login, "Username or Email" %>
+              <%= f.text_field :login, :class => "form-control" %>
+            
+              <%= f.label :password, "Password" %>
+              <%= f.password_field :password, :class => "form-control" %><br/>
+
+              <%= f.submit "Sign in", :class => "btn btn-warning pull-right" %>
+            <% end %>
+          </div>
+        </div>
+
+      <% else %>
+
+        <div class="panel-heading">
+          <h3 class="panel-title center_text">Create an account to get started</h3>
+        </div>
+      
+        <div class="panel-body">
+          <div class="form-group sm_form_width center">
+            <%= form_for @new_admin, :html=> { :multipart => true} do |f| %><br/>
+              <%= f.label :username, "Username" %>
+              <%= f.text_field :username, :placeholder => "Username", :class => "form-control" %>
+
+              <%= f.label :email, "Email" %>
+              <%= f.text_field :email, :placeholder => "Email", :class => "form-control" %>
+
+              <%= f.label :firstname, "First Name" %>
+              <%= f.text_field :firstname, :class => "form-control" %>
+
+              <%= f.label :firstname, "Last Name" %>
+              <%= f.text_field :lastname, :class => "form-control" %>
+            
+              <%= f.label :password, "Password" %>
+              <%= f.password_field :password, :class => "form-control" %>
+
+              <%= f.label :password_confirmation, "Confirm Password" %>
+              <%= f.password_field :password_confirmation, :class => "form-control" %><br/>
+
+              <%= f.submit "Start", :class => "btn btn-warning pull-right" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-
-<%= form_for @new_admin, :html=> { :multipart => true} do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-  <%= f.text_field :username, :placeholder => "Username" %><br/>
-  <%= f.text_field :email, :placeholder => "Email" %> <br/>
-  <%= f.text_field :firstname, :placeholder => "Firt name" %> <br/>
-  <%= f.text_field :lastname, :placeholder => "Last name" %> <br/>
-  <%= f.password_field :password, :placeholder => "Password" %><br/>
-  <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %><br/>
-  <%= f.submit 'Register' %>
-<% end %>
-<p/>
-
-
-
-

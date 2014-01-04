@@ -10,6 +10,10 @@ class AdminsController < ApplicationController
 	end
 
 	def dashboard
+		if Admin.find(:all).empty?
+			@initial_setup = true
+		end
+
 		@hide_user_menu = true
 		if admin_user
 			@blogpost = Blogpost.new
