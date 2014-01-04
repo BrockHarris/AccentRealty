@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 	def admin_start
 		@hide_user_menu = true
 		if admin_user
-			redirect_to dashboard_admin_path
+			redirect_to admin_dashboard_path
 		else
 			@new_admin = Admin.new
 		end
@@ -13,9 +13,12 @@ class AdminsController < ApplicationController
 		@hide_user_menu = true
 		if admin_user
 			@blogpost = Blogpost.new
+			@blogposts = Blogpost.all
 			@add_admin = Admin.new
+			@add_user = User.new
 			@skip_sign_in = true
 			@show_admins = Admin.all
+			@list_users = User.all
 		else
 			redirect_to root_path
 		end

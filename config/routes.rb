@@ -6,10 +6,11 @@ AccentRealty::Application.routes.draw do
   match '/adminsignout', :to => 'adminsessions#destroy'
   match '/resources', :to => 'pages#resources'
   match '/listings', :to => 'pages#listings'
+  match '/listings/sample1', :to => 'pages#sample1'
+
   match '/contact', :to => 'pages#contact'
   match '/blog', :to => 'pages#blog'
-  match '/sample', :to => 'pages#sample'
-
+  match '/evaluate', :to => 'pages#evaluate'
   match '/subscribe', :to => 'pages#user_start'
   match '/myaccount', :to => 'users#myaccount'
   match '/settings', :to => 'users#settings'
@@ -17,6 +18,7 @@ AccentRealty::Application.routes.draw do
   match "/reset/:id/:reset_code", :to=>"users#reset", :as=>"reset"
   
   resources :messages
+  resources :evaluations
   resources :admins
   resources :users 
   resources :pages

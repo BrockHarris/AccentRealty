@@ -1,5 +1,9 @@
 class BlogpostsController < ApplicationController
 
+  def index
+    @results = Blogpost.search(params[:search])
+  end
+  
 	def create
     @blogpost = Blogpost.new(params[:blogpost])
     if @blogpost.save

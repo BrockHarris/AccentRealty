@@ -6,7 +6,11 @@ class PagesController < ApplicationController
 	def listings
 	end
 
-	def sample
+	def sample1 #sample listing view
+	end
+
+	def evaluate
+		@evaluation = Evaluation.new
 	end
 
 	def contact

@@ -1,4 +1,7 @@
 class Admin < ActiveRecord::Base
+
+  has_many :blogposts
+
   attr_accessible :username, :email, :password, :password_confirmation, :owner, :firstname, :lastname
   attr_accessor :password
 

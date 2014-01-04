@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131122214235) do
+ActiveRecord::Schema.define(:version => 20131213084112) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -28,12 +28,61 @@ ActiveRecord::Schema.define(:version => 20131122214235) do
   create_table "blogposts", :force => true do |t|
     t.integer  "admin_id"
     t.string   "title"
+    t.string   "category"
+    t.text     "heading"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   add_index "blogposts", ["admin_id"], :name => "index_blogposts_on_admin_id"
+  add_index "blogposts", ["category"], :name => "index_blogposts_on_category"
+
+  create_table "evaluations", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "comments"
+    t.string   "property_address"
+    t.string   "property_city"
+    t.string   "property_state"
+    t.string   "property_zip"
+    t.string   "property_type"
+    t.string   "resident"
+    t.string   "relationship"
+    t.string   "bedrooms"
+    t.string   "baths"
+    t.string   "condition"
+    t.string   "lotsize"
+    t.string   "parking"
+    t.string   "spaces"
+    t.string   "listingstatus"
+    t.string   "basement"
+    t.string   "sellingdate"
+    t.string   "heattype"
+    t.string   "aircontype"
+    t.string   "homestyle"
+    t.string   "yearbuilt"
+    t.string   "movingto"
+    t.string   "fireplaces"
+    t.string   "rooms"
+    t.string   "sqfeet"
+    t.boolean  "pool",                    :default => false
+    t.boolean  "waterfront",              :default => false
+    t.boolean  "waterview",               :default => false
+    t.string   "agentstatus"
+    t.string   "current_agent_firstname"
+    t.string   "current_agent_lastname"
+    t.string   "request_agent_firstname"
+    t.string   "request_agent_lastname"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+  end
 
   create_table "messages", :force => true do |t|
     t.string   "name"

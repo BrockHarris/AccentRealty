@@ -3,6 +3,7 @@ Admin Control Panel
 <ul class="nav nav-tabs">
   <li><a href="#manage_users" data-toggle="tab" style="margin-left:10px;">Manage Users</a></li>
   <li><a href="#manage_blog" data-toggle="tab">Manage Blog</a></li>
+  <li><a href="#manage_evaluations" data-toggle="tab">Evaluation Requests</a></li>
   <li><a href="#manage_settings" data-toggle="tab">Website Settings</a></li>
 </ul>
 
@@ -10,6 +11,7 @@ Admin Control Panel
 <div class="tab-content tab_content_container">
   <div class="tab-pane" id="manage_users"><%= render "admins/users_tab" %></div>
   <div class="tab-pane" id="manage_blog"><%= render "admins/blog_tab" %></div>
+  <div class="tab-pane" id="manage_evaluations"><%= render "admins/evaluations_tab" %></div>
   <div class="tab-pane" id="manage_settings"><%= render "admins/settings_tab" %></div>
   <div class="tab-pane active">Select a tab to begin</div>
 </div>
