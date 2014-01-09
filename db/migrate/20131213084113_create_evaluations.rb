@@ -10,7 +10,6 @@ class CreateEvaluations < ActiveRecord::Migration
       t.string  :email
       t.string  :phone
       t.text    :comments
-
       t.string  :property_address
       t.string  :property_city
       t.string  :property_state
@@ -43,6 +42,7 @@ class CreateEvaluations < ActiveRecord::Migration
       t.string  :current_agent_lastname
       t.string  :request_agent_firstname
       t.string  :request_agent_lastname
+      t.boolean :read, :default=>false
 
       t.timestamps
     end

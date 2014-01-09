@@ -5,6 +5,7 @@ class CreateMessages < ActiveRecord::Migration
       t.string  :email
       t.string  :subject
       t.text    :body
+      t.boolean :read, :default=>false
       t.timestamps
     end
   end

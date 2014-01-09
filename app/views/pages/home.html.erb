@@ -1,74 +1,109 @@
-
 <div class="carousel_container">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+    </ol>
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-
-    <div class="item active">
-      <%= image_tag "house1.jpg" %>
-      <div class="carousel-caption caption_mod">
-        Ashford, CT<br/>
-        $575,000<br/>
-        3 Bedrooms | 2 Baths | 1.25 Acres
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag "house1.jpg" %>
+        <div class="carousel-caption carousel_caption">
+          <div class="carousel_item_title">Ashford, CT 06278</div>
+          <div class="carousel_item_price">$575,000</div>
+          <div class="carousel_item_stat">3 Bedrooms | 2 Baths | 1.25 Acres</div>
+        </div>
       </div>
-    </div>
 
-    <div class="item">
-      <%= image_tag "house2.jpg" %>
-      <div class="carousel-caption caption_mod">
-        Caption
+      <div class="item">
+        <%= image_tag "house2.jpg" %>
+        <div class="carousel-caption carousel_caption">
+          <div class="carousel_item_title">Ashford, CT 06278</div>
+          <div class="carousel_item_price">$575,000</div>
+          <div class="carousel_item_stat">3 Bedrooms | 2 Baths | 1.25 Acres</div>
+        </div>
       </div>
-    </div>
 
-    <div class="item">
-      <%= image_tag "house3.jpg" %>
-      <div class="carousel-caption caption_mod">
-        Caption
+      <div class="item">
+        <%= image_tag "house3.jpg" %>
+        <div class="carousel-caption carousel_caption">
+          <div class="carousel_item_title">Ashford, CT 06278</div>
+          <div class="carousel_item_price">$575,000</div>
+          <div class="carousel_item_stat">3 Bedrooms | 2 Baths | 1.25 Acres</div>
+        </div>
       </div>
-    </div>
 
-    <div class="item">
-      <%= image_tag "house4.jpg" %>
-      <div class="carousel-caption caption_mod">
-        Caption
+      <div class="item">
+        <%= image_tag "house4.jpg" %>
+        <div class="carousel-caption carousel_caption">
+          <div class="carousel_item_title">Ashford, CT 06278</div>
+          <div class="carousel_item_price">$575,000</div>
+          <div class="carousel_item_stat">3 Bedrooms | 2 Baths | 1.25 Acres</div>
+        </div>
       </div>
-    </div>
     
-    <div class="item">
-      <%= image_tag "house5.jpg" %>
-      <div class="carousel-caption caption_mod">
-        Caption
+      <div class="item">
+        <%= image_tag "house5.jpg" %>
+        <div class="carousel-caption carousel_caption">
+          <div class="carousel_item_title">Ashford, CT 06278</div>
+          <div class="carousel_item_price">$575,000</div>
+          <div class="carousel_item_stat">3 Bedrooms | 2 Baths | 1.25 Acres</div>
+        </div>
       </div>
     </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+</div>
+
+<h2 class="bar"><span>Why Choose Accent Realty?</span></h2>
+
+<div class="row whychoose_image_row">
+  <div class="col-xs-3">
+    <%= image_tag "choose_dedicated.jpg", :class => "whychoose_image img-rounded" %>
+    <span class="whychoose_image_label">Dedicated</span>
   </div>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
+  <div class="col-xs-3">
+    <%= image_tag "choose_passionate.jpg", :class => "whychoose_image img-rounded" %>
+    <span class="whychoose_image_label">Passionate</span>
+  </div>
+
+  <div class="col-xs-3">
+    <%= image_tag "choose_responsive.jpg", :class => "whychoose_image img-rounded" %>
+    <span class="whychoose_image_label">Responsive</span>
+  </div>
+
+  <div class="col-xs-3">
+    <%= image_tag "choose_trusted.jpg", :class => "whychoose_image img-rounded" %>
+    <span class="whychoose_image_label">Trusted</span>
+  </div>
 
 </div>
 
-<div class="home_side_col">
-  <h3>Middle Section</h3>
-  <hr>
-  Item 1 
-  <hr>
-  Item 2
-  <hr>
-  Item 3
+
+<div class="whychoose_text">
+  <p>
+    &nbsp; From front porches to backyards, Accent Realty's team of passionate individuals has successfully managed high volumes of real estate from coast to coast. “Ask someone who knows us” is much more than a slogan. It is a bold suggestion proclaimed with confidence.
+  </p>
+
+  <p>
+    &nbsp; Accent Realty deploys its diverse resources each and every day to preserve, manage, and improve homes and neighborhoods across the United States. Each member of our team is dedicated to fulfill Accent Realty’s unique service culture.  We take each job personally, we stand accountable for our success, and we are driven by expectations and results.
+  </p>
+
+  <p>
+    &nbsp; For real estate property preservation, asset management and property management, engage the services of America’s most trusted real estate service company – Accent Realty. Someday, someone might ask you about us. We’ll be working hard to earn your enthusiastic response!
+  </p>
 </div>

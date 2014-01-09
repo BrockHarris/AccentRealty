@@ -1,0 +1,14 @@
+<div class="row main_panel_container">
+  <div class="col-xs-12">
+    <h3><%= @blogpost.title %></h3>
+        <div class="lead post_author">by <a href="#"><%= @blogpost.admin.firstname %></a></div>
+      
+        <p><span class="glyphicon glyphicon-time"></span> Posted on <%= @blogpost.created_at.strftime("%B %d, %Y") %></p>
+        <hr>
+
+        <p class="lead post_heading"><%= simple_format @blogpost.heading %></p>
+        <p><%= simple_format @blogpost.body %></p>
+        <hr>
+  </div>
+</div>
+

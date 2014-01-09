@@ -4,5 +4,5 @@ class Evaluation < ActiveRecord::Base
   								:baths, :condition, :lotsize, :parking,:spaces, :listingstatus, :basement, :sellingdate, :heattype,
 									:aircontype, :homestyle, :yearbuilt, :movingto, :fireplaces, :rooms, :sqfeet, :pool, :waterfront,
       						:waterview, :agentstatus, :current_agent_firstname, :current_agent_lastname, :request_agent_firstname,
-   								:request_agent_lastname
+   								:request_agent_lastname, :read
 end

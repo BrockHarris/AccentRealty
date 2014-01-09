@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def sign_admin_in(admin)
     session[:admin_id] = admin.id
-    redirect_to admin_dashboard_path
+    redirect_to admin_settings_path
   end
 
   def sign_user_in(user)

@@ -6,145 +6,179 @@
       </div>
       
       <div class="panel-body">
+      <p class="evaluation_subheader"> 
+        &nbsp; We are pleased to provide you with information on the current value of your home. This is a free service offered by Accent Realty. Your market evaluation will arrive via e-mail soon. In order to provide your free Market Analysis, please fill out the requested information below.
+      </p>
         <div class="form-group center">
           <%= form_for(:evaluation, url: evaluations_path) do |f| %>
-            <div class="col-xs-6">
-
-            <h4>Contact Information:</h4>
-            <%= f.label :firstname, "First name" %>
-            <%= f.text_field :firstname, :class => "form-control" %>
+            <div class="row">
+              <div class="col-xs-6"><h4>Contact Information:</h4></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.label :firstname, "First name" %>
+                <%= f.text_field :firstname, :class => "form-control" %>
             
-            <%= f.label :lastname, "Last name" %>
-            <%= f.text_field :lastname, :class => "form-control" %>
+                <%= f.label :lastname, "Last name" %>
+                <%= f.text_field :lastname, :class => "form-control" %>
 
-            <%= f.label :address, "Address" %>
-            <%= f.text_field :address, :class => "form-control" %>
+                <%= f.label :email, "Email" %>
+                <%= f.text_field :email, :class => "form-control" %>
 
-            <%= f.label :city, "City" %>
-            <%= f.text_field :city, :class => "form-control" %>
+                <%= f.label :phone, "Phone" %>
+                <%= f.text_field :phone, :class => "form-control" %>
+              </div>
 
-            <%= f.label :state, "State" %>
-            <%= f.select(:state, ne_states, {}, { :class => 'form-control' }) %>
+              <div class="col-xs-6">
+                <%= f.label :address, "Address" %>
+                <%= f.text_field :address, :class => "form-control" %>
 
-            <%= f.label :zip, "Zip" %>
-            <%= f.text_field :zip, :class => "form-control" %>
+                <%= f.label :city, "City" %>
+                <%= f.text_field :city, :class => "form-control" %>
 
-            <%= f.label :email, "Email" %>
-            <%= f.text_field :email, :class => "form-control" %>
+                <%= f.label :state, "State" %>
+                <%= f.select(:state, ne_states, {}, { :class => 'form-control' }) %>
 
-            <%= f.label :phone, "Phone" %>
-            <%= f.text_field :phone, :class => "form-control" %>
-
-            <h4>Property Information:</h4>
-            <%= f.label :property_address, "Address" %>
-            <%= f.text_field :property_address, :class => "form-control" %>
-
-            <%= f.label :property_city, "City" %>
-            <%= f.text_field :property_city, :class => "form-control" %>
-
-            <%= f.label :property_state, "State" %><br/>
-            <%= f.select(:property_state, ne_states, {}, { :class => 'form-control' }) %>
-
-            <%= f.label :property_zip, "Zip" %>
-            <%= f.text_field :property_zip, :class => "form-control" %>
-
-            <%= f.label :resident, "Resident Status" %>
-            <%= f.select(:resident, [['Primary Residence', 'Primary Residence'], ['Secondary Residence', 'Secondary Residence'], ['Vacation', 'Vacation'], ['Rental', 'Rental']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :relationship, "Relationship" %>
-            <%= f.select(:relationship, [['Legal Owner', 'Legal Owner'], ['Renter', 'Renter'], ['Landlord', 'Landlord'], ['Property Manager', 'Property Manager'], ['Potential Buyer', 'Potential Buyer'], ['Other', 'Other']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :property_type, "Property Type" %>
-            <%= f.select(:property_type, [['Single Family', 'Single Family'], ['Multiple Family', 'Multiple Family'], ['Townhouse', 'Townhouse'], ['Condominium', 'Condominium']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :condition, "condition" %>
-            <%= f.select(:condition, [['10 Excellent', '10'], ['9', '9'], ['8', '8'], ['7', '7'], ['6', '6'], ['5', '5'], ['4', '4'], ['3', '3'], ['2', '2'], ['1 Poor', '1']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :lotsize, "Lot Size" %>
-            <%= f.select(:lotsize, [['City Lot', 'City'], ['1/2 Acre', '1/2 Acre'], ['1 Acre', '1 Acre'], ['2-5 Acres', '2-5 Acres'], ['5-10 Acres', '5-10 Acres'], ['10+ Acres', 'Over 10 Acres'], ['Unsure', 'Unsure']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :bedrooms, "Bedrooms" %>
-            <%= f.select(:bedrooms, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :baths, "Baths" %>
-            <%= f.select(:baths, [['0', '0'], ['0.5', '0.5'],['1', '1'], ['1.5', '1.5'], ['2', '2'], ['2.5', '2.5'], ['3', '3'], ['3.5', '3.5'], ['4', '4'], ['4.5', '4.5'], ['5', '5'], ['5.5', '5.5'], ['6', '6'],['6.5', '6.5'], ['7', '7'], ['7.5', '7.5'], ['8', '8'], ['8.5', '8.5'], ['9', '9'], ['9.5', '9.5'], ['10', '10']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :parking, "Parking" %>
-            <%= f.select(:parking, [['Garage', 'Garage'], ['Carport', 'Carport'], ['On Street', 'On Street'], ['Off Street ', 'Off Street'], ['No Covered Parking', 'None']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :spaces, "Spaces" %>
-            <%= f.select(:spaces, [['Garage', 'Garage'], ['Carport', 'Carport'], ['On Street', 'On Street'], ['Off Street ', 'Off Street'], ['No Covered Parking', 'No']], {}, { :class => 'form-control' }) %>
-
-            </div>
-            <div class="col-xs-6">
-
-
-            <%= f.label :listingstatus, "Listing status" %>
-            <%= f.select(:listingstatus, [['Not Currently Listed', 'Not Currently Listed'], ['For Sale by Owner', 'For Sale by Owner'], ['For Sale with Agent', 'For Sale with Agent']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :basement, "Basement" %>
-            <%= f.select(:basement, [['Finished', 'Finished'], ['Partially Finished', 'Partially Finished'], ['Unfinished', 'Unfinished'], ['None', 'None']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :sellingdate, "Planning to Sell" %>
-            <%= f.select(:sellingdate, [['30 Days', '30 Days'], ['60 Days', '60 Days'], ['90 Days', '90 Days'], ['6 Months', '6 Months'], ['1 Year', '1 Year']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :heattype, "Heating Type" %>
-            <%= f.text_field :heattype, :class => "form-control" %>
-
-            <%= f.label :aircontype, "Air Conditioning Type" %>
-            <%= f.text_field :aircontype, :class => "form-control" %>
-
-            <%= f.label :homestyle, "Home Style" %>
-            <%= f.text_field :homestyle, :class => "form-control" %>
-
-            <%= f.label :yearbuilt, "Approx. Year Built" %>
-            <%= f.text_field :yearbuilt, :class => "form-control" %>
-
-            <%= f.label :movingto, "Where will you be moving?" %>
-            <%= f.text_field :movingto, :class => "form-control" %>
-
-            <%= f.label :fireplaces, "Fireplaces" %>
-            <%= f.select(:fireplaces, [['0', '0'], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :rooms, "Rooms" %>
-            <%= f.select(:rooms, [['0', '0'], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10'], ['11', '11'], ['12', '12'], ['13', '13'], ['14', '14'], ['15', '15'], ['16', '16'], ['17', '17'], ['18', '18'], ['19', '19'], ['20', '20']], {}, { :class => 'form-control' }) %>
-
-            <%= f.label :sqfeet, "Approx. Sq feet" %>
-            <%= f.text_field :sqfeet, :class => "form-control" %>
-
-            <%= f.label :pool, "Pool" %>
-            <%= f.check_box :pool, {}, false, true %>
-
-            <%= f.label :waterfront, "Waterfront" %>
-            <%= f.check_box :waterfront, {}, false, true %>
-
-            <%= f.label :waterview, "Waterview" %>
-            <%= f.check_box :waterview, {}, false, true %>
-
-            <%= f.label :comments, "Comments" %>
-            <%= f.text_area :comments, :class => "form-control" %>
-
-            <%= f.label :agentstatus, "Are you currently working with a Real Estate agent?" %>
-            <%= f.select(:agentstatus, [['No', 'No'], ['Yes', 'Yes']], {}, { :class => 'form-control' }) %>
-
-            <h4>If yes, Listing Agent (if an Accent Realty agent):</h4>
-            <%= f.label :current_agent_firstname, "First Name" %>
-            <%= f.text_field :current_agent_firstname, :class => "form-control" %>
-
-            <%= f.label :current_agent_lastname, "Last Name" %>
-            <%= f.text_field :current_agent_lastname, :class => "form-control" %>
-
-            <h4>If not, Would you like to request a specific Accent Realty agent?</h4>
-            <%= f.label :request_agent_firstname, "First Name" %>
-            <%= f.text_field :request_agent_firstname, :class => "form-control" %>
-
-            <%= f.label :request_agent_lastname, "Last Name" %>
-            <%= f.text_field :request_agent_lastname, :class => "form-control" %>
-
-
+                <%= f.label :zip, "Zip" %>
+                <%= f.text_field :zip, :class => "form-control" %>
+              </div>
             </div>
 
-            <%= f.submit "Submit", :class => "btn btn-warning pull-right" %>
+            <hr>
+
+            <div class="row">
+              <div class="col-xs-6"><h4>Property Information:</h4></div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">   
+                <%= f.label :property_address, "Address" %>
+                <%= f.text_field :property_address, :class => "form-control" %>
+
+                <%= f.label :property_city, "City" %>
+                <%= f.text_field :property_city, :class => "form-control" %>
+
+                <%= f.label :property_state, "State" %><br/>
+                <%= f.select(:property_state, ne_states, {}, { :class => 'form-control' }) %>
+
+                <%= f.label :property_zip, "Zip" %>
+                <%= f.text_field :property_zip, :class => "form-control" %>
+
+
+
+                <%= f.label :listingstatus, "Listing status" %>
+                <%= f.select(:listingstatus, [['Not Currently Listed', 'Not Currently Listed'], ['For Sale by Owner', 'For Sale by Owner'], ['For Sale with Agent', 'For Sale with Agent']], {}, { :class => 'form-control' }) %>
+
+                <%= f.label :sellingdate, "Planning to Sell" %>
+                <%= f.select(:sellingdate, [['30 Days', '30 Days'], ['60 Days', '60 Days'], ['90 Days', '90 Days'], ['6 Months', '6 Months'], ['1 Year', '1 Year']], {}, { :class => 'form-control' }) %>
+                
+                <%= f.label :movingto, "Where will you be moving?" %>
+                <%= f.text_field :movingto, :class => "form-control" %>
+                
+                <%= f.label :resident, "Resident Status" %>
+                <%= f.select(:resident, [['Primary Residence', 'Primary Residence'], ['Secondary Residence', 'Secondary Residence'], ['Vacation', 'Vacation'], ['Rental', 'Rental']], {}, { :class => 'form-control' }) %>
+
+
+
+                <%= f.label :relationship, "Relationship" %>
+                <%= f.select(:relationship, [['Legal Owner', 'Legal Owner'], ['Renter', 'Renter'], ['Landlord', 'Landlord'], ['Property Manager', 'Property Manager'], ['Potential Buyer', 'Potential Buyer'], ['Other', 'Other']], {}, { :class => 'form-control' }) %>
+
+                <%= f.label :property_type, "Property Type" %>
+                <%= f.select(:property_type, [['Single Family', 'Single Family'], ['Multiple Family', 'Multiple Family'], ['Townhouse', 'Townhouse'], ['Condominium', 'Condominium']], {}, { :class => 'form-control' }) %>
+
+                <%= f.label :homestyle, "Home Style" %>
+                <%= f.text_field :homestyle, :class => "form-control" %>
+
+                <%= f.label :condition, "Condition" %>
+                <%= f.select(:condition, [['10 Excellent', '10'], ['9', '9'], ['8', '8'], ['7', '7'], ['6', '6'], ['5', '5'], ['4', '4'], ['3', '3'], ['2', '2'], ['1 Poor', '1']], {}, { :class => 'form-control' }) %>
+              </div>
+
+              <div class="col-xs-6">
+                <%= f.label :lotsize, "Lot Size" %>
+                <%= f.select(:lotsize, [['City Lot', 'City'], ['1/2 Acre', '1/2 Acre'], ['1 Acre', '1 Acre'], ['2-5 Acres', '2-5 Acres'], ['5-10 Acres', '5-10 Acres'], ['10+ Acres', 'Over 10 Acres'], ['Unsure', 'Unsure']], {}, { :class => 'form-control' }) %>
+                
+                <%= f.label :yearbuilt, "Approx. Year Built" %>
+                <%= f.text_field :yearbuilt, :class => "form-control" %>
+
+                <%= f.label :sqfeet, "Approx. Sq feet" %>
+                <%= f.text_field :sqfeet, :class => "form-control" %>
+
+                <%= f.label :heattype, "Heating Type" %>
+                <%= f.text_field :heattype, :class => "form-control" %>
+
+                <%= f.label :aircontype, "Air Conditioning Type" %>
+                <%= f.text_field :aircontype, :class => "form-control" %>
+
+                <%= f.label :rooms, "Residential Rooms" %>
+                <%= f.select(:rooms, [['0', '0'], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10'], ['11', '11'], ['12', '12'], ['13', '13'], ['14', '14'], ['15', '15'], ['16', '16'], ['17', '17'], ['18', '18'], ['19', '19'], ['20', '20']], {}, { :class => 'form-control' }) %>
+
+                <%= f.label :bedrooms, "Bedrooms" %>
+                <%= f.select(:bedrooms, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10']], {}, { :class => 'form-control' }) %>
+
+                <%= f.label :baths, "Baths" %>
+                <%= f.select(:baths, [['0', '0'], ['0.5', '0.5'],['1', '1'], ['1.5', '1.5'], ['2', '2'], ['2.5', '2.5'], ['3', '3'], ['3.5', '3.5'], ['4', '4'], ['4.5', '4.5'], ['5', '5'], ['5.5', '5.5'], ['6', '6'],['6.5', '6.5'], ['7', '7'], ['7.5', '7.5'], ['8', '8'], ['8.5', '8.5'], ['9', '9'], ['9.5', '9.5'], ['10', '10']], {}, { :class => 'form-control' }) %>
+
+                <%= f.label :fireplaces, "Fireplaces" %>
+                <%= f.select(:fireplaces, [['0', '0'], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10']], {}, { :class => 'form-control' }) %>
+
+                <%= f.label :basement, "Basement" %>
+                <%= f.select(:basement, [['Finished', 'Finished'], ['Partially Finished', 'Partially Finished'], ['Unfinished', 'Unfinished'], ['None', 'None']], {}, { :class => 'form-control' }) %>
+
+                <%= f.label :parking, "Parking" %>
+                <%= f.select(:parking, [['Garage', 'Garage'], ['Carport', 'Carport'], ['On Street', 'On Street'], ['Off Street ', 'Off Street'], ['No Covered Parking', 'None']], {}, { :class => 'form-control' }) %>
+
+                <%= f.label :spaces, "Spaces" %>
+                <%= f.select(:spaces, [['Garage', 'Garage'], ['Carport', 'Carport'], ['On Street', 'On Street'], ['Off Street ', 'Off Street'], ['No Covered Parking', 'No']], {}, { :class => 'form-control' }) %>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <%= f.check_box :waterview, {}, false, true %>
+                <%= f.label :waterview, "Waterview", :class=>"evaluation_check_labels" %>
+                  
+                <%= f.check_box :waterfront, {}, false, true %>
+                <%= f.label :waterfront, "Waterfront", :class=>"evaluation_check_labels" %>
+                  
+                <%= f.check_box :pool, {}, false, true %>
+                <%= f.label :pool, "Pool", :class=>"evaluation_check_labels" %>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <%= f.label :comments, "Comments" %>
+                <%= f.text_area :comments, :rows =>"5", :class => "form-control" %>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row"> 
+              <div class="col-xs-10">
+                <%= f.label :agentstatus, "Are you currently working with a Real Estate agent?" %>
+                <%= f.select(:agentstatus, [['No', 'No'], ['Yes', 'Yes']], {}, { :class => 'form-control eval_short_field' }) %>
+
+                <%= f.label :current_agent_firstname, "If yes, are they an Accent Realty agent?" %><br/>
+                <%= f.text_field :current_agent_firstname, :class => "form-control eval_med_field", :placeholder => "First Name" %>
+                <%= f.text_field :current_agent_lastname, :class => "form-control eval_med_field eval_spc", :placeholder => "Last Name" %>
+
+                <%= f.label :request_agent_firstname, "If not, would you like to request a specific Accent Realty agent?" %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <%= f.text_field :request_agent_firstname, :class => "form-control eval_med_field", :placeholder => "First Name" %>
+                <%= f.text_field :request_agent_lastname, :class => "form-control eval_med_field eval_spc", :placeholder => "Last Name" %>
+                <%= f.submit "Submit", :class => "btn btn-warning pull-right eval_btn" %>
+              </div>
+            </div>
+            
+            <hr>
+
           <% end %>
         </div>
       </div>

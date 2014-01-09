@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Website Settings</h3>
+	</div>
+  <ul class="list-group">
+  	<a href="<%= admin_settings_path %>" class="<%= admin_nav_state('settings')%>">General</a>
+  	<a href="<%= admin_users_path %>" class="<%= admin_nav_state('users')%>">Users</a>
+  	<a href="<%= admin_blog_path %>" class="<%= admin_nav_state('blogposts')%>">Blog</a>
+  	<a href="<%= admin_messages_path %>" class="<%= admin_nav_state('messages')%>">Messages <span class="badge">14</span></a>
+  	<a href="<%= admin_evaluations_path %>" class="<%= admin_nav_state('evaluations')%>">Evaluations</a>
+  </ul>
+  <!--  <div class="panel-body">
+    			<p>Some Stats here</p>
+  			</div> -->
+</div>

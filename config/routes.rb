@@ -1,13 +1,16 @@
 AccentRealty::Application.routes.draw do
 
 	match '/admin', :to => 'admins#admin_start'
-	match '/admin/dashboard', :to => 'admins#dashboard'
+  match '/admin/settings', :to => 'admins#settings'
+  match '/admin/users', :to => 'admins#users'
+  match '/admin/blog', :to => 'admins#blogposts'
+  match '/admin/messages', :to => 'admins#messages'
+  match '/admin/evaluations', :to => 'admins#evaluations'
 	match '/usersignout', :to => 'sessions#destroy'
   match '/adminsignout', :to => 'adminsessions#destroy'
   match '/resources', :to => 'pages#resources'
   match '/listings', :to => 'pages#listings'
-  match '/listings/sample1', :to => 'pages#sample1'
-
+  match '/listings/sample1', :to => 'pages#sample1' # Sample of show page #
   match '/contact', :to => 'pages#contact'
   match '/blog', :to => 'pages#blog'
   match '/evaluate', :to => 'pages#evaluate'

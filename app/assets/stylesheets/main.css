@@ -9,6 +9,14 @@ body {
   height: 100%;
 }
 
+.form-control {
+  margin-bottom: 7px;
+}
+
+.main_panel_container {
+  margin:15px 15px;
+}
+
 .header_logo {
   margin-left:20px;
 }
@@ -120,24 +128,120 @@ body {
 .sm_form_width {
 	width:300px;
 }
-.home_side_col {
-  border:1px solid green;
-  width:100%;
-  margin-top:20px;
-  height:320px;
+
+/** Home Page Styles **/
+
+.homepage_spacer {
+  margin:30px 15px 30px 15px;
 }
+
+h2.bar {
+  font-family: arial;
+  font-size: 20px;
+  font-weight: 400;
+  background: #DDD;
+  padding: 0px;
+  margin: 30px 10px 30px 10px;
+  line-height: 30px;
+}
+
+h2.bar span {
+  color:#444;
+  padding: 0 10px 10px 10px;
+}
+
+.whychoose_image_row {
+  margin:15px 15px;
+}
+
+.whychoose_image_label {
+  padding:5px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 400;
+  color:#FFF;
+  background-color:rgba(0,0,0,0.5);
+  border-radius: 0px 0px 6px 6px;
+  position: absolute;
+  left: 15px;
+  top: 110px;
+  width:203px;
+}
+.whychoose_image {
+  width:100%;
+  height:145px;
+  opacity:0.7;
+  filter:alpha(opacity=70); /* For IE8 and earlier */
+  -webkit-transform: translate3d(0, 0, 0); 
+    -webkit-transition: all 0.2s ;
+  -moz-transition: all 0.2s ;
+  transition: all 0.2s ;
+}
+.whychoose_image:hover {
+  opacity:0.9;
+}
+.whychoose_image:active {
+  opacity:0.9;
+}
+
+.whychoose_text {
+  padding:15px 40px 25px 40px;
+}
+
 .carousel_container {
   width:960px;
   height:420px;
   border:1px;
 }
 
-.caption_mod {
-  width:300px;
-  background-color:rgba(0,0,0,0.5);
-  left:0%;
-  bottom:0%;
+.carousel_item_title {
+  font-size: 16pt;
+  color:#EEE;
+}
+.carousel_item_price {
+  font-size: 15pt;
+  color:#DDD;
+}
+.carousel_item_stat {
+  font-size:11pt;
+  color:#CCC;
+}
+
+.carousel_caption {
+  padding:10px 15px 10px 15px;
+  font-weight: 200;
+  width:auto;
+  background-color:rgba(0,0,0,0.6);
+  left:0;
+  bottom:0;
+  right:auto;
   text-align: left;
+  margin-bottom: 250px;
+  border-right: 7px solid rgba(175,175,175,0.5);
+}
+.carousel-indicators {
+position: absolute;
+bottom: 10px;
+left: 50%;
+z-index: 15;
+width: 60%;
+margin-left:-30%;
+padding-left: 0;
+list-style: none;
+text-align: center;
+}
+
+.carousel-indicators li {
+display: inline-block;
+width: 10px;
+height: 10px;
+margin: 1px;
+text-indent: -999px;
+border: 1px solid #ffffff;
+border-radius:10px;
+cursor: pointer;
+background-color: #000 \9;
+background-color: rgba(0, 0, 0, 0);
 }
 
 /** Listing Styles **/
@@ -163,11 +267,11 @@ body {
 }
 .search_fields_wide {
   width:150px;
-  margin:-2px 0 9px 0;
+  margin:-2px 0 5px 0;
 }
 .search_fields {
   width:130px;
-  margin:-2px 0 9px 0;
+  margin:-2px 0 5px 0;
 }
 .search_btn {
   float:right;
@@ -292,22 +396,31 @@ body {
 
 /** Evaluation Page (user facing) **/
 
+.evaluation_subheader {
+  color:#777;
+  padding:5px 5px;
+}
 .evaluation_form_panel {
   width:700px;
 }
-.select_fields {
-  height: 34px;
-padding: 6px 12px;
-font-size: 14px;
-line-height: 1.428571429;
-color: #555555;
-vertical-align: middle;
-background-color: #ffffff;
-background-image: none;
-border: 1px solid #cccccc;
-border-radius: 4px;
--webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
--webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+.evaluation_check_labels {
+  margin:0 30px 0 1px;
 }
+.eval_short_field {
+  width:100px;
+}
+
+.eval_med_field {
+  width:250px;
+  float:left;
+}
+.eval_spc {
+  margin-left: 15px;
+}
+.eval_btn {
+  margin-right:30px;
+}
+
+/** Admin Panel Styles **/
+
