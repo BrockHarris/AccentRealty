@@ -424,3 +424,18 @@ background-color: rgba(0, 0, 0, 0);
 
 /** Admin Panel Styles **/
 
+
+
+/** Resources Page **/
+
+.resources_container {
+  margin:15px 15px 0 15px;
+}
+
+.tips_header{
+  font-size:16pt;
+}
+.resources_tips_container {
+  margin:15px 15px 0 15px;
+  padding-bottom: 40px;
+}

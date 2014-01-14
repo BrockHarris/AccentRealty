@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
     if @message.valid?
       ContactMailer.new_message(@message).deliver
+      @message.save
       redirect_to root_path
       flash[:success] = "Your message has been sent, we'll get back to you shortly!"
     else

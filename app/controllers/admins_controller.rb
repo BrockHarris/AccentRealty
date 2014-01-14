@@ -24,6 +24,7 @@ class AdminsController < ApplicationController
 			@skip_sign_in = true
 			@show_admins = Admin.all
 			@list_users = User.all
+			@unread_messages = Message.where(:read => false)
 		else
 			redirect_to root_path
 		end
@@ -37,6 +38,7 @@ class AdminsController < ApplicationController
 			@skip_sign_in = true
 			@show_admins = Admin.all
 			@list_users = User.all
+			@unread_messages = Message.where(:read => false)
 		else
 			redirect_to root_path
 		end
@@ -45,7 +47,8 @@ class AdminsController < ApplicationController
 	def messages 
 		@hide_user_menu = true
 		if admin_user
-			@messages = Message.all
+			@read_messages = Message.where(:read => true)
+			@unread_messages = Message.where(:read => false)
 			@skip_sign_in = true
 		else
 			redirect_to root_path
@@ -57,6 +60,7 @@ class AdminsController < ApplicationController
 		if admin_user
 			@blogpost = Blogpost.new
 			@blogposts = Blogpost.all
+			@unread_messages = Message.where(:read => false)
 		else
 			redirect_to root_path
 		end
@@ -66,6 +70,7 @@ class AdminsController < ApplicationController
 
 		if admin_user
 			@evaluations = Evaluation.all
+			@unread_messages = Message.where(:read => false)
 		else
 			redirect_to root_path
 		end
@@ -74,7 +79,7 @@ class AdminsController < ApplicationController
 	def settings 
 		@hide_user_menu = true
 		if admin_user
-
+			@unread_messages = Message.where(:read => false)
 		else
 			redirect_to root_path
 		end

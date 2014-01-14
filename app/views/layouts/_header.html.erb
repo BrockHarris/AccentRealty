@@ -11,9 +11,18 @@
     <li class="<%= nav_state('home')%>"><%= link_to "Home", root_path %></li>
     <li class="<%= nav_state('listings')%>"><%= link_to "Listings", listings_path %></li>
     <li class="<%= nav_state('blog')%>"><%= link_to "Blog", blog_path %></li>
-    <li class="<%= nav_state('resources')%>"><%= link_to "Resources", resources_path %></li>
     <li class="nav_link"><a href="#" data-toggle="modal" data-target="#contactmodal">Contact</a></li> 
     <li class="<%= nav_state('evaluate')%>"><%= link_to "Evaluations", evaluate_path %></li>
+    <li class="<%= nav_state('about')%>"><%= link_to "About Us", about_path %></li>
+    <li class="dropdown <%= nav_state('resources')%>">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        Resources <span class="caret" style="border-top: 4px solid #666;"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li role="presentation"><a href="<%= resources_path %>/#buyertips">Tips for Buyers</a></li>
+        <li role="presentation"><a href="<%= resources_path %>/#sellertips">Tips for Sellers</a></li>
+      </ul>
+    </li>
 
     <% unless @hide_user_menu %>
     <li class="dropdown pull-right nav_link">

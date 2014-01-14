@@ -13,6 +13,7 @@ AccentRealty::Application.routes.draw do
   match '/listings/sample1', :to => 'pages#sample1' # Sample of show page #
   match '/contact', :to => 'pages#contact'
   match '/blog', :to => 'pages#blog'
+  match '/about', :to => 'pages#about'
   match '/evaluate', :to => 'pages#evaluate'
   match '/subscribe', :to => 'pages#user_start'
   match '/myaccount', :to => 'users#myaccount'
