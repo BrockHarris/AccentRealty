@@ -4,7 +4,20 @@
 <%= render "shared/signin_modal" %>
 <%= render "shared/signup_modal" %>
 
-<%= link_to (image_tag("main_logo.png", :size => "390x180")), root_path, :class=>"header_logo" %>
+<div class="header_container">
+  <%= link_to (image_tag("main_logo.png", :size => "390x165")), root_path, :class=>"header_logo" %>
+  <%= image_tag "accent_slogan.png", :class => "accent_slogan" %>
+
+  <div class="header_search_container">
+    <div class="input-group header_search">
+      <%= text_field_tag :search, params[:search], :class=>"form-control header_form", :placeholder=>"Find Your Home" %>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+      </span>
+    </div>
+    <%= link_to "More Options", listings_path, :class=>"header_search_options" %>
+  </div>
+</div>
 
 <div class="nav-wrapper clearfix">
   <ul class="nav nav-pills nav_placeholder">

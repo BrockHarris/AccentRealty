@@ -34,6 +34,7 @@ AccentRealty::Application.routes.draw do
   resources :pages
   resources :blogposts
   resources :communities
+  resources :questions
   resources :pagecontents
   resources :sessions,   :only => [:new, :create, :destroy]
   resources :adminsessions,   :only => [:new, :create, :destroy]

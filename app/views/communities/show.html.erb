@@ -1,6 +1,5 @@
 <%= render "communities/show.js.erb" %>
 
-
 <div class="row main_panel_container">
   <div class="col-xs-8">
     <div class="panel panel-default">
@@ -14,15 +13,14 @@
         <div class="lower_community_panel">
           <!-- <h4 class="lower_community_panel_h4">Nearby Schools:</h4> -->
           <table class="table table-hover">
-          <thead>
-            <tr>
-              <th style="font-size:12pt; font-weight:500;">Nearby Schools</th>
-              <th style="color:#555; font-weight:400;">Type</th>
-              <th style="color:#555; font-weight:400;">Grades</th>
-              <th style="color:#555; font-weight:400;">Enrollment</th>
-
-            <tr>
-          </thead>
+            <thead>
+              <tr>
+                <th class="school_table_head">Nearby Schools</th>
+                <th class="school_table_th">Type</th>
+                <th class="school_table_th">Grades</th>
+                <th class="school_table_th">Enrollment</th>
+              <tr>
+            </thead>
             <tbody>
               <% @school_data_request.xpath('//schools/school').each do |school| %>
                 <tr>

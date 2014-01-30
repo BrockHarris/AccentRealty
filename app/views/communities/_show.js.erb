@@ -5,6 +5,8 @@
     // Initialize the map
     map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {
       credentials:"AmZH0GPpFlvRFAxPAEAGOTAehIIvFTQOY5RMQt7lip7w4FEigZA4jUHqMuFgQ8bm", 
+      showDashboard: false,
+      enableSearchLogo: false,
       mapTypeId:Microsoft.Maps.MapTypeId.road
     }); 
 
@@ -47,4 +49,6 @@
     script.setAttribute("src", request);
     document.body.appendChild(script);
   }
+  
 </script>
+
