@@ -1,5 +1,59 @@
 <div class="row main_panel_container">
   <div class="col-xs-9">
+
+    <div class="panel panel-default" id="accordion">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Create New Administrator</a>
+        </h3>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse">
+        <div class="panel-body">
+          <%= form_for @add_admin, :html=> { :multipart => true} do |f| %>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.text_field :username, :class => "form-control", :placeholder => "Username" %><br/>
+                <%= f.text_field :firstname, :class => "form-control", :placeholder => "First Name" %> <br/>
+                <%= f.password_field :password, :class => "form-control", :placeholder => "New Password" %><br/>
+              </div>
+              <div class="col-xs-6">
+                <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %> <br/>
+                <%= f.text_field :lastname, :class => "form-control", :placeholder => "Last Name" %> <br/>
+                <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm New Password" %><br/>
+                <%= f.submit 'Submit', :class => "btn btn-warning pull-right" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default" id="accordion">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Create New User</a>
+        </h3>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse">
+        <div class="panel-body">
+          <%= form_for @add_user, :html=> { :multipart => true} do |f| %>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.text_field :firstname, :class => "form-control", :placeholder => "First Name" %> <br/>
+                <%= f.password_field :password, :class => "form-control", :placeholder => "New Password" %><br/>
+                <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %> <br/>
+              </div>
+              <div class="col-xs-6">
+                <%= f.text_field :lastname, :class => "form-control", :placeholder => "Last Name" %> <br/>
+                <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm New Password" %><br/>
+                <%= f.submit 'Submit', :class => "btn btn-warning pull-right" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Site Administrators</h3>
@@ -24,7 +78,13 @@
                 <td><%= admin.firstname %></td> 
                 <td><%= admin.lastname %></td> 
                 <td><%= admin.email %></td> 
-                <td><%# link_to "Delete", user_path(user), :method=>:delete  %></td>
+                <td>
+                  <% if admin.id != admin_user.id %>
+                    <%= button_to "Delete", admin_path(admin), :method=>:destroy, :class=>"btn btn-danger btn-xs", :confirm=>"Are you sure?" %>
+                  <% else %>
+                    <%= button_to "Delete", admin_path(admin), :class=>"btn btn-danger btn-xs disabled" %>
+                  <% end %>
+                </td>
               <tr>
             <% end %>
           </tbody>
@@ -68,52 +128,6 @@
   </div>
   <div class="col-xs-3">
     <%= render 'admins/admin_sidebar' %>
-
-      <div class="panel-group" id="accordion">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">New Administrator</a>
-          </h4>
-        </div>
-        
-        <div id="collapseOne" class="panel-collapse collapse">
-          <div class="panel-body">
-            <%= form_for @add_admin, :html=> { :multipart => true} do |f| %>
-              <%= f.text_field :username, :class => "form-control", :placeholder => "Username" %><br/>
-              <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %> <br/>
-              <%= f.text_field :firstname, :class => "form-control", :placeholder => "First Name" %> <br/>
-              <%= f.text_field :lastname, :class => "form-control", :placeholder => "Last Name" %> <br/>
-              <%= f.password_field :password, :class => "form-control", :placeholder => "Set password" %><br/>
-              <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %><br/>
-              <%= f.submit 'Update', :class => "btn btn-warning pull-right" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br/>
-    <div class="panel-group" id="accordion">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">New User</a>
-          </h4>
-        </div>
-        
-        <div id="collapseTwo" class="panel-collapse collapse">
-          <div class="panel-body">
-            <%= form_for @add_user, :html=> { :multipart => true} do |f| %>
-              <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %> <br/>
-              <%= f.text_field :firstname, :class => "form-control", :placeholder => "First Name" %> <br/>
-              <%= f.text_field :lastname, :class => "form-control", :placeholder => "Last Name" %> <br/>
-              <%= f.password_field :password, :class => "form-control", :placeholder => "Set password" %><br/>
-              <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %><br/>
-              <%= f.submit 'Update', :class => "btn btn-warning pull-right" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
   </div>
 </div>
 

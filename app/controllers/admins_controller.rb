@@ -65,6 +65,50 @@ class AdminsController < ApplicationController
 			redirect_to root_path
 		end
 	end
+
+	def about # page_type = 1 #
+		@hide_user_menu = true
+		if admin_user
+			@pagecontent = Pagecontent.new
+			@pagecontents = Pagecontent.where(:page_type => 1)
+			@unread_messages = Message.where(:read => false)
+		else
+			redirect_to root_path
+		end
+	end
+
+	def localpartners # page_type = 2 #
+		@hide_user_menu = true
+		if admin_user
+			@pagecontent = Pagecontent.new
+			@pagecontents = Pagecontent.where(:page_type => 2)
+			@unread_messages = Message.where(:read => false)
+		else
+			redirect_to root_path
+		end
+	end
+	def buyertips # page_type = 3 #
+		@hide_user_menu = true
+		if admin_user
+			@pagecontent = Pagecontent.new
+			@pagecontents = Pagecontent.where(:page_type => 3)
+			@unread_messages = Message.where(:read => false)
+		else
+			redirect_to root_path
+		end
+	end
+
+	def sellertips # page_type = 4 #
+		@hide_user_menu = true
+		if admin_user
+			@pagecontent = Pagecontent.new
+			@pagecontents = Pagecontent.where(:page_type => 4)
+			@unread_messages = Message.where(:read => false)
+		else
+			redirect_to root_path
+		end
+	end
+
 	def evaluations
 		@hide_user_menu = true
 
@@ -98,5 +142,23 @@ class AdminsController < ApplicationController
     	flash[:notice] = "There was a problem with the information you entered."
     	redirect_to (:back)
     end
+  end
+
+  def update
+  	@admin = Admin.find(params[:id])
+  	respond_to do |format|
+    	if @admin.update_attributes(params[:admin])
+
+    	else
+
+    	end
+  	end
+	end
+
+	def destroy
+    Admin.find(@admin).destroy
+    @admin = Admin.find(params[:id])
+    flash[:notice] = "Administrator successfully removed."
+    redirect_to(:back)
   end
 end

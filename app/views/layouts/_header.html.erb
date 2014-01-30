@@ -4,26 +4,27 @@
 <%= render "shared/signin_modal" %>
 <%= render "shared/signup_modal" %>
 
-<%= image_tag "main_logo.png", :size => "280x130", :class => "header_logo"%>
+<%= link_to (image_tag("main_logo.png", :size => "390x180")), root_path, :class=>"header_logo" %>
 
 <div class="nav-wrapper clearfix">
   <ul class="nav nav-pills nav_placeholder">
-    <li class="<%= nav_state('home')%>"><%= link_to "Home", root_path %></li>
-    <li class="<%= nav_state('listings')%>"><%= link_to "Listings", listings_path %></li>
+    <!-- <li class="<%= nav_state('home')%>"><%= link_to "Home", root_path %></li> -->
+    <li class="<%= nav_state('listings')%>"><%= link_to "Buy", listings_path %></li>
+    <li class="<%= nav_state('evaluate')%>"><%= link_to "Sell", evaluate_path %></li>
     <li class="<%= nav_state('blog')%>"><%= link_to "Blog", blog_path %></li>
     <li class="nav_link"><a href="#" data-toggle="modal" data-target="#contactmodal">Contact</a></li> 
-    <li class="<%= nav_state('evaluate')%>"><%= link_to "Evaluations", evaluate_path %></li>
     <li class="<%= nav_state('about')%>"><%= link_to "About Us", about_path %></li>
     <li class="dropdown <%= nav_state('resources')%>">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         Resources <span class="caret" style="border-top: 4px solid #666;"></span>
       </a>
       <ul class="dropdown-menu">
+        <li role="presentation"><a href="<%= local_partners_path %>">Local Partners</a></li>
         <li role="presentation"><a href="<%= resources_path %>/#buyertips">Tips for Buyers</a></li>
         <li role="presentation"><a href="<%= resources_path %>/#sellertips">Tips for Sellers</a></li>
       </ul>
     </li>
-
+    <li class="<%= nav_state('Communties')%>"><%= link_to "Communties", communities_path %></li>
     <% unless @hide_user_menu %>
     <li class="dropdown pull-right nav_link">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -37,7 +38,7 @@
           <li role="presentation"><%= link_to "Sign out", usersignout_path %></li>
         <% else %>
           <li role="presentation">
-            <a href="#" data-toggle="modal" role="menuitem" tabindex="-1" data-target="#signinmodal">Sign In</a>
+            <a href="#" data-toggle="modal" role="menuitem" tabindex="-1" data-target="#signinmodal">Sign in</a>
           </li>
           <li role="presentation">
             <a href="#" data-toggle="modal" role="menuitem" tabindex="-1" data-target="#signupmodal">Register</a>

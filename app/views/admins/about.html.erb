@@ -1,0 +1,41 @@
+<div class="row main_panel_container">
+  <div class="col-xs-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  	    <h3 class="panel-title">Create 'About Us' Page Content</h3>
+      </div>
+
+      <div class="panel-body">
+        <%= form_for @pagecontent, :html=> { :multipart => true} do |f| %>
+          <%= f.text_field :section_title, :class => "form-control", :placeholder => "Section Title" %><br/>
+          <%= f.text_area :section_body, :class => "form-control", :placeholder => "Section Content", :rows =>"7"  %><br/>
+          <%= f.hidden_field :page_type, :value => 1 %>
+          <%= f.submit 'Save', :class => "btn btn-warning pull-right" %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Current 'About Us' Page Content</h3>
+      </div>
+      <div class="panel-body">
+		    <div class="list-group">
+          <% unless @pagecontents.empty? %>
+            <% @pagecontents.each do |pagecontent| %>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading"><%= pagecontent.section_title %></h4>
+                <p class="list-group-item-text"><%= simple_format truncate(pagecontent.section_body, length: 300) %></p>
+              </a>
+            <% end %>
+          <% else %>
+            <div class="center_text">No content has been added, yet...</div>
+          <% end %>
+        </div>
+	    </div>
+    </div>
+  </div>
+  <div class="col-xs-3">
+    <%= render 'admins/admin_sidebar' %>
+  </div>
+</div>

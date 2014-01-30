@@ -9,6 +9,13 @@ class PagesController < ApplicationController
 	def listings
 	end
 
+	def communities
+		@hartford_communities = Community.where(:county => "Hartford")
+		@tolland_communities = Community.where(:county => "Tolland")
+		@middlesex_communities = Community.where(:county => "Middlesex")
+		@litchfield_communities = Community.where(:county => "Litchfield")
+	end
+
 	def sample1 #sample listing view
 	end
 
@@ -21,6 +28,9 @@ class PagesController < ApplicationController
 	end
 
 	def resources
+	end
+
+	def localpartners
 	end
 
 	def user_start

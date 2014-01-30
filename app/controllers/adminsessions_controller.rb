@@ -4,10 +4,10 @@ class AdminsessionsController < ApplicationController
     admin = Admin.authenticate(params[:session][:login].downcase, params[:session][:password])
     if admin
       session[:admin_id] = admin.id
-      redirect_to admin_dashboard_path
+      redirect_to admin_settings_path
       flash[:success] = "You are now signed in as an administrator."
     else
-      flash[:success] = "There was a problem with your username or password."
+      flash[:notice] = "There was a problem with your username or password."
       redirect_to admin_path
     end
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213084113) do
+ActiveRecord::Schema.define(:version => 20140129182121) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20131213084113) do
     t.string   "lastname"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.datetime "deleted_at"
   end
 
   create_table "blogposts", :force => true do |t|
@@ -33,10 +34,22 @@ ActiveRecord::Schema.define(:version => 20131213084113) do
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.datetime "deleted_at"
   end
 
   add_index "blogposts", ["admin_id"], :name => "index_blogposts_on_admin_id"
   add_index "blogposts", ["category"], :name => "index_blogposts_on_category"
+
+  create_table "communities", :force => true do |t|
+    t.string   "city"
+    t.string   "county"
+    t.text     "latitude"
+    t.text     "longitude"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "communities", ["county"], :name => "index_communities_on_county"
 
   create_table "evaluations", :force => true do |t|
     t.string   "firstname"
@@ -94,6 +107,32 @@ ActiveRecord::Schema.define(:version => 20131213084113) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
+
+  create_table "pagecontents", :force => true do |t|
+    t.integer  "page_type"
+    t.string   "section_title"
+    t.text     "section_body"
+    t.string   "subsection_title"
+    t.text     "subsection_body"
+    t.string   "page_header"
+    t.boolean  "is_header",        :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  add_index "pagecontents", ["page_type"], :name => "index_pagecontents_on_page_type"
+
+  create_table "questions", :force => true do |t|
+    t.text     "content"
+    t.text     "response"
+    t.string   "category"
+    t.boolean  "published",    :default => false
+    t.boolean  "responded_to", :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "questions", ["category"], :name => "index_questions_on_category"
 
   create_table "users", :force => true do |t|
     t.string   "email"

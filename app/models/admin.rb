@@ -14,6 +14,13 @@ class Admin < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_save { self.username = username.downcase }
 
+  default_scope where("admins.deleted_at IS NULL")
+
+  def destroy
+   update_attribute(:deleted_at, Time.now.utc)
+   run_callbacks(:destroy) #explicitly run the destroy callbacks to set dependents attribute
+  end   
+
   def self.authenticate(login, pass)
     admin = self.where(["username=? OR email=?", login, login]).first
     return admin if admin && admin.matching_password?(pass) 

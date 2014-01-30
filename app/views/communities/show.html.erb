@@ -1,0 +1,75 @@
+<%= render "communities/show.js.erb" %>
+
+
+<div class="row main_panel_container">
+  <div class="col-xs-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  	    <h3 class="panel-title"><%= @community.city %>, CT</h3>
+      </div>
+      <div class="panel-body no_padding">
+        
+        <div id='mapDiv' class="community_bing_map"></div>
+
+        <div class="lower_community_panel">
+          <!-- <h4 class="lower_community_panel_h4">Nearby Schools:</h4> -->
+          <table class="table table-hover">
+          <thead>
+            <tr>
+              <th style="font-size:12pt; font-weight:500;">Nearby Schools</th>
+              <th style="color:#555; font-weight:400;">Type</th>
+              <th style="color:#555; font-weight:400;">Grades</th>
+              <th style="color:#555; font-weight:400;">Enrollment</th>
+
+            <tr>
+          </thead>
+            <tbody>
+              <% @school_data_request.xpath('//schools/school').each do |school| %>
+                <tr>
+                  <td><%= link_to "#{school.xpath('name').inner_text}", school.xpath('overviewLink').inner_text %></td> 
+                  <td><%= school.xpath('type').inner_text.capitalize %></td>
+                  <td><%= school.xpath('gradeRange').inner_text %></td> 
+                  <td><%= school.xpath('enrollment').inner_text %></td>
+                <tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Featured Local Homes</h3>
+      </div>
+      <ul class="list-group clearfix">
+      
+        <% 5.times do %>
+          <a href="/listings/sample1" class="list-group-item community_listings">
+            <%= image_tag "listing1.jpg", :class=>"community_listing_img" ,:size=>"60x60" %> 
+            <div class="community_listing_caption">25 Ashford Dr, Ashford</div>
+            <div class="community_listing_subtext">$575,000</div>
+          </a>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Recently Sold</h3>
+      </div>
+      <ul class="list-group clearfix">
+      
+        <% 5.times do %>
+          <a href="/listings/sample1" class="list-group-item community_listings">
+            <%= image_tag "listing1.jpg", :class=>"community_listing_img" ,:size=>"60x60" %> 
+            <div class="community_listing_caption">25 Ashford Dr, Ashford</div>
+            <div class="community_listing_subtext">$575,000</div>
+          </a>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

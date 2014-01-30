@@ -1,7 +1,91 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+community_list = [
+  [ "Avon", "Hartford" ],
+  [ "Berlin", "Hartford" ],
+  [ "Bloomfield", "Hartford" ],
+  [ "Bristol", "Hartford" ],
+  [ "Burlington", "Hartford" ],
+  [ "Canton", "Hartford" ],
+  [ "East Granby", "Hartford" ],
+  [ "East Hartford", "Hartford" ],
+  [ "East Windsor", "Hartford" ],
+  [ "Enfield", "Hartford" ],
+  [ "Farmington", "Hartford" ],
+  [ "Glastonbury", "Hartford" ],
+  [ "Granby", "Hartford" ],
+  [ "Hartford", "Hartford" ],
+  [ "Hartland", "Hartford" ],
+  [ "Manchester", "Hartford" ],
+  [ "Marlborough", "Hartford" ],
+  [ "Newington", "Hartford" ],
+  [ "Plainville", "Hartford" ],
+  [ "Rocky Hill", "Hartford" ],
+  [ "Simsbury", "Hartford" ],
+  [ "Southington", "Hartford" ],
+  [ "South Windsor", "Hartford" ],
+  [ "Suffield", "Hartford" ],
+  [ "West Hartford", "Hartford" ],
+  [ "Wethersfield", "Hartford" ],
+  [ "Windsor", "Hartford" ],
+  [ "Windsor Locks", "Hartford" ],
+
+  [ "Andover", "Tolland" ],
+  [ "Bolton", "Tolland" ],
+  [ "Columbia", "Tolland" ],
+  [ "Coventry", "Tolland" ],
+  [ "Ellington", "Tolland" ],
+  [ "Hebron", "Tolland" ],
+  [ "Mansfield", "Tolland" ],
+  [ "Somers", "Tolland" ],
+  [ "Stafford", "Tolland" ],
+  [ "Tolland", "Tolland" ],
+  [ "Union", "Tolland" ],
+  [ "Vernon", "Tolland" ],
+  [ "Willington", "Tolland" ],
+
+  [ "Chester", "Middlesex" ],
+  [ "Clinton", "Middlesex" ],
+  [ "Cromwell", "Middlesex" ],
+  [ "Deep River", "Middlesex" ],
+  [ "Durham", "Middlesex" ],
+  [ "East Haddam", "Middlesex" ],
+  [ "East Hampton", "Middlesex" ],
+  [ "Haddam", "Middlesex" ],
+  [ "Killingworth", "Middlesex" ],
+  [ "Middlefield", "Middlesex" ],
+  [ "Middletown", "Middlesex" ],
+  [ "Old Saybrook", "Middlesex" ],
+  [ "Portland", "Middlesex" ],
+  [ "Westbrook", "Middlesex" ],
+
+  [ "Barkhamsted", "Litchfield" ],
+  [ "Bethlehem", "Litchfield" ],
+  [ "Bridgewater", "Litchfield" ],
+  [ "Canaan", "Litchfield" ],
+  [ "Colebrook", "Litchfield" ],
+  [ "Cornwall", "Litchfield" ],
+  [ "Goshen", "Litchfield" ],
+  [ "Harwinton", "Litchfield" ],
+  [ "Kent", "Litchfield" ],
+  [ "Litchfield", "Litchfield" ],
+  [ "Morris", "Litchfield" ],
+  [ "New Hartford", "Litchfield" ],
+  [ "New Milford", "Litchfield" ],
+  [ "Norfolk", "Litchfield" ],
+  [ "North Canaan", "Litchfield" ],
+  [ "Plymouth", "Litchfield" ],
+  [ "Roxbury", "Litchfield" ],
+  [ "Salisbury", "Litchfield" ],
+  [ "Sharon", "Litchfield" ],
+  [ "Thomaston", "Litchfield" ],
+  [ "Torrington", "Litchfield" ],
+  [ "Warren", "Litchfield" ],
+  [ "Washington", "Litchfield" ],
+  [ "Watertown", "Litchfield" ],
+  [ "Winchester", "Litchfield" ],
+  [ "Woodbury", "Litchfield" ]
+]
+
+community_list.each do |city, county|
+  Community.create( city: city, county: county )
+end
+

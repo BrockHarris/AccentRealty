@@ -1,0 +1,12 @@
+class CommunitiesController < ApplicationController
+	require 'open-uri'
+	def show
+    @community = Community.find(params[:id])
+
+    api_key = "4yjfsrqmcctaqqlx5axebgxx"
+    @request_city = @community.city.tr(' ', '+')
+    request_url = "http://api.greatschools.org/schools/nearby?key=#{api_key}&city=#{@request_city}&state=CT&minimumSchools=5&radius=10&limit=10"
+    @school_data_request = Nokogiri::XML(open("#{request_url}"))
+    
+  end
+end

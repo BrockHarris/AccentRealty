@@ -1,0 +1,43 @@
+<div class="row small_header_margin">
+  <div class="evaluation_form_panel center">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title center_text">Communities We Serve</h3>
+      </div>
+      
+      <div class="panel-body">
+        <div class="form-group center">
+          <div class="row">
+
+            <div class="col-xs-4">
+              <h4 class="community_header">Hartford</h4>
+              <% @hartford_communities.each do |community| %>
+                <%= link_to community.city, community, :class=>"city_links" %><br/>
+              <% end %>
+            </div>
+
+            <div class="col-xs-4">
+              <h4 class="community_header">Tolland</h4>
+              <% @tolland_communities.each do |community| %>
+                <%= link_to community.city, community, :class=>"city_links" %><br/>
+              <% end %>
+
+              <h4 class="community_header">Middlesex</h4>
+              <% @middlesex_communities.each do |community| %>
+                <%= link_to community.city, community, :class=>"city_links" %><br/>
+              <% end %>
+            </div>
+
+            <div class="col-xs-4">
+              <h4 class="community_header">Litchfield</h4>
+              <% @litchfield_communities.each do |community| %>
+                <%= link_to community.city, community, :class=>"city_links" %><br/>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
