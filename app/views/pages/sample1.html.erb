@@ -1,6 +1,4 @@
-
-	<script type="text/javascript" src="http://www.map-generator.org/map/iframejs/12d0f005-c798-41f2-89a4-6eea764bb171?key=AIzaSyDrXkwl_unfISviCz53W0_amNhtZNPiADA&width=400px&height=400px&zoom=13"></script>
-
+<%= render "pages/listing_map.js.erb" %>
 
 <div class="listing_page_container">
 	<div class="panel panel-default">
@@ -10,57 +8,54 @@
 
   	<div class="panel-body no_padding">
   		<div class="panel_inner_container">
-    <%= image_tag "listing1.jpg", :class=>"listing_page_image" %>
+    		
+    		<%= image_tag "listing1.jpg", :class=>"listing_page_image" %>
 
+				<div class="listing_panel_info">
+					<div class="listing_panel_info_title">Property Details</div>
+					<table cellpadding="5">
+						<tr>
+							<td class="listing_panel_td"><strong>Style:</strong> Cape Cod</td>
+							<td><strong>Assessment:</strong> $103,500</td>
+						</tr>
+						<tr>
+							<td class="listing_panel_td"><strong>Type:</strong> Single-Family</td>
+							<td><strong>Est. Taxes:</strong> $3,276</td>
+						</tr>
+						<tr>
+							<td class="listing_panel_td"><strong>Rooms:</strong> 6</td>
+							<td><strong>Year Built:</strong> 1950</td>
+						</tr>
+						<tr>
+							<td class="listing_panel_td"><strong>Bedrooms:</strong> 2</td>
+							<td><strong>Acreage:</strong> 0.35</td>
+						</tr>
+						<tr>
+							<td class="listing_panel_td"><strong>Baths:</strong> 1</td>
+							<td><strong>Sq. Feet:</strong> 1,155</td>
+						</tr>
+						<tr>
+							<td class="listing_panel_td"><strong>Basement:</strong> Full</td>
+							<td><strong>Heating:</strong> Radiator</td>
+						</tr>
+						<tr>
+							<td class="listing_panel_td"><strong>MLS#:</strong> E272388</td>
+							<td><strong>Cooling:</strong> None</td>
+						</tr>
+					</table>
 
-<div class="listing_panel_info">
-<hr/>
-	<table cellpadding="5">
-		<tr>
-			<td><strong>Style:</strong> Cape Cod</td>
-			<td><strong>Assessment:</strong> $103,500</td>
-		</tr>
-		<tr>
-			<td><strong>Type:</strong> Single-Family</td>
-			<td><strong>Est. Taxes:</strong> $3,276</td>
-		</tr>
-		<tr>
-			<td><strong>Rooms:</strong> 6</td>
-			<td><strong>Year Built:</strong> 1950</td>
-		</tr>
-		<tr>
-			<td><strong>Bedrooms:</strong> 2</td>
-			<td><strong>Acreage:</strong> 0.35</td>
-		</tr>
-		<tr>
-			<td><strong>Baths:</strong> 1</td>
-			<td><strong>Sq. Feet:</strong> 1,155</td>
-		</tr>
-		<tr>
-			<td><strong>Basement:</strong> Full</td>
-			<td><strong>Heating:</strong> Radiator</td>
-		</tr>
-		<tr>
-			<td><strong>MLS#:</strong> E272388</td>
-			<td><strong>Cooling:</strong> None</td>
-		</tr>
-	</table>
+					<div class="panel_info_row">
+						<strong>Days On Market:</strong> 13 Days<br/>
+					</div>
+					<div class="panel_info_row">
+						<strong>Lot Description:</strong> Neighborhood, Lightly Wooded Elem. 
+					</div>
 
-
-<strong>Lot Desc:</strong> Neighborhood,Lightly WoodedElem. <br/> 
-<strong>School:</strong> Ashford Elem<br/>
-<strong>High School:</strong> E.O.Smith<br/> 
-<strong>Days On Market:</strong> 13 Days<br/>
-
-</div>
-
+					<div class="listing_panel_info_title">Location Information</div>
+					
+					<div id='mapDiv' class="listing_panel_map"></div>
+				</div>
+			</div>
+  	</div>
 	</div>
-  </div>
-</div>
-
-New Listing - 12/20/2013
-
-<div id ="mapid-12d0f005-c798-41f2-89a4-6eea764bb171"></div>
-
-
 </div>

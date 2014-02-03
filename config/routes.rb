@@ -13,6 +13,7 @@ AccentRealty::Application.routes.draw do
 	match '/usersignout', :to => 'sessions#destroy'
   match '/adminsignout', :to => 'adminsessions#destroy'
   match '/resources', :to => 'pages#resources'
+  match '/advice', :to => 'pages#advice'
   match '/local_partners', :to => 'pages#localpartners'
   match '/communities', :to => 'pages#communities'
   match '/listings', :to => 'pages#listings'

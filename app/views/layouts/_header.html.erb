@@ -37,7 +37,8 @@
         <li role="presentation"><a href="<%= resources_path %>/#sellertips">Tips for Sellers</a></li>
       </ul>
     </li>
-    <li class="<%= nav_state('Communties')%>"><%= link_to "Communties", communities_path %></li>
+    <li class="<%= nav_state('communties')%>"><%= link_to "Communties", communities_path %></li>
+    <li class="<%= nav_state('advice')%>"><%= link_to "Advice", advice_path %></li>
     <% unless @hide_user_menu %>
     <li class="dropdown pull-right nav_link">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">

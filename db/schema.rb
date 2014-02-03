@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140129182121) do
+ActiveRecord::Schema.define(:version => 20140129182122) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -123,15 +123,18 @@ ActiveRecord::Schema.define(:version => 20140129182121) do
   add_index "pagecontents", ["page_type"], :name => "index_pagecontents_on_page_type"
 
   create_table "questions", :force => true do |t|
+    t.integer  "admin_id"
     t.text     "content"
     t.text     "response"
     t.string   "category"
+    t.string   "email"
     t.boolean  "published",    :default => false
     t.boolean  "responded_to", :default => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
   end
 
+  add_index "questions", ["admin_id"], :name => "index_questions_on_admin_id"
   add_index "questions", ["category"], :name => "index_questions_on_category"
 
   create_table "users", :force => true do |t|

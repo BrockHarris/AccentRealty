@@ -87,11 +87,17 @@ body {
 .no_padding {
   padding:0;
 }
+.no_bottom_padding {
+  padding-bottom:0px;
+}
 .no_margin {
   margin:0px;
 }
 .margin_top_15 {
   margin-top:15px;
+}
+.margin_top-15 {
+  margin-top:-15px;
 }
 .no_rounding {
   -moz-border-radius: 0px;
@@ -361,6 +367,10 @@ body {
   color: #EEE;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
 }
+.testimonial_btn:hover {
+  cursor:pointer;
+  color: #DDD;
+}
 .testimonial_content {
   display: block;
   line-height: 1.4;
@@ -432,6 +442,14 @@ body {
   color: #797670;
   font-style: italic;
   margin-bottom: 6px;
+}
+.testimonial_reference {
+  text-align:right;
+  font-size: 11pt;
+  font-weight: 200;
+  color: #555;
+  margin-right: 35px;
+  padding: 0 45px 15px 0;
 }
 
 /** Listing Styles **/
@@ -574,21 +592,48 @@ body {
   float:left;
   margin-right:10px;
 }
+.listing_panel_info_title {
+  font-size: 18px;
+  font-weight: 500;
+  color:#444;
+  padding:10px 5px 5px 5px;
+  margin-bottom:5px;
+  border-bottom:1px solid #DDD;
+}
 .listing_panel_info {
   float:left;
+  width:340px;
+
+}
+.listing_panel_td {
+  padding-right: 15px;
+}
+.panel_info_row {
+  padding:5px;
+}
+.listing_panel_map {
+  position:relative; 
+  width:330px; 
+  height:330px;
+  border-bottom:1px solid #DDD;
 }
 
 /** Blog Page (user facing) **/
 
-.blog_container {
-  margin: 16px 16px;
-}
 .post_author {
   font-size: 14pt;
   margin:-8px 0 3px 0;
 }
 .post_heading {
   font-size: 25px;
+}
+.blog_back_link {
+  float:right;
+  margin-top:-17px;
+}
+.blogpost_bottom_line {
+  border-top: 1px dotted #eee;
+  padding-bottom: 10px;
 }
 
 /** Evaluation Page (user facing) **/
@@ -692,4 +737,18 @@ body {
 }
 .community_listing_subtext {
   font-size: 12pt;
+}
+
+/** Advice/Q&A Page (user-facing) **/
+
+.question_h4 {
+  color:#666;
+}
+.question_big_q {
+  font-size:21px;
+  color:#333;
+}
+.question_body {
+  padding-top:0;
+  padding-bottom:0; 
 }

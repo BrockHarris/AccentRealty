@@ -17,6 +17,7 @@ class PagesController < ApplicationController
 	end
 
 	def sample1 #sample listing view
+
 	end
 
 	def evaluate
@@ -25,6 +26,11 @@ class PagesController < ApplicationController
 
 	def contact
 		@message = Message.new
+	end
+
+	def advice
+		@question = Question.new
+		@questions = Question.where(:responded_to => true, :published => true)
 	end
 
 	def resources
