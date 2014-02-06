@@ -1,5 +1,23 @@
 class AdminsController < ApplicationController
 	
+	in_place_edit_for :admin, :username
+
+	def create
+    @admin = Admin.new(params[:admin])
+    if @admin.save
+      if admin_user
+      	flash[:success] = "New administrator successfully created."
+      	redirect_to (:back)
+      else
+      	flash[:success] = "Welcome to the admin panel!"
+      	sign_admin_in(@admin)
+      end
+    else
+    	flash[:notice] = "There was a problem with the information you entered."
+    	redirect_to (:back)
+    end
+  end
+
 	def admin_start
 		if Admin.find(:all).empty?
 			@initial_setup = true
@@ -14,8 +32,6 @@ class AdminsController < ApplicationController
 	end
 
 	def dashboard
-		@hide_user_menu = true
-
 		if admin_user
 			@blogpost = Blogpost.new
 			@blogposts = Blogpost.all
@@ -31,10 +47,9 @@ class AdminsController < ApplicationController
 	end
 
 	def users
-		@hide_user_menu = true
 		if admin_user
-			@add_admin = Admin.new
-			@add_user = User.new
+			@admin = Admin.new
+			@user = User.new
 			@skip_sign_in = true
 			@show_admins = Admin.all
 			@list_users = User.all
@@ -45,7 +60,6 @@ class AdminsController < ApplicationController
 	end
 
 	def messages 
-		@hide_user_menu = true
 		if admin_user
 			@read_messages = Message.where(:read => true)
 			@unread_messages = Message.where(:read => false)
@@ -56,7 +70,6 @@ class AdminsController < ApplicationController
 	end
 
 	def blogposts
-		@hide_user_menu = true
 		if admin_user
 			@blogpost = Blogpost.new
 			@blogposts = Blogpost.all
@@ -66,19 +79,7 @@ class AdminsController < ApplicationController
 		end
 	end
 
-	def about # page_type = 1 #
-		@hide_user_menu = true
-		if admin_user
-			@pagecontent = Pagecontent.new
-			@pagecontents = Pagecontent.where(:page_type => 1)
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
-	end
-
-	def localpartners # page_type = 2 #
-		@hide_user_menu = true
+	def local_partners # page_type = 2 #
 		if admin_user
 			@pagecontent = Pagecontent.new
 			@pagecontents = Pagecontent.where(:page_type => 2)
@@ -88,7 +89,6 @@ class AdminsController < ApplicationController
 		end
 	end
 	def buyertips # page_type = 3 #
-		@hide_user_menu = true
 		if admin_user
 			@pagecontent = Pagecontent.new
 			@pagecontents = Pagecontent.where(:page_type => 3)
@@ -99,7 +99,16 @@ class AdminsController < ApplicationController
 	end
 
 	def sellertips # page_type = 4 #
-		@hide_user_menu = true
+		if admin_user
+			@pagecontent = Pagecontent.new
+			@pagecontents = Pagecontent.where(:page_type => 4)
+			@unread_messages = Message.where(:read => false)
+		else
+			redirect_to root_path
+		end
+	end
+
+	def advice_admin # page_type = 4 #
 		if admin_user
 			@pagecontent = Pagecontent.new
 			@pagecontents = Pagecontent.where(:page_type => 4)
@@ -110,8 +119,6 @@ class AdminsController < ApplicationController
 	end
 
 	def evaluations
-		@hide_user_menu = true
-
 		if admin_user
 			@evaluations = Evaluation.all
 			@unread_messages = Message.where(:read => false)
@@ -121,7 +128,6 @@ class AdminsController < ApplicationController
 	end
 
 	def settings 
-		@hide_user_menu = true
 		if admin_user
 			@unread_messages = Message.where(:read => false)
 		else
@@ -129,36 +135,21 @@ class AdminsController < ApplicationController
 		end
 	end
 
-	def create
-    @admin = Admin.new(params[:admin])
-    if @admin.save
-      flash[:notice] = "New administrator successfully created!"
-      if @skip_sign_in
-      	redirect_to (:back)
-      else
-      	sign_admin_in(@admin)
-      end
+	def update
+		@admin = Admin.find(params[:id])
+    if @admin.update_attributes(params[:admin])
+      flash[:success] = "Your account has been updated!"
+      redirect_to (:back)
     else
-    	flash[:notice] = "There was a problem with the information you entered."
+      flash[:notice] = "There was a problem with the information you entered."
     	redirect_to (:back)
     end
   end
 
-  def update
-  	@admin = Admin.find(params[:id])
-  	respond_to do |format|
-    	if @admin.update_attributes(params[:admin])
-
-    	else
-
-    	end
-  	end
-	end
-
 	def destroy
-    Admin.find(@admin).destroy
-    @admin = Admin.find(params[:id])
+		@admin = Admin.find(params[:id])
+		@admin.destroy
     flash[:notice] = "Administrator successfully removed."
-    redirect_to(:back)
+    redirect_to admin_users_path
   end
 end

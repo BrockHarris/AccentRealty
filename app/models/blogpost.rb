@@ -3,6 +3,8 @@ class Blogpost < ActiveRecord::Base
 	belongs_to :admin
   attr_accessible :title, :body, :admin_id, :category, :heading
 
+  validates :title, :body, :category, :heading, :presence => true
+
   before_save { self.category = category.downcase }
 
   default_scope where("blogposts.deleted_at IS NULL")

@@ -9,9 +9,14 @@ class UsersController < ApplicationController
 	def create
     @user = User.new(params[:user])
     if @user.save
-    	@user.send_welcome_email!
-      flash[:notice] = "Thanks for signing up!"
-      sign_user_in(@user)
+      if admin_user
+        flash[:notice] = "New user successfully added."
+    	  redirect_to (:back)
+      else
+        @user.send_welcome_email!
+        flash[:notice] = "Thanks for signing up!"
+        sign_user_in(@user)
+      end
     else
     	flash[:notice] = "There was a problem with the information you entered."
     	redirect_to (:back)
@@ -93,9 +98,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(@user).destroy
-    @user = User.find(params[:id])
-    flash[:notice] = "User successfully removed."
-    redirect_to(:back)
+    if admin_user
+      @user = User.find(params[:id])
+      @user.destroy
+      flash[:notice] = "User successfully removed."
+      redirect_to admin_users_path
+    end
   end
 end

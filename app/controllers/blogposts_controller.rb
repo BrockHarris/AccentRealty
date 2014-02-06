@@ -18,4 +18,9 @@ class BlogpostsController < ApplicationController
       redirect_to (:back)
     end
   end
+  def destroy
+    Blogpost.find(params[:id]).destroy
+    flash[:notice] = "Your post has been removed."
+    redirect_to(:back)
+  end
 end

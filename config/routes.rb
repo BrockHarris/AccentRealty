@@ -1,15 +1,15 @@
 AccentRealty::Application.routes.draw do
 
-	match '/admin', :to => 'admins#admin_start'
+	match '/admin_login', :to => 'admins#admin_start'
   match '/admin/settings', :to => 'admins#settings'
   match '/admin/users', :to => 'admins#users'
   match '/admin/blog', :to => 'admins#blogposts'
   match '/admin/messages', :to => 'admins#messages'
   match '/admin/evaluations', :to => 'admins#evaluations'
-  match '/admin/about', :to => 'admins#about'
-  match '/admin/localpartners', :to => 'admins#localpartners'
+  match '/admin/local_partners', :to => 'admins#local_partners'
   match '/admin/buyertips', :to => 'admins#buyertips'
   match '/admin/sellertips', :to => 'admins#sellertips'
+  match '/admin/advice', :to => 'admins#advice_admin'
 	match '/usersignout', :to => 'sessions#destroy'
   match '/adminsignout', :to => 'adminsessions#destroy'
   match '/resources', :to => 'pages#resources'
@@ -30,13 +30,13 @@ AccentRealty::Application.routes.draw do
   
   resources :messages
   resources :evaluations
-  resources :admins
-  resources :users 
   resources :pages
   resources :blogposts
   resources :communities
   resources :questions
   resources :pagecontents
+  resources :admins
+  resources :users 
   resources :sessions,   :only => [:new, :create, :destroy]
   resources :adminsessions,   :only => [:new, :create, :destroy]
 

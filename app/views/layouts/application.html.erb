@@ -2,15 +2,13 @@
 <html>
 <head>
   <title>AccentRealty</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrXkwl_unfISviCz53W0_amNhtZNPiADA&sensor=false">
-  </script>
+  <%= javascript_include_tag :application %>
   <script charset="UTF-8" type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
 
 </head>
-<body onload="GetMap();">
+<body><!-- <body onload="GetMap();"> -->
 	<div class="page_container">
 		<%= render 'layouts/header' %>
 		<%= yield %>

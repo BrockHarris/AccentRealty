@@ -122,6 +122,27 @@ body {
   margin:15px 15px 0px 15px;
 }
 
+/** Message Flashes **/
+
+
+
+
+#flash {
+  min-width: 350px;
+  white-space:nowrap;
+  height: auto;
+  float:right;
+  margin: 10px 0 0px 0;
+  padding: 15px;
+  font-size:10pt;
+  text-align:center;
+  line-height: 1;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+  border-right:none;
+
+}
+
 /** Main Header **/
 
 .header_container {
@@ -139,33 +160,52 @@ body {
   transition: all 0.2s ;
 }
 .header_logo:hover {
-  opacity:0.7;
+  opacity:0.8;
   cursor:pointer;
 }
 .header_logo:active {
-  opacity:0.7;
+  opacity:0.9;
   cursor:pointer;
 }
-.accent_slogan {
+.header_right {
   float:right;
-  margin:5px 10px 0 0;
-  height:30px;
-  width:350px;
-  opacity:0.85;
+  margin:0;
 }
-.header_search{
- 
+.accent_slogan_container {
+  margin:5px 10px 10px 0;
+}
+.accent_slogan_img {
+  height:17px;
+  width:210px;
+  margin-right: 1px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+.accent_slogan_text {
+  font-size: 20px;
+  color:#666;
+}
+.slogan_link {
+  font-size: 18px;
+  color:#444;
+  opacity: 0.9;
+}
+.slogan_link:hover {
+  color:#555;
 }
 .header_search_container {
-   float:right;
   width:250px;
-  margin:-115px 15px 0 0;
+  float:right;
+}
+.search_wrapper {
+  margin-right: 10px;
 }
 .header_search_options {
   float: right;
   font-size: 13px;
   opacity: 1.0;
   padding:3px 3px 0 0;
+  margin-right:8px;
 }
 .header_form {
   opacity: 0.9;
@@ -383,7 +423,7 @@ body {
 }
 .testimonial_credits {
   float:right;
-  padding-right: 25px;
+  margin-right:40px;
   display: block;
   color: #484848;
   font-size: 18px;

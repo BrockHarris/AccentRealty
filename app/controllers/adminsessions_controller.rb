@@ -8,13 +8,13 @@ class AdminsessionsController < ApplicationController
       flash[:success] = "You are now signed in as an administrator."
     else
       flash[:notice] = "There was a problem with your username or password."
-      redirect_to admin_path
+      redirect_to admin_login_path
     end
   end
 
   def destroy
     session[:admin_id] = nil
     flash[:notice] = "You've been signed out."
-    redirect_to admin_path
+    redirect_to admin_login_path
   end
 end

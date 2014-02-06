@@ -1,23 +1,22 @@
 <div class="row main_panel_container">
   <div class="col-xs-8">
-    
     <div class="panel panel-default">
       <div class="panel-heading">
   	    <h3 class="panel-title">Have a Question?</h3>
       </div>
       <div class="panel-body no_bottom_padding">
-      <%= form_for @question, :html=> { :multipart => true} do |f| %>
+        <%= form_for @question, :html=> { :multipart => true} do |f| %>
           <%= f.text_field :content, :class => "form-control", :placeholder => "What can we help you with?" %><br/>
           <div class="row">
-          <div class="col-xs-7">
-          <%= f.text_field :email, :class => "form-control", :placeholder => "Contact Email (optional)" %><br/>
-          </div>
-          <div class="col-xs-3">
-          <%= f.select(:category, [['Searching', 'Searching'], ['Buying', 'Buying'], ['Selling', 'Selling'], ['Technical', 'Technical'],                       ['Other', 'Other']], {:include_blank => "Category"}, { :class => 'form-control' }) %><br/>
-          </div>
-          <div class="col-xs-2">
-          <%= f.submit 'Submit', :class => "btn btn-warning pull-right" %>
-          </div>
+            <div class="col-xs-7">
+              <%= f.text_field :email, :class => "form-control", :placeholder => "Contact Email" %><br/>
+            </div>
+            <div class="col-xs-3">
+              <%= f.select(:category, [['Searching', 'Searching'],['Buying', 'Buying'],['Selling', 'Selling'],['Technical', 'Technical'],                       ['Other', 'Other']], {:include_blank => "Category"}, { :class => 'form-control' }) %><br/>
+            </div>
+            <div class="col-xs-2">
+              <%= f.submit 'Submit', :class => "btn btn-warning pull-right" %>
+            </div>
           </div>
         <% end %>
       </div>
@@ -36,8 +35,6 @@
     </div>
 
     <hr>
-
-
       <% end %>
    
   </div>

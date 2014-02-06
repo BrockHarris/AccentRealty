@@ -2,9 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'pg'
-gem 'therubyracer'  #required for bootstrap rails
+gem 'therubyracer'  # required for Bootstrap-rails #
 gem 'less-rails-bootstrap'
 gem 'nokogiri'
+gem 'jquery-ui-rails'
+gem 'in_place_editing'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

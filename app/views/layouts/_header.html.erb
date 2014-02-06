@@ -1,4 +1,10 @@
-<%= render "shared/flash_messages" %>
+<script type="text/javascript">
+  $(function(){
+    $('#flash').show('slide', { direction: 'right' }, 600, function() { 
+      $(this).delay(3000).hide('slide', { direction: 'right' }, 1000);   
+    });
+  });
+</script> 
 
 <%= render "shared/contact_modal" %>
 <%= render "shared/signin_modal" %>
@@ -6,73 +12,80 @@
 
 <div class="header_container">
   <%= link_to (image_tag("main_logo.png", :size => "390x165")), root_path, :class=>"header_logo" %>
-  <%= image_tag "accent_slogan.png", :class => "accent_slogan" %>
 
-  <div class="header_search_container">
-    <div class="input-group header_search">
-      <%= text_field_tag :search, params[:search], :class=>"form-control header_form", :placeholder=>"Find Your Home" %>
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+  <div class="header_right">
+    <div class="accent_slogan_container">
+      <%= image_tag "accent_slogan.png", :class=>"accent_slogan_img" %>
+      <span class="accent_slogan_text"> | <%= link_to "Contact", "", :class=>"slogan_link", :data=>{:toggle=>"modal", :target=>"#contactmodal"} %>
       </span>
     </div>
-    <%= link_to "More Options", listings_path, :class=>"header_search_options" %>
+
+    <div class="header_search_container">
+      <div class="input-group search_wrapper">
+        <%= text_field_tag :search, params[:search], :class=>"form-control header_form", :placeholder=>"Find Your Home" %>
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div>
+      <%= link_to "More Options", listings_path, :class=>"header_search_options" %>
+
+      <%= render "shared/flash_messages" %>
+    </div>
   </div>
 </div>
 
 <div class="nav-wrapper clearfix">
   <ul class="nav nav-pills nav_placeholder">
-    <!-- <li class="<%= nav_state('home')%>"><%= link_to "Home", root_path %></li> -->
+    <li class="<%= nav_state('home')%>"><%= link_to "Home", root_path %></li>
     <li class="<%= nav_state('listings')%>"><%= link_to "Buy", listings_path %></li>
     <li class="<%= nav_state('evaluate')%>"><%= link_to "Sell", evaluate_path %></li>
-    <li class="<%= nav_state('blog')%>"><%= link_to "Blog", blog_path %></li>
-    <li class="nav_link"><a href="#" data-toggle="modal" data-target="#contactmodal">Contact</a></li> 
-    <li class="<%= nav_state('about')%>"><%= link_to "About Us", about_path %></li>
-    <li class="dropdown <%= nav_state('resources')%>">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        Resources <span class="caret" style="border-top: 4px solid #666;"></span>
+    <li class="<%= nav_state('communities')%>"><%= link_to "Communties", communities_path %></li>
+    <li class="<%= nav_state('localpartners')%>"><%= link_to "Local Partners", local_partners_path %></li>
+
+    <li class="dropdown <%= nav_state('advice')%>">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Advice <span class="caret" style="border-top: 4px solid #666;"></span>
       </a>
       <ul class="dropdown-menu">
-        <li role="presentation"><a href="<%= local_partners_path %>">Local Partners</a></li>
+        <li role="presentation"><%= link_to "Ask a Question", advice_path %></li>
         <li role="presentation"><a href="<%= resources_path %>/#buyertips">Tips for Buyers</a></li>
         <li role="presentation"><a href="<%= resources_path %>/#sellertips">Tips for Sellers</a></li>
       </ul>
     </li>
-    <li class="<%= nav_state('communties')%>"><%= link_to "Communties", communities_path %></li>
-    <li class="<%= nav_state('advice')%>"><%= link_to "Advice", advice_path %></li>
+    
+    <li class="<%= nav_state('blog')%>"><%= link_to "Blog", blog_path %></li>
+    <li class="<%= nav_state('about')%>"><%= link_to "About Us", about_path %></li>
+
     <% unless @hide_user_menu %>
-    <li class="dropdown pull-right nav_link">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        My Account <span class="caret" style="border-top: 4px solid #666;"></span>
-      </a>
-
-      <ul class="dropdown-menu">
-        <% if current_user %>
-          <li role="presentation" class="dropdown-header">Hi, <%= current_user.firstname %></li>
-          <li role="presentation"><%= link_to "Settings", settings_path %></li>
-          <li role="presentation"><%= link_to "Sign out", usersignout_path %></li>
-        <% else %>
-          <li role="presentation">
-            <a href="#" data-toggle="modal" role="menuitem" tabindex="-1" data-target="#signinmodal">Sign in</a>
-          </li>
-          <li role="presentation">
-            <a href="#" data-toggle="modal" role="menuitem" tabindex="-1" data-target="#signupmodal">Register</a>
-          </li>
-        <% end %>
-      </ul>
-    </li>
-    <% end %>
-
-    <% if admin_user %>
-      <li class="dropdown pull-right nav_link">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          Admin <span class="caret" style="border-top: 4px solid #666;"></span>
-        </a>
+      <% if admin_user %>
+        <li class="dropdown pull-right nav_link">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <span class="caret" style="border-top: 4px solid #666;"></span></a>
+          <ul class="dropdown-menu">
+            <li role="presentation"><%= link_to "Dashboard", admin_settings_path %></li>
+            <li role="presentation"><%= link_to "Sign out", adminsignout_path %></li>
+          </ul>
+        </li>
       
-        <ul class="dropdown-menu">
-          <li role="presentation"><%= link_to "Dashboard", admin_settings_path %></li>
-          <li role="presentation"><%= link_to "Sign out", adminsignout_path %></li>
-        </ul>
-      </li>
+      <% else %>
+
+        <li class="dropdown pull-right nav_link">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Account <span class="caret" style="border-top: 4px solid #666;"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <% if current_user %>
+              <li role="presentation" class="dropdown-header">Hi, <%= current_user.firstname %></li>
+              <li role="presentation"><%= link_to "Settings", settings_path %></li>
+              <li role="presentation"><%= link_to "Sign out", usersignout_path %></li>
+            <% else %>
+              <li role="presentation">
+                <a href="#" data-toggle="modal" role="menuitem" tabindex="-1" data-target="#signinmodal">Sign in</a>
+              </li>
+              <li role="presentation">
+                <a href="#" data-toggle="modal" role="menuitem" tabindex="-1" data-target="#signupmodal">Register</a>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>
