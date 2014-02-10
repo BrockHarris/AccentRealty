@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 	end
 
 	def sample1 #sample listing view
-
+		@load_map_script = true
 	end
 
 	def evaluate

@@ -1,0 +1,105 @@
+<div class="row main_panel_container">
+  <div class="col-xs-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+           Pending Questions
+          <span class="badge pull-right"><% if pending_questions.count > 0 %><%= pending_questions.count %><% end %></span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          <% unless pending_questions.empty? %>
+          <% pending_questions.each do |question| %>
+            <div class="list-group-item">
+
+
+           <%= link_to "Delete", question_path(question), :method => :delete %>
+           
+              <h4 class="list-group-item-heading"><%= question.content %></h4>
+              <h5 class="list-group-item-heading">From: <%= question.email %></h5>
+              <h5 class="list-group-item-heading">Category: <%= question.category %></h5>
+              <% if question.response.blank? %>
+              	<div class="center_text">This question hasn't be responded to yet</div>
+              <% else %>
+              	<p class="list-group-item-text"><%= question.response %></p>
+              <% end %>
+            </div>
+          <% end %>
+          <% else %>
+          <div class="center_text">No Questions Awaiting Response</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+           Unpublished Questions
+          <span class="badge pull-right"><% if @unpublished_questions.count > 0 %><%= @unpublished_questions.count %><% end %></span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          <% unless @unpublished_questions.empty? %>
+          <% @unpublished_questions.each do |question| %>
+            <div class="list-group-item">
+
+
+           <%= link_to "Delete", question_path(question), :method => :delete %>
+           
+              <h4 class="list-group-item-heading"><%= question.content %></h4>
+              <h5 class="list-group-item-heading">From: <%= question.email %></h5>
+              <h5 class="list-group-item-heading">Category: <%= question.category %></h5>
+              <% if question.response.blank? %>
+              	<div class="center_text">This question hasn't be responded to yet</div>
+              <% else %>
+              	<p class="list-group-item-text"><%= question.response %></p>
+              <% end %>
+            </div>
+          <% end %>
+          <% else %>
+          <div class="center_text">No Unpublished Questions</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+           Published Questions
+          <span class="badge pull-right"><% if @published_questions.count > 0 %><%= @published_questions.count %><% end %></span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          <% unless @published_questions.empty? %>
+          <% @published_questions.each do |question| %>
+            <div class="list-group-item">
+
+
+           <%= link_to "Delete", question_path(question), :method => :delete %>
+           
+              <h4 class="list-group-item-heading"><%= question.content %></h4>
+              <h5 class="list-group-item-heading">From: <%= question.email %></h5>
+              <h5 class="list-group-item-heading">Category: <%= question.category %></h5>
+              <% if question.response.blank? %>
+              	<div class="center_text">This question hasn't be responded to yet</div>
+              <% else %>
+              	<p class="list-group-item-text"><%= question.response %></p>
+              <% end %>
+            </div>
+          <% end %>
+          <% else %>
+          <div class="center_text">No Published Questions</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-3">
+    <%= render 'admins/admin_sidebar' %>
+  </div>
+</div>

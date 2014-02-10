@@ -83,7 +83,6 @@ body {
 .no_side_padding {
   padding:0 0;
 }
-
 .no_padding {
   padding:0;
 }
@@ -122,10 +121,28 @@ body {
   margin:15px 15px 0px 15px;
 }
 
+/** Best_In_Place Editing **/
+
+
+.inline_field input{
+  float: none;
+  display: table-cell;
+  height:auto;
+  width:auto;
+  line-height: 1;
+  padding: 3px;
+  margin:-3px 0 -3px 0;
+  font-size: 14px;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #66afe9;
+  border-radius: 4px;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
 /** Message Flashes **/
-
-
-
 
 #flash {
   min-width: 350px;
@@ -140,7 +157,6 @@ body {
   -moz-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
   border-right:none;
-
 }
 
 /** Main Header **/
@@ -339,11 +355,9 @@ body {
 
 .home_well {
   color:#333;
-  margin:30px 15px 25px 15px;
-  font-size: 16px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  line-height: 1.428571429;
+  margin:15px 15px 25px 15px;
+  font-size:16pt;
+  color:#D87320;
 }
 .whychoose_image_row {
   margin:15px 15px;
@@ -490,6 +504,26 @@ body {
   color: #555;
   margin-right: 35px;
   padding: 0 45px 15px 0;
+}
+
+/** About Us Page (user-facing) **/
+
+.aboutpage_container {
+  margin:15px 30px 0 30px;
+}
+.aboutus_header {
+  font-size:16pt;
+  color:#D87320;
+  margin-bottom:15px;
+}
+.aboutus_content {
+  width:840px;
+  margin:0 auto 0 auto;
+  font-size:13pt;
+  padding-bottom: 30px;
+}
+.about_bold {
+  color:#D87320;
 }
 
 /** Listing Styles **/
@@ -706,7 +740,26 @@ body {
 
 /** Admin Panel **/
 
-
+.active {
+  z-index: 2;
+  color: #ffffff;
+  background-color: #F08024;
+  border-color: #F08024;
+}
+.panel_edit_link {
+  float:right;
+  margin-top:-17px;
+}
+.panel_link_group {
+  float:right;
+  margin-top:-20px;
+}
+.small_hr {
+  margin:10px 0 10px 0;
+}
+.btn_spacer {
+  margin-right: 15px;
+}
 
 /** Resources Page **/
 

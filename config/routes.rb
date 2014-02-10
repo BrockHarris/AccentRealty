@@ -5,11 +5,14 @@ AccentRealty::Application.routes.draw do
   match '/admin/users', :to => 'admins#users'
   match '/admin/blog', :to => 'admins#blogposts'
   match '/admin/messages', :to => 'admins#messages'
+  match '/admin/questions', :to => 'admins#questions'
   match '/admin/evaluations', :to => 'admins#evaluations'
   match '/admin/local_partners', :to => 'admins#local_partners'
   match '/admin/buyertips', :to => 'admins#buyertips'
   match '/admin/sellertips', :to => 'admins#sellertips'
   match '/admin/advice', :to => 'admins#advice_admin'
+  match "/messages/:id/mark_read" => "messages#mark_read", :as => "mark_read"
+  match "/messages/:id/mark_unread" => "messages#mark_unread", :as => "mark_unread"
 	match '/usersignout', :to => 'sessions#destroy'
   match '/adminsignout', :to => 'adminsessions#destroy'
   match '/resources', :to => 'pages#resources'

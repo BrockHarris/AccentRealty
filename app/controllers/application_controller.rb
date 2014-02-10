@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all 
-  helper_method :current_user, :admin_user
+  helper_method :current_user, :admin_user, :unread_messages, :pending_questions, :verify_admin
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -21,36 +21,27 @@ class ApplicationController < ActionController::Base
     redirect_to myaccount_path
   end
 
+  def unread_messages
+    @unread_messages = Message.where(:read => false, :responded_to => false)
+  end
+
+  def pending_questions
+    @pending_questions = Question.where(:responded_to => false)
+  end
+
+  def verify_admin
+    unless admin_user
+      redirect_to root_path
+      flash[:notice] = "You are not authorized to make that request."
+    end
+  end
+
   def login_required
     unless current_user
       store_location
       flash[:notice] = "Please sign in first!"
       redirect_to subscribe_path
       return false
-    end
-  end
-
-  # The following 3 MIGHT be used for admins #
-
-  def access_denied(msg=MESSAGE_INSUFFICIENT_RIGHTS)
-    flash[:error] = msg
-    redirect_to root_url
-    return false
-  end
-  
-  def admin_login_required
-    access_denied unless current_user.try(:admin)
-  end
-  
-  def admin_logged_in?
-    access_denied unless current_user.try(:admin)
-  end
-
-  private
-
-  def catch_users_missing_roles
-    if current_user && current_user.role.blank?
-      redirect_to usertype_path
     end
   end
 end

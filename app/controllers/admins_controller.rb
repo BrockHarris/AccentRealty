@@ -1,6 +1,4 @@
 class AdminsController < ApplicationController
-	
-	in_place_edit_for :admin, :username
 
 	def create
     @admin = Admin.new(params[:admin])
@@ -32,117 +30,76 @@ class AdminsController < ApplicationController
 	end
 
 	def dashboard
-		if admin_user
-			@blogpost = Blogpost.new
-			@blogposts = Blogpost.all
-			@add_admin = Admin.new
-			@add_user = User.new
-			@skip_sign_in = true
-			@show_admins = Admin.all
-			@list_users = User.all
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
+		@blogpost = Blogpost.new
+		@blogposts = Blogpost.all
+		@skip_sign_in = true
+		@show_admins = Admin.all
+		@list_users = User.all
 	end
 
 	def users
-		if admin_user
-			@admin = Admin.new
-			@user = User.new
-			@skip_sign_in = true
-			@show_admins = Admin.all
-			@list_users = User.all
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
+		@new_admin = Admin.new
+		@new_user = User.new
+		@skip_sign_in = true
+		@show_admins = Admin.all
+		@list_users = User.all
 	end
 
 	def messages 
-		if admin_user
-			@read_messages = Message.where(:read => true)
-			@unread_messages = Message.where(:read => false)
-			@skip_sign_in = true
-		else
-			redirect_to root_path
-		end
+		@sent_messages = Message.where(:responded_to => true)
+		@read_messages = Message.where(:read => true, :responded_to => false)
+		@skip_sign_in = true
+	end
+
+	def questions
+		@skip_sign_in = true
+		@published_questions = Question.where(:published => true)
+		@unpublished_questions = Question.where(:responded_to => true)
+
 	end
 
 	def blogposts
-		if admin_user
-			@blogpost = Blogpost.new
-			@blogposts = Blogpost.all
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
+		@blogpost = Blogpost.new
+		@blogposts = Blogpost.all
 	end
 
 	def local_partners # page_type = 2 #
-		if admin_user
-			@pagecontent = Pagecontent.new
-			@pagecontents = Pagecontent.where(:page_type => 2)
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
+		@pagecontent = Pagecontent.new
+		@pagecontents = Pagecontent.where(:page_type => 2)
 	end
+
 	def buyertips # page_type = 3 #
-		if admin_user
-			@pagecontent = Pagecontent.new
-			@pagecontents = Pagecontent.where(:page_type => 3)
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
+		@pagecontent = Pagecontent.new
+		@pagecontents = Pagecontent.where(:page_type => 3)
 	end
 
 	def sellertips # page_type = 4 #
-		if admin_user
-			@pagecontent = Pagecontent.new
-			@pagecontents = Pagecontent.where(:page_type => 4)
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
+		@pagecontent = Pagecontent.new
+		@pagecontents = Pagecontent.where(:page_type => 4)
 	end
 
 	def advice_admin # page_type = 4 #
-		if admin_user
-			@pagecontent = Pagecontent.new
-			@pagecontents = Pagecontent.where(:page_type => 4)
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
+		@pagecontent = Pagecontent.new
+		@pagecontents = Pagecontent.where(:page_type => 4)
 	end
 
 	def evaluations
-		if admin_user
-			@evaluations = Evaluation.all
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
+		@evaluations = Evaluation.all
 	end
 
 	def settings 
-		if admin_user
-			@unread_messages = Message.where(:read => false)
-		else
-			redirect_to root_path
-		end
 	end
 
 	def update
 		@admin = Admin.find(params[:id])
-    if @admin.update_attributes(params[:admin])
-      flash[:success] = "Your account has been updated!"
-      redirect_to (:back)
-    else
-      flash[:notice] = "There was a problem with the information you entered."
-    	redirect_to (:back)
+		respond_to do |format|
+    	if @admin.update_attributes(params[:admin])
+      	format.html { redirect_to((:back), :notice => "Your settings have been saved.") }
+        format.json { respond_with_bip(@admin) }
+    	else
+    		format.html { redirect_to((:back), :error => "There was a problem with the information you entered.") }
+        format.json { respond_with_bip(@admin) }
+    	end
     end
   end
 

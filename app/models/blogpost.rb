@@ -5,8 +5,6 @@ class Blogpost < ActiveRecord::Base
 
   validates :title, :body, :category, :heading, :presence => true
 
-  before_save { self.category = category.downcase }
-
   default_scope where("blogposts.deleted_at IS NULL")
 
   def self.search(search)
