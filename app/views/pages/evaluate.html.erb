@@ -10,7 +10,7 @@
         &nbsp; We are pleased to provide you with information on the current value of your home. This is a free service offered by Accent Realty. Your market evaluation will arrive via e-mail soon. In order to provide your free Market Analysis, please fill out the requested information below.
       </p>
         <div class="form-group center">
-          <%= form_for(:evaluation, url: evaluations_path) do |f| %>
+          <%= form_for @evaluation, :html=> { :multipart => true} do |f| %>
             <div class="row">
               <div class="col-xs-6"><h4>Contact Information:</h4></div>
             </div>
@@ -128,7 +128,7 @@
                 <%= f.select(:parking, [['Garage', 'Garage'], ['Carport', 'Carport'], ['On Street', 'On Street'], ['Off Street ', 'Off Street'], ['No Covered Parking', 'None']], {}, { :class => 'form-control' }) %>
 
                 <%= f.label :spaces, "Spaces" %>
-                <%= f.select(:spaces, [['Garage', 'Garage'], ['Carport', 'Carport'], ['On Street', 'On Street'], ['Off Street ', 'Off Street'], ['No Covered Parking', 'No']], {}, { :class => 'form-control' }) %>
+                <%= f.select(:spaces, [['None', 'None'], ['1', '1'], ['2', '2'], ['3 ', '3'], ['4', '4'], ['5+', '5+']], {}, { :class => 'form-control' }) %>
 
               </div>
             </div>

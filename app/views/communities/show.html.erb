@@ -38,6 +38,17 @@
   </div>
 
   <div class="col-xs-4">
+    <% unless @community.townhall_link.blank? %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Local Information</h3>
+        </div>
+        <div class="panel-body">
+          <%= link_to "Town Hall Page", @community.townhall_link %>
+        </div>
+      </div>
+    <% end %>
+    
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Featured Local Homes</h3>

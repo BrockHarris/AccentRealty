@@ -52,10 +52,9 @@ class AdminsController < ApplicationController
 	end
 
 	def questions
-		@skip_sign_in = true
 		@published_questions = Question.where(:published => true)
-		@unpublished_questions = Question.where(:responded_to => true)
-
+		@unpublished_questions = Question.where(:responded_to => true, :published => false)
+		@skip_sign_in = true
 	end
 
 	def blogposts
@@ -63,19 +62,21 @@ class AdminsController < ApplicationController
 		@blogposts = Blogpost.all
 	end
 
-	def local_partners # page_type = 2 #
+	def local_partners # page_type = 1 #
 		@pagecontent = Pagecontent.new
-		@pagecontents = Pagecontent.where(:page_type => 2)
+		@pagecontents = Pagecontent.where(:page_type => 1)
 	end
 
-	def buyertips # page_type = 3 #
+	def buyertips # page_type = 2 #
+		@page_header = Pagecontent.where(:page_type => 2, :is_header => true).take(1)
 		@pagecontent = Pagecontent.new
-		@pagecontents = Pagecontent.where(:page_type => 3)
+		@pagecontents = Pagecontent.where(:page_type => 2, :is_header => false)
 	end
 
-	def sellertips # page_type = 4 #
+	def sellertips # page_type = 3 #
+		@page_header = Pagecontent.where(:page_type => 3, :is_header => true).take(1)
 		@pagecontent = Pagecontent.new
-		@pagecontents = Pagecontent.where(:page_type => 4)
+		@pagecontents = Pagecontent.where(:page_type => 3, :is_header => false)
 	end
 
 	def advice_admin # page_type = 4 #
@@ -84,7 +85,7 @@ class AdminsController < ApplicationController
 	end
 
 	def evaluations
-		@evaluations = Evaluation.all
+		@read_evaluations = Evaluation.where(:read => true)
 	end
 
 	def settings 
@@ -94,7 +95,7 @@ class AdminsController < ApplicationController
 		@admin = Admin.find(params[:id])
 		respond_to do |format|
     	if @admin.update_attributes(params[:admin])
-      	format.html { redirect_to((:back), :notice => "Your settings have been saved.") }
+      	format.html { redirect_to((:back), :success => "Changes saved.") }
         format.json { respond_with_bip(@admin) }
     	else
     		format.html { redirect_to((:back), :error => "There was a problem with the information you entered.") }

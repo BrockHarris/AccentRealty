@@ -56,7 +56,9 @@ body {
   margin-left:auto;
   margin-right:auto;
 }
-
+.xs_field {
+  width:200px;
+}
 .short_field {
   width:300px;
 }
@@ -91,6 +93,9 @@ body {
 }
 .no_margin {
   margin:0px;
+}
+.padding_15 {
+  padding: 15px;
 }
 .margin_top_15 {
   margin-top:15px;
@@ -192,7 +197,7 @@ body {
 }
 .accent_slogan_img {
   height:17px;
-  width:210px;
+  width:200px;
   margin-right: 1px;
   margin-bottom: 8px;
   opacity: 0.9;
@@ -754,11 +759,39 @@ body {
   float:right;
   margin-top:-20px;
 }
+.panel_section_body {
+  margin-top: 10px;
+}
+.second_collapse {
+  border-top:1px solid #DDD;
+}
 .small_hr {
   margin:10px 0 10px 0;
 }
 .btn_spacer {
   margin-right: 15px;
+}
+.admin_well_title {
+  padding: 1px;
+  font-size: 16px;
+}
+.page_preview {
+  border:1px dotted #DDD;
+}
+.page_preview_header {
+  font-size: 16px;
+  font-weight: 200;
+  text-align: center;
+  color:#999;
+  padding:8px;
+  border-bottom:1px dotted #DDD;
+}
+.page_preview_main {
+  padding:15px 15px 0 15px;
+}
+.glyphicon-plus {
+  color:#888;
+  margin-right:3px;
 }
 
 /** Resources Page **/

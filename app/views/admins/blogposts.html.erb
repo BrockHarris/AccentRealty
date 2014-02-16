@@ -33,7 +33,7 @@
                     <%= truncate(blogpost.title, length: 80) %>
                   </a>
                 </h4>
-                <a data-toggle="collapse" data-parent="#accordion" class="panel_edit_link" href="#collapse<%= blogpost.id %>">Edit</a>
+                <a data-toggle="collapse" data-parent="#accordion" class="panel_edit_link" href="#collapse<%= blogpost.id %>">Edit</a> 
               </div>
               <div id="collapse<%= blogpost.id %>" class="panel-collapse collapse">
                 <div class="panel-body">
@@ -60,6 +60,4 @@
     <%= render 'admins/admin_sidebar' %>
   </div>
 </div>
-
-
   

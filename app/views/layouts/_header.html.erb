@@ -16,7 +16,7 @@
   <div class="header_right">
     <div class="accent_slogan_container">
       <%= image_tag "accent_slogan.png", :class=>"accent_slogan_img" %>
-      <span class="accent_slogan_text"> | <%= link_to "Contact", "", :class=>"slogan_link", :data=>{:toggle=>"modal", :target=>"#contactmodal"} %>
+      <span class="accent_slogan_text"> | <span class="slogan_link">(860) 539-5885</span>
       </span>
     </div>
 
@@ -39,10 +39,10 @@
     <li class="<%= nav_state('home')%>"><%= link_to "Home", root_path %></li>
     <li class="<%= nav_state('listings')%>"><%= link_to "Buy", listings_path %></li>
     <li class="<%= nav_state('evaluate')%>"><%= link_to "Sell", evaluate_path %></li>
-    <li class="<%= nav_state('communities')%>"><%= link_to "Communties", communities_path %></li>
+    <li class="<%= nav_state('communities')%>"><%= link_to "Communities", communities_path %></li>
     <li class="<%= nav_state('localpartners')%>"><%= link_to "Local Partners", local_partners_path %></li>
 
-    <li class="dropdown <%= nav_state('advice')%>">
+    <li class="dropdown <%= nav_state('advice')%> <%= nav_state('resources')%>">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Advice <span class="caret" style="border-top: 4px solid #666;"></span>
       </a>
       <ul class="dropdown-menu">
@@ -54,6 +54,7 @@
     
     <li class="<%= nav_state('blog')%>"><%= link_to "Blog", blog_path %></li>
     <li class="<%= nav_state('about')%>"><%= link_to "About Us", about_path %></li>
+    <li class="<%= nav_state('contact')%>"><%= link_to "Contact", "", :data=>{:toggle=>"modal", :target=>"#contactmodal"} %></li>
 
     <% unless @hide_user_menu %>
       <% if admin_user %>

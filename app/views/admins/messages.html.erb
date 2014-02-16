@@ -1,5 +1,6 @@
 <div class="row main_panel_container">
   <div class="col-xs-9">
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
@@ -7,7 +8,6 @@
           <span class="badge pull-right"><% if unread_messages.count > 0 %><%= unread_messages.count %><% end %></span>
         </h3>
       </div>
-
       <div class="panel-body">
         <div class="panel-group" id="accordion">
           <% unless unread_messages.empty? %>

@@ -15,4 +15,8 @@ module ApplicationHelper
   		"list-group-item"
     end
 	end
+
+  def convert_to_yesno(boolean)
+    boolean ? 'Yes' : 'No'
+  end
 end

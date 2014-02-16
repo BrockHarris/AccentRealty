@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all 
-  helper_method :current_user, :admin_user, :unread_messages, :pending_questions, :verify_admin
+  helper_method :current_user, :admin_user, :unread_messages, :pending_questions, :unread_evaluations, :verify_admin
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
 
   def pending_questions
     @pending_questions = Question.where(:responded_to => false)
+  end
+
+  def unread_evaluations
+    @unread_evaluations = Evaluation.where(:read => false)
   end
 
   def verify_admin

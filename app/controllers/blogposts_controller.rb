@@ -22,7 +22,7 @@ class BlogpostsController < ApplicationController
   def update
     @blogpost = Blogpost.find(params[:id])
     if @blogpost.update_attributes(params[:blogpost])
-      flash[:success] = "Your changes have be published."
+      flash[:success] = "Your changes have been published."
       redirect_to (:back)
     else
       flash[:error] = "Please make sure the entire form is complete."

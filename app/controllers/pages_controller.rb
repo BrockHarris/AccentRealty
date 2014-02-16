@@ -34,6 +34,11 @@ class PagesController < ApplicationController
 	end
 
 	def resources
+		@buyer_header = Pagecontent.where(:page_type => 2, :is_header => true).take(1)
+		@buyer_contents = Pagecontent.where(:page_type => 2, :is_header => false)
+		
+		@seller_header = Pagecontent.where(:page_type => 3, :is_header => true).take(1)
+		@seller_contents = Pagecontent.where(:page_type => 3, :is_header => false)
 	end
 
 	def localpartners

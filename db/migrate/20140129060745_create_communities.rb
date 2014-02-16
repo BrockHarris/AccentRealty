@@ -3,6 +3,7 @@ class CreateCommunities < ActiveRecord::Migration
     create_table :communities do |t|
     	t.string  :city
     	t.string  :county
+      t.text    :townhall_link
     	t.text    :latitude
     	t.text    :longitude
       t.timestamps

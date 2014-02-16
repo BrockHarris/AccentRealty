@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140210172635) do
+ActiveRecord::Schema.define(:version => 20140211070027) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -43,10 +43,11 @@ ActiveRecord::Schema.define(:version => 20140210172635) do
   create_table "communities", :force => true do |t|
     t.string   "city"
     t.string   "county"
+    t.text     "townhall_link"
     t.text     "latitude"
     t.text     "longitude"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "communities", ["county"], :name => "index_communities_on_county"
@@ -96,6 +97,9 @@ ActiveRecord::Schema.define(:version => 20140210172635) do
     t.boolean  "read",                    :default => false
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
+    t.string   "response_subject"
+    t.text     "response_body"
+    t.integer  "admin_id"
   end
 
   create_table "messages", :force => true do |t|

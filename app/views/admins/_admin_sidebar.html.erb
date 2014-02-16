@@ -8,7 +8,7 @@
   	<a href="<%= admin_blog_path %>" class="<%= admin_nav_state('blogposts')%>">Blog</a>
   	<a href="<%= admin_messages_path %>" class="<%= admin_nav_state('messages')%>">Messages <span class="badge"><% if unread_messages.count > 0 %><%= unread_messages.count %><% end %></span></a>
     <a href="<%= admin_questions_path %>" class="<%= admin_nav_state('questions')%>">Questions <span class="badge"><% if pending_questions.count > 0 %><%= pending_questions.count %><% end %></span></a>
-  	<a href="<%= admin_evaluations_path %>" class="<%= admin_nav_state('evaluations')%>">Evaluations</a>
+  	<a href="<%= admin_evaluations_path %>" class="<%= admin_nav_state('evaluations')%>">Evaluations <span class="badge"><% if unread_evaluations.count > 0 %><%= unread_evaluations.count %><% end %></span></a>
   </ul>
   <!--  <div class="panel-body"><p>Some Stats here</p></div> -->
 </div>

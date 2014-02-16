@@ -2,11 +2,217 @@
   <div class="col-xs-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-  	    <h3 class="panel-title">Respond to Evaluations</h3>
+        <h3 class="panel-title">
+          New Evaluation Requests
+          <span class="badge pull-right"><% if unread_evaluations.count > 0 %><%= unread_evaluations.count %><% end %></span>
+        </h3>
       </div>
-
       <div class="panel-body">
-        Settings here
+        <div class="panel-group" id="accordion">
+          <% unless unread_evaluations.empty? %>
+
+            <% unread_evaluations.each do |evaluation| %>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <b>Name:</b> <%= evaluation.firstname %> <%= evaluation.lastname %><br/>
+                  <div class="panel_link_group">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= evaluation.id %>">View</a> ·
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= evaluation.id %>Reply">Reply</a> ·
+                    <%= link_to 'Mark Read', mark_evaluation_read_path(evaluation) %> ·
+                    <%= link_to "Delete", evaluation_path(evaluation), :method => :delete, :confirm => "Are you sure you want to delete this?" %><br/>
+                  </div>
+                  <b>Email:</b> <%= evaluation.email %><br/>
+                  <b>Phone:</b> <%= evaluation.phone %>
+                </div>
+                
+                <div id="collapse<%= evaluation.id %>" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-xs-6">
+
+                        <h4 class="community_header">Owner Information</h4>
+                        <b>Current Address:</b><br/>
+                        <%= evaluation.address %><br/>
+                        <%= evaluation.city %>, <%= evaluation.state %> <%= evaluation.zip %>
+                        <hr class="small_hr">
+
+                        <b>Relationship:</b> <%= evaluation.relationship %><br/>
+                        <b>Resident Status:</b> <%= evaluation.resident %><br/>
+                        <b>Plan To Sell:</b> <%= evaluation.sellingdate %> from now<br/>
+                        <b>Moving To:</b> <%= evaluation.movingto %> from now<br/>
+                        <b>Listing Status:</b> <%= evaluation.listingstatus %><br/><br/>
+
+                        <h4 class="community_header">Agent Information</h4>
+                        <b>Currently Working With Agent:</b> <%= evaluation.agentstatus %><br/>
+                        <% if evaluation.agentstatus == "Yes" %>
+                          <b>Current Agent:</b> <%= evaluation.current_agent_firstname %> <%= evaluation.current_agent_lastname %><br/>
+                        <% end %>
+                        <b>Requesting Specific Agent:</b>
+                        <% if evaluation.request_agent_firstname.nil? && evaluation.request_agent_lastname.nil? %>
+                          No<br/>
+                        <% else %>
+                          Yes<br/>
+                          <b>Requested Agent:</b> <%= evaluation.request_agent_firstname %> <%= evaluation.request_agent_lastname %>
+                        <% end %>
+                      </div>
+
+                      <div class="col-xs-6">
+                        <h4 class="community_header">Property Information</h4>
+                        <b>Property Address:</b><br/>
+                        <%= evaluation.property_address %><br/>
+                        <%= evaluation.property_city %>, <%= evaluation.property_state %> <%= evaluation.property_zip %>
+                        <hr class="small_hr">
+                      
+                        <b>Property Type:</b> <%= evaluation.property_type %><br/>
+                        <b>Style:</b> <%= evaluation.homestyle %><br/>
+                        <b>Year Built:</b> <%= evaluation.yearbuilt %><br/>
+                        <b>Condition:</b> <%= evaluation.condition %><br/>
+                        <b>Rooms:</b> <%= evaluation.rooms %> | 
+                        <b>Bedrooms:</b> <%= evaluation.bedrooms %> |
+                        <b>Baths:</b> <%= evaluation.baths %><br/>
+                        <b>Heating:</b> <%= evaluation.heattype %><br/>
+                        <b>Air Conditioning:</b> <%= evaluation.aircontype %><br/>
+                        <b>Fireplaces:</b> <%= evaluation.fireplaces %><br/>
+                        <b>Basement:</b> <%= evaluation.basement %><br/>
+                        <b>Parking:</b> <%= evaluation.parking %> | <b>Spaces:</b> <%= evaluation.spaces %><br/>
+                        <b>Lot Size:</b> <%= evaluation.lotsize %> | <b>Sq feet:</b> <%= evaluation.sqfeet %><br/>
+                        <b>Pool:</b> <%= convert_to_yesno(evaluation.pool) %> |
+                        <b>Waterfront:</b> <%= convert_to_yesno(evaluation.waterfront) %> |
+                        <b>Waterview:</b> <%= convert_to_yesno(evaluation.waterview) %> |                    
+                      </div>
+                    </div><br/>
+                    <h4 class="community_header">Comments</h4>
+                    <%= evaluation.comments %><br/><br/>
+                  </div>
+                </div>
+
+                <div id="collapse<%= evaluation.id %>Reply" class="panel-collapse collapse">
+                  <div class="panel-body second_collapse">
+                    <%= form_for evaluation, :html=> { :multipart => true} do |f| %>
+                      <%= f.hidden_field :admin_id, :value => admin_user.id %>
+                      <%= f.hidden_field :read, :value => true %>
+                      <%= f.text_field :response_subject, :class => "form-control", :placeholder => "Subject" %><br/>
+                      <%= f.text_area  :response_body, :class => "form-control", :placeholder => "Your Response", :rows =>"7" %><br/>
+                      <%= f.submit 'Send', :class => "btn btn-warning pull-right" %>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+            <% end %>
+
+          <% else %>
+            <div class="center_text">No Unread Evaluation Requests</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Read Evaluation Requests
+          <span class="badge pull-right"><% if @read_evaluations.count > 0 %><%= @read_evaluations.count %><% end %></span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="panel-group" id="accordion">
+          <% unless @read_evaluations.empty? %>
+
+            <% @read_evaluations.each do |evaluation| %>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <b>Name:</b> <%= evaluation.firstname %> <%= evaluation.lastname %><br/>
+                  <div class="panel_link_group">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= evaluation.id %>">View</a> ·
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= evaluation.id %>Reply">Reply</a> ·
+                    <%= link_to 'Mark Unread', mark_evaluation_unread_path(evaluation) %> ·
+                    <%= link_to "Delete", evaluation_path(evaluation), :method => :delete, :confirm => "Are you sure you want to delete this?" %><br/>
+                  </div>
+                  <b>Email:</b> <%= evaluation.email %><br/>
+                  <b>Phone:</b> <%= evaluation.phone %>
+                </div>
+                
+                <div id="collapse<%= evaluation.id %>" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-xs-6">
+
+                        <h4 class="community_header">Owner Information</h4>
+                        <b>Current Address:</b><br/>
+                        <%= evaluation.address %><br/>
+                        <%= evaluation.city %>, <%= evaluation.state %> <%= evaluation.zip %>
+                        <hr class="small_hr">
+
+                        <b>Relationship:</b> <%= evaluation.relationship %><br/>
+                        <b>Resident Status:</b> <%= evaluation.resident %><br/>
+                        <b>Plan To Sell:</b> <%= evaluation.sellingdate %> from now<br/>
+                        <b>Moving To:</b> <%= evaluation.movingto %> from now<br/>
+                        <b>Listing Status:</b> <%= evaluation.listingstatus %><br/><br/>
+
+                        <h4 class="community_header">Agent Information</h4>
+                        <b>Currently Working With Agent:</b> <%= evaluation.agentstatus %><br/>
+                        <% if evaluation.agentstatus == "Yes" %>
+                          <b>Current Agent:</b> <%= evaluation.current_agent_firstname %> <%= evaluation.current_agent_lastname %><br/>
+                        <% end %>
+                        <b>Requesting Specific Agent:</b>
+                        <% if evaluation.request_agent_firstname.nil? && evaluation.request_agent_lastname.nil? %>
+                          No<br/>
+                        <% else %>
+                          Yes<br/>
+                          <b>Requested Agent:</b> <%= evaluation.request_agent_firstname %> <%= evaluation.request_agent_lastname %>
+                        <% end %>
+                      </div>
+
+                      <div class="col-xs-6">
+                        <h4 class="community_header">Property Information</h4>
+                        <b>Property Address:</b><br/>
+                        <%= evaluation.property_address %><br/>
+                        <%= evaluation.property_city %>, <%= evaluation.property_state %> <%= evaluation.property_zip %>
+                        <hr class="small_hr">
+                      
+                        <b>Property Type:</b> <%= evaluation.property_type %><br/>
+                        <b>Style:</b> <%= evaluation.homestyle %><br/>
+                        <b>Year Built:</b> <%= evaluation.yearbuilt %><br/>
+                        <b>Condition:</b> <%= evaluation.condition %><br/>
+                        <b>Rooms:</b> <%= evaluation.rooms %> | 
+                        <b>Bedrooms:</b> <%= evaluation.bedrooms %> |
+                        <b>Baths:</b> <%= evaluation.baths %><br/>
+                        <b>Heating:</b> <%= evaluation.heattype %><br/>
+                        <b>Air Conditioning:</b> <%= evaluation.aircontype %><br/>
+                        <b>Fireplaces:</b> <%= evaluation.fireplaces %><br/>
+                        <b>Basement:</b> <%= evaluation.basement %><br/>
+                        <b>Parking:</b> <%= evaluation.parking %> | <b>Spaces:</b> <%= evaluation.spaces %><br/>
+                        <b>Lot Size:</b> <%= evaluation.lotsize %> | <b>Sq feet:</b> <%= evaluation.sqfeet %><br/>
+                        <b>Pool:</b> <%= convert_to_yesno(evaluation.pool) %> |
+                        <b>Waterfront:</b> <%= convert_to_yesno(evaluation.waterfront) %> |
+                        <b>Waterview:</b> <%= convert_to_yesno(evaluation.waterview) %> |                    
+                      </div>
+                    </div><br/>
+                    <h4 class="community_header">Comments</h4>
+                    <%= evaluation.comments %><br/><br/>
+                  </div>
+                </div>
+
+                <div id="collapse<%= evaluation.id %>Reply" class="panel-collapse collapse">
+                  <div class="panel-body second_collapse">
+                    <%= form_for evaluation, :html=> { :multipart => true} do |f| %>
+                      <%= f.hidden_field :admin_id, :value => admin_user.id %>
+                      <%= f.hidden_field :read, :value => true %>
+                      <%= f.text_field :response_subject, :class => "form-control", :placeholder => "Subject" %><br/>
+                      <%= f.text_area  :response_body, :class => "form-control", :placeholder => "Your Response", :rows =>"7" %><br/>
+                      <%= f.submit 'Send', :class => "btn btn-warning pull-right" %>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+            <% end %>
+
+          <% else %>
+            <div class="center_text">No Read Evaluation Requests</div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
