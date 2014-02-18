@@ -1,5 +1,7 @@
 class AdminsController < ApplicationController
 
+	before_filter :verify_admin, :except=> [:create, :admin_start]
+
 	def create
     @admin = Admin.new(params[:admin])
     if @admin.save
@@ -20,7 +22,6 @@ class AdminsController < ApplicationController
 		if Admin.find(:all).empty?
 			@initial_setup = true
 		end
-
 		@hide_user_menu = true
 		if admin_user
 			redirect_to admin_settings_path
@@ -86,8 +87,9 @@ class AdminsController < ApplicationController
 	end
 
 	def advice_admin # page_type = 4 #
+		@page_header = Pagecontent.where(:page_type => 4, :is_header => true).take(1)
 		@pagecontent = Pagecontent.new
-		@pagecontents = Pagecontent.where(:page_type => 4)
+		@pagecontents = Pagecontent.where(:page_type => 4, :is_header => false)
 	end
 
 	def evaluations

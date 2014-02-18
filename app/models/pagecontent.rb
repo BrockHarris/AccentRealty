@@ -1,6 +1,7 @@
 class Pagecontent < ActiveRecord::Base
   attr_accessible :page_type, :section_title, :section_body, :subsection_title, :subsection_body, :page_header, :is_header, :photo, 
-  								:partner_name, :partner_email, :partner_phone, :partner_link, :partner_type
+  								:partner_name, :partner_email, :partner_phone, :partner_link, :partner_type, :article_description, :article_link,
+                  :article_title
 
   has_attached_file :photo,
                     :styles => {

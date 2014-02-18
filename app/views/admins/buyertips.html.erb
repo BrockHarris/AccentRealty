@@ -70,7 +70,7 @@
 										<%= form_for pagecontent, :html=> { :multipart => true} do |f| %>
          							<%= f.hidden_field :page_type, :value => '2' %>
          							<%= f.hidden_field :is_header, :value => false %>
-         							<%= f.text_field :section_title, :class => "form-control", :value => pagecontent.section_title %>
+         							<%= f.text_field :section_title, :class => "form-control", :value => pagecontent.section_title %><br/>
         							<%= f.text_area :section_body, :class => "form-control", :value => pagecontent.section_body, :rows =>"5"  %><br/>
            						<%= f.submit 'Save', :class => "btn btn-warning pull-right" %>
           					<% end %>
@@ -97,7 +97,7 @@
 								<%= form_for @pagecontent, :html=> { :multipart => true} do |f| %>
           				<%= f.hidden_field :page_type, :value => '2' %>
           				<%= f.hidden_field :is_header, :value => false %>
-									<%= f.text_field :section_title, :class => "form-control", :placeholder =>"Section Title" %>
+									<%= f.text_field :section_title, :class => "form-control", :placeholder =>"Section Title" %><br/>
         					<%= f.text_area :section_body, :class => "form-control", :placeholder => "Section Body", :rows =>"5"  %><br/>
            				<%= f.submit 'Save', :class => "btn btn-warning pull-right" %>
        					<% end %>

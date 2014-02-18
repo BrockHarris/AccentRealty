@@ -4,17 +4,17 @@
         <div class="panel-heading">
           <h3 class="panel-title">New Blog Post</h3>
         </div>
-          <div class="panel-body">
-            <%= form_for @blogpost, :html=> { :multipart => true} do |f| %>
-              <%= f.text_field :category, :class => "form-control", :placeholder => "Category" %><br/>
-              <%= f.text_field :title, :class => "form-control", :placeholder => "Title" %><br/>
-              <%= f.text_field :heading, :class => "form-control", :placeholder => "Heading" %><br/>
-              <%= f.text_area  :body, :class => "form-control", :placeholder => "Body", :rows =>"7" %><br/>
-              <%= f.hidden_field :admin_id, :value => admin_user.id %>
-              <%= f.submit 'Publish', :class => "btn btn-warning pull-right" %>
-            <% end %>
-          </div>
+        <div class="panel-body">
+          <%= form_for @blogpost, :html=> { :multipart => true} do |f| %>
+            <%= f.text_field :category, :class => "form-control", :placeholder => "Category" %><br/>
+            <%= f.text_field :title, :class => "form-control", :placeholder => "Title" %><br/>
+            <%= f.text_field :heading, :class => "form-control", :placeholder => "Heading" %><br/>
+            <%= f.text_area  :body, :class => "form-control", :placeholder => "Body", :rows =>"7" %><br/>
+            <%= f.hidden_field :admin_id, :value => admin_user.id %>
+            <%= f.submit 'Publish', :class => "btn btn-warning pull-right" %>
+          <% end %>
         </div>
+      </div>
     
     <hr/>
 

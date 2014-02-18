@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 	def myaccount
 		unless current_user
 			redirect_to subscribe_path
+    else
+      redirect_to settings_path
 		end
 	end
 
@@ -33,7 +35,7 @@ class UsersController < ApplicationController
         user.send_reset_password_email!
         flash[:notice] = "An email has been sent to #{@email}.<br />".html_safe
         flash[:notice] << "Follow the instructions in the email to reset your password."
-        redirect_to subscribe_path
+        redirect_to (:back)
       end
     end
   end
@@ -55,7 +57,7 @@ class UsersController < ApplicationController
           @user.reset_code = nil
           @user.reset_code_at = nil
           @user.save!
-          flash[:notice] = "Your password has been successfully reset!"
+          flash[:success] = "Password successfully reset."
           sign_user_in(@user)
         end
       else
@@ -75,34 +77,27 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.pending?
-      if @user.update_attributes(params[:user])
-        flash[:notice] = "Thanks for signing up! An email has been sent to #{@user.email} with instructions on how to immediately activate your account."
-        session[:user_id] = nil
-        redirect_to root_url
-      else
-        flash[:error] = "There was a problem with your info, please try again."
-        redirect_to (:back)
-      end
+    @user = User.find_by_id(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Account Settings Saved."
+      redirect_to (:back)
     else
-      respond_to do |format|
-        if @user.update_attributes(params[:user])
-          format.html { redirect_to((:back), :notice => 'Your account has been updated!') }
-          format.json { respond_with_bip(@user) }
-        else
-          format.html { redirect_to((:back), :notice => 'There was a problem with your info, please try again.') }
-          format.json { respond_with_bip(@user) }
-        end
-      end
+      flash[:error] = "Please make sure the entire form is complete."
+      redirect_to (:back)
     end
   end
 
+
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
     if admin_user
-      @user = User.find(params[:id])
-      @user.destroy
       flash[:notice] = "User successfully removed."
-      redirect_to admin_users_path
+      redirect_to (:back)
+    else 
+      session[:user_id] = nil
+      flash[:notice] = "Your account has been deactivated."
+      redirect_to root_path
     end
   end
 end

@@ -1,12 +1,22 @@
-<h3>Reset Your Password</h3>
-<% @user.password = @user.password_confirmation = nil %>
+<div class="row main_panel_container">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading center_text"><h3 class="panel-title">Reset Your Password</h3></div>
+      <div class="panel-body">
+				<p>Choose a new password:</p>
 
-<%= form_tag :action => 'reset' do |f| -%>
-  <%= label_tag :password, 'Password' %>
-  <%= password_field_tag :password, ""%> <br/>
+				<% @user.password = @user.password_confirmation = nil %>
+				<%= form_tag :action => 'reset' do |f| -%>
+  				<%= label_tag :password, 'New Password:' %>
+  				<%= password_field_tag :password, "", :class => "form-control" %>
   
-  <%= label_tag :password_confirmation, 'Confirm' %>
-  <%= password_field_tag :password_confirmation, "" %><br/>
-
-  <%= submit_tag 'Change Password' %>
-<% end -%>
+  				<%= label_tag :password_confirmation, 'Confirm New Password:' %>
+  				<%= password_field_tag :password_confirmation, "", :class => "form-control" %>
+  				<hr>
+  				<%= submit_tag 'Submit', :class => "btn btn-warning pull-right" %>
+				<% end -%>
+				<%= button_to "Cancel", root_path, :class => "btn btn-default pull-right btn_spacer" %>
+			</div>
+		</div>
+	</div>
+</div>

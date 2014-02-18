@@ -28,7 +28,6 @@ AccentRealty::Application.routes.draw do
   match '/blog', :to => 'pages#blog'
   match '/about', :to => 'pages#about'
   match '/evaluate', :to => 'pages#evaluate'
-  match '/subscribe', :to => 'pages#user_start'
   match '/myaccount', :to => 'users#myaccount'
   match '/settings', :to => 'users#settings'
   match '/assist', :to => 'users#assist'

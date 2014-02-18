@@ -21,35 +21,49 @@
         <% end %>
       </div>
     </div>
-
-    
-      <% 5.times do %> <%# @blogposts.each do |blogpost| %>
-      <div class="media">
-      <div class="media-body">
-        <h4 class="question_h4"><span class="question_big_q">Q:</span> <i>“Find life after foreclosure.”</i></h4>
-        <blockquote class="question_body"><b>Response:</b>
-        &nbsp;Have a foreclosure in recent years? Join the crowd. Though you might think you have to wait seven years to get another conventional mortgage, Fannie Mae, Freddie Mac and the FHA say they actually require just a three-year waiting period if the foreclosure was caused by extenuating circumstances. There are plenty of nonconforming lenders -- often called "shadow bankers" -- out there if you can endure a big down payment (around 20 percent) and above-market interest rates. Or consider a lease-purchase or lease-option where you pay the homeowner a monthly premium above your rent for the right to buy at a set price later. 
-
-        </blockquote>    
-      </div>
-    </div>
-
-    <hr>
+    <% unless @questions.empty? %>
+      <% @questions.each do |question| %>
+        <div class="media">
+          <div class="media-body">
+            <h4 class="question_h4"><span class="question_big_q">Q:</span> <i>“<%= question.content %>”</i></h4>
+            <blockquote class="question_body"><b>Response:</b>&nbsp;<%= question.response %></blockquote>    
+          </div>
+        </div>
+        <hr>
       <% end %>
-   
-  </div>
-
+    <% else %>
+      <div class="center_text">No Questions Published</div><hr>
+    <% end %>
+  </div> 
+ 
   <div class="col-xs-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Some Information Here</h3>
+        <% unless @page_header.empty? %>
+          <% @page_header.each do |pagecontent| %>
+            <h3 class="panel-title"><%= pagecontent.page_header %></h3>
+          <% end %>
+        <% else %>
+          <h3 class="panel-title">Useful Articles</h3>
+        <% end %>
       </div>
       <ul class="list-group clearfix">
-      
-        <% 5.times do %>
-          <a href="#" class="list-group-item">
-            Sample Info Item
-          </a>
+        <% unless @page_contents.empty? %>
+          <% @page_contents.each do |pagecontent| %>
+            <% unless pagecontent.article_link.blank? %>
+              <a href="<%= pagecontent.article_link %>" class="list-group-item">
+                <b><%= pagecontent.article_title %></b><br/>
+                <%= pagecontent.article_description %>
+              </a>
+            <% else %>
+              <a href="#" class="list-group-item">
+                <b><%= pagecontent.article_title %></b><br/>
+                <%= pagecontent.article_description %>
+              </a>
+            <% end %>
+          <% end %>
+        <% else %>
+          <a href="#" class="list-group-item">No Content</a>
         <% end %>
       </ul>
     </div>

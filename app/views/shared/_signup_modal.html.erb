@@ -11,22 +11,18 @@
           <%= f.label :email, "Email" %>  
           <%= f.text_field :email, :class => "form-control" %>
 
-          <%= f.label :firstname, "First name" %>  
-          <%= f.text_field :firstname, :class => "form-control" %> 
+          <%= f.label :firstname, "Name" %>  
+          <%= f.text_field :firstname, :class => "form-control", :placeholder => "First" %> 
 
-          <%= f.label :lastname, "Last name" %>  
-          <%= f.text_field :lastname, :class => "form-control" %> 
+          <%= f.text_field :lastname, :class => "form-control", :placeholder => "Last" %> 
 
           <%= f.label :password, "Password" %>
           <%= f.password_field :password, :class => "form-control" %>
 
-          <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %>
+          <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %><br/>
           
-          <%= f.check_box :updates_news, {}, true, false %>
-          <%= f.label "Recieve listing updates" %><br/>
-
-          <%= f.check_box :updates_blog_posts, {}, true, false %>
-          <%= f.label "Recieve blog updates" %><br/>
+          <%= f.check_box :updates_news, {:checked => true}, true, false %>
+          <%= f.label :updates_news, "Recieve Updates From Accent Realty" %>
 
           </div>
       </div>
@@ -35,7 +31,7 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           <%= f.submit "Sign up", :class => "btn btn-warning" %>
         <% end %>
- </div>
+      </div>
       </div>
     </div>
   </div>

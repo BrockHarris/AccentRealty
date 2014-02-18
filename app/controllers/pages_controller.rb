@@ -30,7 +30,10 @@ class PagesController < ApplicationController
 
 	def advice
 		@question = Question.new
-		@questions = Question.where(:published => true)
+		@questions = Question.where(:responded_to => true, :published => true)
+
+		@page_header = Pagecontent.where(:page_type => 4, :is_header => true).take(1)
+		@page_contents = Pagecontent.where(:page_type => 4, :is_header => false)
 	end
 
 	def resources

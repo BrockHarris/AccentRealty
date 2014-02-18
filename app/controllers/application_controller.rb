@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def sign_user_in(user)
     session[:user_id] = user.id
-    redirect_to myaccount_path
+    redirect_to settings_path
   end
 
   def unread_messages
@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
   def verify_admin
     unless admin_user
       redirect_to root_path
-      flash[:notice] = "You are not authorized to make that request."
+      flash[:notice] = "You do not have access to that page."
     end
   end
 
