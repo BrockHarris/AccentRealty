@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  validates :email, :uniqueness=>true, :format=>{:with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i, :message => "we need a valid email address!"}
+  validates :email, :uniqueness=>true, :format=>{:with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i, :message => "Please enter a valid email address."}
   validates :password, :length=>{:minimum => 4}, :on => :create, :unless=>Proc.new{|u| u.service_mode?}                
   validates_confirmation_of :password
 
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end                  
   
   def service_mode?
-    mode=="service"
+    mode == "service"
   end
 
   # Auth support
@@ -28,7 +28,6 @@ class User < ActiveRecord::Base
   end
 
   def active?
-    # the existence of an activation code means they have not activated yet
     state == 'active' && activation_code.nil?
   end
 
@@ -80,6 +79,4 @@ class User < ActiveRecord::Base
   def encrypt_password(pass)
     Digest::SHA1.hexdigest([pass, password_salt].join)
   end
-
-
 end

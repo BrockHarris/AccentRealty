@@ -12,10 +12,10 @@ AccentRealty::Application.routes.draw do
   match '/admin/buyertips', :to => 'admins#buyertips'
   match '/admin/sellertips', :to => 'admins#sellertips'
   match '/admin/advice', :to => 'admins#advice_admin'
-  match "/evaluations/:id/mark_read" => "evaluations#mark_read", :as => "mark_evaluation_read"
-  match "/evaluations/:id/mark_unread" => "evaluations#mark_unread", :as => "mark_evaluation_unread"
-  match "/messages/:id/mark_read" => "messages#mark_read", :as => "mark_read"
-  match "/messages/:id/mark_unread" => "messages#mark_unread", :as => "mark_unread"
+  match "/evaluations/:id/mark_read", :to => "evaluations#mark_read", :as => "mark_evaluation_read"
+  match "/evaluations/:id/mark_unread", :to => "evaluations#mark_unread", :as => "mark_evaluation_unread"
+  match "/messages/:id/mark_read", :to => "messages#mark_read", :as => "mark_read"
+  match "/messages/:id/mark_unread", :to => "messages#mark_unread", :as => "mark_unread"
 	match '/usersignout', :to => 'sessions#destroy'
   match '/adminsignout', :to => 'adminsessions#destroy'
   match '/resources', :to => 'pages#resources'
@@ -30,8 +30,9 @@ AccentRealty::Application.routes.draw do
   match '/evaluate', :to => 'pages#evaluate'
   match '/myaccount', :to => 'users#myaccount'
   match '/settings', :to => 'users#settings'
+  match "/users/:id/:unsubscribe", :to => "users#unsubscribe", :as=>"unsubscribe"
   match '/assist', :to => 'users#assist'
-  match "/reset/:id/:reset_code", :to=>"users#reset", :as=>"reset"
+  match "/reset/:id/:reset_code", :to => "users#reset", :as=>"reset"
   
   resources :messages
   resources :evaluations

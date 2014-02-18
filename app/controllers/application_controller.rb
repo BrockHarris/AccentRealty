@@ -35,16 +35,15 @@ class ApplicationController < ActionController::Base
 
   def verify_admin
     unless admin_user
+      flash[:error] = "You do not have access to that page."
       redirect_to root_path
-      flash[:notice] = "You do not have access to that page."
     end
   end
 
   def login_required
     unless current_user
-      store_location
       flash[:notice] = "Please sign in first!"
-      redirect_to subscribe_path
+      redirect_to root_path
       return false
     end
   end

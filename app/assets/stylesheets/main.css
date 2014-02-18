@@ -362,7 +362,7 @@ body {
 }
 
 .home_well {
-  color:#333;
+  font-weight: 400;
   margin:15px 15px 25px 15px;
   font-size:16pt;
   color:#F08024;
@@ -874,7 +874,7 @@ body {
 }
 .lower_community_panel_h4 {
   padding:5px;
-  border-bottom: 1px solid #DDD
+  border-bottom: 1px solid #DDD;
 }
 .school_table_head {
   font-size:12pt; 
