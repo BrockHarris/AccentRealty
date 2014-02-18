@@ -97,6 +97,9 @@ body {
 .padding_15 {
   padding: 15px;
 }
+.side_padding_15 {
+  padding:0 15px 0 15px;
+}
 .margin_top_15 {
   margin-top:15px;
 }
@@ -362,7 +365,7 @@ body {
   color:#333;
   margin:15px 15px 25px 15px;
   font-size:16pt;
-  color:#D87320;
+  color:#F08024;
 }
 .whychoose_image_row {
   margin:15px 15px;
@@ -439,7 +442,16 @@ body {
   font-style: italic;
   padding: 10px 10px 0 10px;
   border-top: 1px solid #DDD;
+
+  /** Used for compatibility in firefox/IE **/
+  margin-right: 2em;
+  margin-left: -2em;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
 }
+
 .testimonial_credits {
   float:right;
   margin-right:40px;
@@ -518,7 +530,7 @@ body {
 }
 .aboutus_header {
   font-size:16pt;
-  color:#D87320;
+  color:#F08024;
   margin-bottom:15px;
 }
 .aboutus_content {
@@ -528,7 +540,7 @@ body {
   padding-bottom: 30px;
 }
 .about_bold {
-  color:#D87320;
+  color:#F08024;
 }
 
 /** Listing Styles **/
@@ -794,6 +806,33 @@ body {
   margin-right:3px;
 }
 
+/** Local Partners Page **/
+
+.generic_logo {
+  opacity: 0.5;
+}
+.partner_groups {
+  float:none;
+  width:100%;
+  padding-bottom: 15px;
+}
+.partner_wrapper {
+  float:none;
+  width:412px;
+  margin: 5px 0px 10px 15px;
+  display:inline-block;
+  padding: 0 9px 9px 9px;
+  border-radius: 3px;
+  border: 1px solid #e3e3e3;
+}
+.partner_name{
+  font-size: 18px;
+  font-weight: 400;
+  padding:5px 0 2px 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
 /** Resources Page **/
 
 .resources_container {
@@ -802,6 +841,7 @@ body {
 
 .tips_header{
   font-size:16pt;
+  color:#F08024;
 }
 .resources_tips_container {
   margin:15px 15px 0 15px;

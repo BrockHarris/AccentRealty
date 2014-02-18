@@ -1,7 +1,7 @@
 class AddResponseAndReadToMessagesAndQuestions < ActiveRecord::Migration
   def change
-  	add_column :messages, :response_subject, :string
-  	add_column :messages, :response_body, :text
-  	add_column :messages, :responded_to, :boolean, :default => false
+  	add_column :pagecontents, :photo_file_name, :string
+  	add_column :pagecontents, :photo_file_type, :string
+  	add_column :pagecontents, :photo_file_size, :integer
   end
 end

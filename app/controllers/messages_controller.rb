@@ -3,10 +3,17 @@ class MessagesController < ApplicationController
 	def create
     @message = Message.new(params[:message])
     if @message.valid?
-      ContactMailer.new_message(@message).deliver
-      @message.save
-      flash[:success] = "Message sent. We'll get back to you shortly!"
-      redirect_to root_path
+      if @message.newsletter = true
+        ContactMailer.send_newsletter(@message)
+        @message.save
+        flash[:success] = "Newsletter successfully sent."
+        redirect_to (:back)
+      else
+        ContactMailer.new_message(@message).deliver
+        @message.save
+        flash[:success] = "Message sent. We'll get back to you shortly!"
+        redirect_to root_path
+      end
     else
       flash[:error] = "Please make sure the entire form is complete."
       redirect_to (:back)

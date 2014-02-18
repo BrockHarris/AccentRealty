@@ -1,6 +1,6 @@
 $(function(){ 
   var rotating = true;
-  var clientspeed = 4500;
+  var clientspeed = 100005500;
   var seeclients = setInterval(rotateTestimonials, clientspeed);
 
   $(document).on({

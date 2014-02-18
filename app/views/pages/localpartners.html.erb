@@ -1,30 +1,52 @@
-<div class="main_panel_container">
-	<div class="well well-sm tips_header">Local Partners</div>
+<div class="main_panel_container side_padding_15">
+	<% unless @page_header.empty? %>
+		<% @page_header.each do |pagecontent| %>
+			<div class="well well-sm tips_header"><%= pagecontent.page_header %></div>
+		<% end %>
+	<% else %>
+		<div class="well well-sm tips_header">Local Partners</div>
+	<% end %>
+
 	<div class="resources_tips_container">
+		<% unless @page_contents.empty? %>
 
-		<div class="media">
-  		<div class="media-body">
-   			<h4 class="media-heading">Local Partner 1</h4>
-   			&nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  		
-   		</div>
-		</div>
+			<% @page_contents.group_by(&:partner_type).each do |partner_type, partners| %>
+			<div class="partner_groups">
+  			<h4 class="community_header"><%= partner_type.pluralize.titlecase %></h4>
+  				
+  			<% partners.each do |partner| %>
+  				<div class="partner_wrapper">
+  					<div class="partner_name"><%= partner.partner_name %></div>
+  					<div class="row">
+  						<div class="col-xs-3">
+  							<%= render_partner_logo(partner, :small) %>
+  						</div>
+  						<div class="col-xs-9" style="padding-left:0; margin-left:-5px;">
+  							<% unless partner.partner_phone.blank? %>
+    							<b>Phone:</b> <%= partner.partner_phone %><br/>
+    						<% end %>
 
-		<hr/>
+    						<% unless partner.partner_email.blank? %>
+    							<b>Email:</b> <%= partner.partner_email %><br/>
+    						<% end %>
 
-		<div class="media">
- 			<div class="media-body">
-   			<h4 class="media-heading">Local Partner 2</h4>
-    		&nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  		</div>
-		</div>
+    						<% unless partner.partner_link.blank? %>
+    							<b>Web:</b> <%= link_to strip_url(partner.partner_link), partner.partner_link %><br/>
+    						<% end %>
+    					</div>
+    				</div>
+    				<% unless partner.section_body.blank? %>
+    					<hr class="small_hr">
+    					<%= simple_format partner.section_body %>
+    				<% end %>
+   				</div>
+ 				<% end %>	
 
-		<hr/>
-		
-		<div class="media">
-  		<div class="media-body">
-    		<h4 class="media-heading">Local Partner 3</h4>
-   			&nbsp; Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  		</div>
-		</div>
-	</div>	
+ 				</div>
+ 			<% end %>
+		<% else %>
+		  <div class="center_text padding_15">No Page Content</div>
+		  <hr/>
+		<% end %>
+	</div>
 </div>

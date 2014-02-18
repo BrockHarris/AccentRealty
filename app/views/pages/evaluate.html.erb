@@ -7,7 +7,7 @@
       
       <div class="panel-body">
       <p class="evaluation_subheader"> 
-        &nbsp; We are pleased to provide you with information on the current value of your home. This is a free service offered by Accent Realty. Your market evaluation will arrive via e-mail soon. In order to provide your free Market Analysis, please fill out the requested information below.
+        &nbsp; Accent Realty is pleased to provide you with information on the current value of your home. Please complete the requested information below in order to receive this free market analysis. Look forward to hearing from you!
       </p>
         <div class="form-group center">
           <%= form_for @evaluation, :html=> { :multipart => true} do |f| %>
@@ -58,8 +58,8 @@
                 <%= f.label :property_city, "City" %>
                 <%= f.text_field :property_city, :class => "form-control" %>
 
-                <%= f.label :property_state, "State" %><br/>
-                <%= f.select(:property_state, ne_states, {}, { :class => 'form-control' }) %>
+                <%= f.label :property_state, "State" %>
+                <%= f.select(:property_state, [['Connecticut', 'Connecticut']], {}, { :class => 'form-control' }) %>
 
                 <%= f.label :property_zip, "Zip" %>
                 <%= f.text_field :property_zip, :class => "form-control" %>
@@ -71,9 +71,6 @@
 
                 <%= f.label :sellingdate, "Planning to Sell" %>
                 <%= f.select(:sellingdate, [['30 Days', '30 Days'], ['60 Days', '60 Days'], ['90 Days', '90 Days'], ['6 Months', '6 Months'], ['1 Year', '1 Year']], {}, { :class => 'form-control' }) %>
-                
-                <%= f.label :movingto, "Where will you be moving?" %>
-                <%= f.text_field :movingto, :class => "form-control" %>
                 
                 <%= f.label :resident, "Resident Status" %>
                 <%= f.select(:resident, [['Primary Residence', 'Primary Residence'], ['Secondary Residence', 'Secondary Residence'], ['Vacation', 'Vacation'], ['Rental', 'Rental']], {}, { :class => 'form-control' }) %>
@@ -135,12 +132,6 @@
 
             <div class="row">
               <div class="col-xs-12">
-                <%= f.check_box :waterview, {}, false, true %>
-                <%= f.label :waterview, "Waterview", :class=>"evaluation_check_labels" %>
-                  
-                <%= f.check_box :waterfront, {}, false, true %>
-                <%= f.label :waterfront, "Waterfront", :class=>"evaluation_check_labels" %>
-                  
                 <%= f.check_box :pool, {}, false, true %>
                 <%= f.label :pool, "Pool", :class=>"evaluation_check_labels" %>
               </div>

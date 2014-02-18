@@ -1,11 +1,12 @@
 <div class="row main_panel_container">
   <div class="col-xs-9">
 
-<div class="panel-group" id="accordion">
+  <div class="panel-group" id="accordion">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Create New Administrator</a>
+          <span class="glyphicon glyphicon-plus"></span>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">New Administrator</a>
         </h3>
       </div>
       <div id="collapseOne" class="panel-collapse collapse">
@@ -32,7 +33,8 @@
     <div class="panel panel-default" id="accordion">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Create New User</a>
+          <span class="glyphicon glyphicon-plus"></span>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">New User</a>
         </h3>
       </div>
       <div id="collapseTwo" class="panel-collapse collapse">
@@ -60,14 +62,15 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Site Administrators</h3>
+        <h3 class="panel-title">Site Administrators
+          <span class="badge pull-right"><% if @show_admins.count > 0 %><%= @show_admins.count %><% end %></span>
+        </h3>
       </div>
       
       <div class="panel-body no_side_padding">
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>#</th>
               <th>Username</th>
               <th>First</th>
               <th>Last</th>
@@ -78,7 +81,6 @@
           <tbody>
             <% @show_admins.each do |admin|%> 
               <tr>
-                <td><%= admin.id %></td> 
                 <td><%= best_in_place admin, :username, :classes => "inline_field" %></td> 
                 <td><%= best_in_place admin, :firstname, :classes => "inline_field" %></td> 
                 <td><%= best_in_place admin, :lastname, :classes => "inline_field" %></td> 
@@ -99,31 +101,29 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Registered Users</h3>
+        <h3 class="panel-title">Registered Users
+          <span class="badge pull-right"><% if @list_users.count > 0 %><%= @list_users.count %><% end %></span>
+        </h3>
       </div>
       
       <div class="panel-body no_side_padding">
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>#</th>
               <th>Email</th>
               <th>First</th>
               <th>Last</th>
-              <th>Blog Updates</th>
-              <th>News Updates</th>
+              <th>Newsletter</th>
               <th></th>
             <tr>
           </thead>
           <tbody>
             <% for user in @list_users %>
               <tr>
-                <td><%= user.id %></td> 
                 <td><%= user.email %></td> 
                 <td><%= user.firstname %></td> 
                 <td><%= user.lastname %></td> 
-                <td><%= user.updates_blog_posts %></td> 
-                <td><%= user.updates_news %></td> 
+                <td><%= convert_to_yesno(user.updates_news) %></td> 
                 <td><%= button_to "Delete", user_path(user), :method => :delete, :class => "btn btn-danger btn-xs", :confirm => "Are you sure you want to delete this user?" %>
                 </td>
               <tr>

@@ -6,6 +6,9 @@ gem 'json'
 gem 'therubyracer'  # required for Bootstrap-rails #
 gem 'less-rails-bootstrap'
 gem 'nokogiri'
+gem 'paperclip'
+gem 'aws-s3'
+gem 'aws-sdk'
 gem 'jquery-ui-rails'
 
 group :assets do

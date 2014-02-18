@@ -39,7 +39,6 @@
                         <b>Relationship:</b> <%= evaluation.relationship %><br/>
                         <b>Resident Status:</b> <%= evaluation.resident %><br/>
                         <b>Plan To Sell:</b> <%= evaluation.sellingdate %> from now<br/>
-                        <b>Moving To:</b> <%= evaluation.movingto %> from now<br/>
                         <b>Listing Status:</b> <%= evaluation.listingstatus %><br/><br/>
 
                         <h4 class="community_header">Agent Information</h4>
@@ -76,9 +75,7 @@
                         <b>Basement:</b> <%= evaluation.basement %><br/>
                         <b>Parking:</b> <%= evaluation.parking %> | <b>Spaces:</b> <%= evaluation.spaces %><br/>
                         <b>Lot Size:</b> <%= evaluation.lotsize %> | <b>Sq feet:</b> <%= evaluation.sqfeet %><br/>
-                        <b>Pool:</b> <%= convert_to_yesno(evaluation.pool) %> |
-                        <b>Waterfront:</b> <%= convert_to_yesno(evaluation.waterfront) %> |
-                        <b>Waterview:</b> <%= convert_to_yesno(evaluation.waterview) %> |                    
+                        <b>Pool:</b> <%= convert_to_yesno(evaluation.pool) %>                 
                       </div>
                     </div><br/>
                     <h4 class="community_header">Comments</h4>

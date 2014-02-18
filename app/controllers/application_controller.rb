@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def unread_messages
-    @unread_messages = Message.where(:read => false, :responded_to => false)
+    @unread_messages = Message.where(:read => false, :responded_to => false, :newsletter => false)
   end
 
   def pending_questions

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140211070027) do
+ActiveRecord::Schema.define(:version => 20140218011768) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -107,12 +107,13 @@ ActiveRecord::Schema.define(:version => 20140211070027) do
     t.string   "email"
     t.string   "subject"
     t.text     "body"
-    t.boolean  "read",             :default => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.boolean  "read"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "response_subject"
     t.text     "response_body"
-    t.boolean  "responded_to",     :default => false
+    t.boolean  "responded_to"
+    t.boolean  "newsletter",       :default => false
   end
 
   create_table "pagecontents", :force => true do |t|
@@ -125,6 +126,14 @@ ActiveRecord::Schema.define(:version => 20140211070027) do
     t.boolean  "is_header",        :default => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_file_type"
+    t.integer  "photo_file_size"
+    t.string   "partner_name"
+    t.string   "partner_email"
+    t.string   "partner_phone"
+    t.string   "partner_link"
+    t.string   "partner_type"
   end
 
   add_index "pagecontents", ["page_type"], :name => "index_pagecontents_on_page_type"

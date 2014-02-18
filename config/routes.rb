@@ -2,6 +2,7 @@ AccentRealty::Application.routes.draw do
 
 	match '/admin_login', :to => 'admins#admin_start'
   match '/admin/settings', :to => 'admins#settings'
+  match '/admin/newsletter', :to => 'admins#newsletter'
   match '/admin/users', :to => 'admins#users'
   match '/admin/blog', :to => 'admins#blogposts'
   match '/admin/messages', :to => 'admins#messages'

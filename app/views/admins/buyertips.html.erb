@@ -9,7 +9,7 @@
     				<% @page_header.each do |pagecontent| %>
    						<div class="panel panel-default">
      						<div class="panel-heading">
-									<h4 class="panel-title"><%= pagecontent.page_header %></h4>
+									<h3 class="panel-title"><%= pagecontent.page_header %></h3>
         					<a data-toggle="collapse" data-parent="#accordion" class="panel_edit_link" href="#collapse<%= pagecontent.id %>">Edit</a> 
       					</div>
       					<div id="collapse<%= pagecontent.id %>" class="panel-collapse collapse">
@@ -35,7 +35,7 @@
 
     				<div class="panel panel-default">
       				<div class="panel-heading">
-								<h4 class="panel-title">Tips for Buyers</h4>
+								<h3 class="panel-title">Tips for Buyers</h3>
        					<a data-toggle="collapse" data-parent="#accordion" class="panel_edit_link" href="#collapseOne">Edit</a> 
      					</div>
      					<div id="collapseOne" class="panel-collapse collapse">
@@ -61,7 +61,7 @@
     				<% @pagecontents.each do |pagecontent| %>
     					<div class="panel panel-default" style="background-color:#FFF; margin:15px;" >
       					<div class="panel-heading" style="background-color:#FAFAFA;" >
-      						<h4 class="panel-title"><%= pagecontent.section_title %></h4>
+      						<h3 class="panel-title"><%= pagecontent.section_title %></h3>
              			<a data-toggle="collapse" data-parent="#accordion" class="panel_edit_link" href="#collapse<%= pagecontent.id %>">Edit</a> 
              			<div class="panel_section_body"><%= pagecontent.section_body %></div>
       					</div>
@@ -87,10 +87,10 @@
 
     			<div class="panel panel-default" style="background-color:#FFF; margin:15px;">
      				<div class="panel-heading" style="background-color:#FAFAFA;">
-      				<h4 class="panel-title">
+      				<h3 class="panel-title">
       					<span class="glyphicon glyphicon-plus"></span>
-           			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Add Section</a>
-         			</h4>	
+           			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">New Section</a>
+         			</h3>	
        			</div>
      				<div id="collapseTwo" class="panel-collapse collapse">
         			<div class="panel-body">

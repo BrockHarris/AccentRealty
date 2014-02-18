@@ -33,4 +33,15 @@ class ContactMailer < ActionMailer::Base
     @evaluation = evaluation
     mail(to: @evaluation.email, subject: "#{evaluation.response_subject}")
   end
+
+  def self.send_newsletter(message)
+    @recipients = User.where(:updates_news => true)
+    @recipients.each do |recipient|
+       newsletter(recipient, message).deliver
+    end
+  end
+
+  def newsletter(recipient, message)
+     mail(to: recipient.email, subject: "#{message.subject}")
+  end
 end

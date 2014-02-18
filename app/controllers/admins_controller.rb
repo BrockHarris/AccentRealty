@@ -37,6 +37,11 @@ class AdminsController < ApplicationController
 		@list_users = User.all
 	end
 
+	def newsletter
+		@users = User.where(:updates_news => true)
+		@sent_newsletters = Message.where(:newsletter => true)
+	end
+
 	def users
 		@new_admin = Admin.new
 		@new_user = User.new
@@ -46,13 +51,13 @@ class AdminsController < ApplicationController
 	end
 
 	def messages 
-		@sent_messages = Message.where(:responded_to => true)
-		@read_messages = Message.where(:read => true, :responded_to => false)
+		@sent_messages = Message.where(:responded_to => true, :newsletter => false)
+		@read_messages = Message.where(:read => true, :responded_to => false, :newsletter => false)
 		@skip_sign_in = true
 	end
 
 	def questions
-		@published_questions = Question.where(:published => true)
+		@published_questions = Question.where(:responded_to => true, :published => true)
 		@unpublished_questions = Question.where(:responded_to => true, :published => false)
 		@skip_sign_in = true
 	end
@@ -63,8 +68,9 @@ class AdminsController < ApplicationController
 	end
 
 	def local_partners # page_type = 1 #
+		@page_header = Pagecontent.where(:page_type => 1, :is_header => true).take(1)
 		@pagecontent = Pagecontent.new
-		@pagecontents = Pagecontent.where(:page_type => 1)
+		@pagecontents = Pagecontent.where(:page_type => 1, :is_header => false)
 	end
 
 	def buyertips # page_type = 2 #
