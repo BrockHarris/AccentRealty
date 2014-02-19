@@ -4,15 +4,13 @@ class ContactMailer < ActionMailer::Base
   def new_evaluation(evaluation)
     @evaluation = evaluation
     @url = "http://accentrealtytest.herokuapp.com#{admin_evaluations_path}"
-    mail(to: "btharris781@gmail.com", subject: "New Evaluation Request From: #{evaluation.firstname}")
-    # mail(to: "inna@innarealestate.com", subject: "New Message From: #{message.name}")
+    mail(to: "inna@innarealestate.com", subject: "New Evaluation Request From: #{evaluation.firstname}")
   end
 
   def new_message(message)
     @message = message
     @url = "http://accentrealtytest.herokuapp.com#{admin_messages_path}"
-    mail(to: "btharris781@gmail.com", subject: "New Message From: #{message.name}")
-    # mail(to: "inna@innarealestate.com", subject: "New Message From: #{message.name}")
+    mail(to: "inna@innarealestate.com", subject: "New Message From: #{message.name}")
   end
 
   def message_response(message)
@@ -23,8 +21,7 @@ class ContactMailer < ActionMailer::Base
   def new_question(question)
     @question = question
     @url = "http://accentrealtytest.herokuapp.com#{admin_questions_path}"
-    mail(to: "btharris781@gmail.com", subject: "New Question From: #{question.email}")
-    # mail(to: "inna@innarealestate.com", subject: "New Question From: #{question.email}")
+    mail(to: "inna@innarealestate.com", subject: "New Question From: #{question.email}")
   end
 
   def question_response(question)
