@@ -8,6 +8,7 @@ class CreateAdmins < ActiveRecord::Migration
       t.boolean   :owner, :default=>false
       t.string    :firstname
       t.string    :lastname
+      t.datetime  :deleted_at
       t.timestamps
     end
   end

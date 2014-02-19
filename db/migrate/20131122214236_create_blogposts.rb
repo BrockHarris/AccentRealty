@@ -6,6 +6,7 @@ class CreateBlogposts < ActiveRecord::Migration
       t.string   :category
       t.text     :heading
       t.text     :body
+      t.datetime  :deleted_at
       t.timestamps
     end
     add_index :blogposts, :admin_id

@@ -43,7 +43,9 @@ class CreateEvaluations < ActiveRecord::Migration
       t.string  :request_agent_firstname
       t.string  :request_agent_lastname
       t.boolean :read, :default=>false
-
+      t.string  :response_subject
+      t.text    :response_body
+      t.integer :admin_id
       t.timestamps
     end
   end
