@@ -1,8 +1,37 @@
 <div class="row main_panel_container">
   <div class="col-xs-9">
-
-  <div class="panel-group" id="accordion">
     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">My Account Settings</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for admin_user, :html=> { :multipart => true} do |f| %>
+          <div class="row">
+            <div class="col-xs-6">
+              <%= f.label :username, "Username:" %>
+              <%= f.text_field :username, :class => "form-control" %>
+              <%= f.label :firstname, "First Name:" %>
+              <%= f.text_field :firstname, :class => "form-control" %>
+              <%= f.label :lastname, "Last Name:" %>
+              <%= f.text_field :lastname, :class => "form-control" %> 
+            </div>
+            <div class="col-xs-6">
+              <%= f.label :email, "Email:" %>
+              <%= f.text_field :email, :class => "form-control" %> 
+              <%= f.label :password, "New Password:" %>
+              <%= f.password_field :password, :class => "form-control" %>
+              <%= f.label :password_confirmation, "Confirm Password:" %>
+              <%= f.password_field :password_confirmation, :class => "form-control" %><br/>
+              <%= f.submit 'Save', :class => "btn btn-warning pull-right" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  
+    <hr>
+
+    <div class="panel panel-default" id="accordion">
       <div class="panel-heading">
         <h3 class="panel-title">
           <span class="glyphicon glyphicon-plus"></span>
@@ -20,9 +49,9 @@
               </div>
               <div class="col-xs-6">
                 <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %> <br/>
-                <%= f.password_field :password, :class => "form-control", :placeholder => "New Password" %><br/>
-                <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm New Password" %><br/>
-                <%= f.submit 'Submit', :class => "btn btn-warning pull-right" %>
+                <%= f.password_field :password, :class => "form-control", :placeholder => "Choose Password" %><br/>
+                <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %><br/>
+                <%= f.submit 'Create', :class => "btn btn-warning pull-right" %>
               </div>
             </div>
           <% end %>
@@ -30,35 +59,6 @@
       </div>
     </div>
 
-    <div class="panel panel-default" id="accordion">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <span class="glyphicon glyphicon-plus"></span>
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">New User</a>
-        </h3>
-      </div>
-      <div id="collapseTwo" class="panel-collapse collapse">
-        <div class="panel-body">
-          <%= form_for @new_user, :html=> { :multipart => true} do |f| %>
-            <div class="row">
-              <div class="col-xs-6">
-                <%= f.text_field :firstname, :class => "form-control", :placeholder => "First Name" %> <br/>
-                <%= f.text_field :lastname, :class => "form-control", :placeholder => "Last Name" %> <br/>
-                <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %> <br/>
-              </div>
-              <div class="col-xs-6">
-                <%= f.password_field :password, :class => "form-control", :placeholder => "New Password" %><br/>
-                <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm New Password" %><br/>
-                <%= f.submit 'Submit', :class => "btn btn-warning pull-right" %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <hr>
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -99,6 +99,35 @@
       </div>
     </div>
 
+    <hr>
+
+    <div class="panel panel-default" id="accordion">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <span class="glyphicon glyphicon-plus"></span>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">New User</a>
+        </h3>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse">
+        <div class="panel-body">
+          <%= form_for @new_user, :html=> { :multipart => true} do |f| %>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.text_field :firstname, :class => "form-control", :placeholder => "First Name" %> <br/>
+                <%= f.text_field :lastname, :class => "form-control", :placeholder => "Last Name" %> <br/>
+                <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %> <br/>
+              </div>
+              <div class="col-xs-6">
+                <%= f.password_field :password, :class => "form-control", :placeholder => "New Password" %><br/>
+                <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm New Password" %><br/>
+                <%= f.submit 'Submit', :class => "btn btn-warning pull-right" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Registered Users
@@ -133,6 +162,7 @@
       </div>
     </div>
   </div>
+
   <div class="col-xs-3">
     <%= render 'admins/admin_sidebar' %>
   </div>

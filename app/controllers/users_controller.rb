@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_id(params[:id])
+    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = "Account settings saved."
       redirect_to (:back)

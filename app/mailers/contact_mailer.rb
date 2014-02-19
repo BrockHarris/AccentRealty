@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default :from => "Inna@accentrealtyus.com"
+  default :from => "Accent Realty <Inna@accentrealtyus.com>"
 
   def new_evaluation(evaluation)
     @evaluation = evaluation
@@ -42,6 +42,7 @@ class ContactMailer < ActionMailer::Base
   end
 
   def newsletter(recipient, message)
-     mail(to: recipient.email, subject: "#{message.subject}")
+    @message = message
+    mail(to: recipient.email, subject: "#{message.subject}")
   end
 end

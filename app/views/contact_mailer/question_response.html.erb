@@ -1,1 +1,11 @@
-Body: <%= @question.response %>
+<%= render "shared/email_top" %>
+	<div class="container">
+		<%= simple_format @question.response %><br/>
+		<div class="contact_info">
+      <strong>Phone:</strong> (860) 539-5885<br/>
+      <strong>Fax:</strong> (860) 404-7705<br/>
+      Inna@accentrealtyus.com
+    </div>
+	</div>
+	<div class="email_footer">Accent Realty, LLC &copy; 2014</div>
+<%= render "shared/email_bottom" %>

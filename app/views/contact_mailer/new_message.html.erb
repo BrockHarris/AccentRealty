@@ -1,7 +1,15 @@
-Name: <%= @message.name %>
-
-Email: <%= @message.email %>
-
-Subject: <%= @message.subject %>
-
-Body: <%= @message.body %>
+<%= render "shared/email_top" %>
+	<div class="container">
+		Hi Inna,<br/><br/>
+		<strong><%= @message.name %></strong> has sent you a message via your website:<br/>
+		<br/>
+		<strong>Subject:</strong><br/><%= @message.subject %><br/>
+		<strong>Message:</strong><br/><%= @message.content %><br/>
+		<br/>
+		You can view this message and repsond to it <%= link_to "here", admin_messages_path %>.<br/>
+		<br/>
+		Sincerely,<br/>
+		Accent Realty Automated Services
+	</div>
+	<div class="email_footer">Accent Realty, LLC &copy; 2014</div>
+<%= render "shared/email_bottom" %>

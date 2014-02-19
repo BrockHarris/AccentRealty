@@ -7,9 +7,17 @@ class Blogpost < ActiveRecord::Base
 
   default_scope where("blogposts.deleted_at IS NULL")
 
+  before_save :handle_formatting
+
+  def handle_formatting
+    unless category.blank?
+      self.category.downcase
+    end
+  end
+
   def self.search(search)
   	if search
-    	find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+    	find(:all, :conditions => ['title || category LIKE ?', "%#{search}%"])
   	else
     	find(:all)
   	end

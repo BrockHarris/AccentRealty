@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 	def create
     @message = Message.new(params[:message])
     if @message.valid?
-      if @message.newsletter = true
+      if @message.newsletter
         ContactMailer.send_newsletter(@message)
         @message.save
         flash[:success] = "Newsletter successfully sent."

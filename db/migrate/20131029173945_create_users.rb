@@ -7,8 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :password_salt
       t.string    :firstname
       t.string    :lastname
-      t.boolean   :updates_news, :default=>true
-      t.boolean   :updates_blog_posts, :default=>false
+      t.boolean   :updates_news, :default => false
+      t.boolean   :updates_blog_posts, :default => false
       t.datetime  :deleted_at
       t.string 		:state #nix
       t.string    :mode #nix

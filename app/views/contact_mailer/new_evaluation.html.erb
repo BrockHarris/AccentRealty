@@ -1,0 +1,16 @@
+<%= render "shared/email_top" %>
+	<div class="container">
+		Hi Inna,<br/><br/>
+		<strong><%= @evaluation.firstname %> <%= @evaluation.lastname %></strong> has requested an evaluation of their home's value.
+		<%= @evaluation.firstname %> provided the following contact information:<br/>
+		<br/>
+		<strong>Email:</strong> <%= @evaluation.email %><br/>
+		<strong>Phone:</strong> <%= @evaluation.phone %><br/>
+		<br/>
+		You can view the details of this request and repsond to it <%= link_to "here", admin_evaluations_path %>.<br/>
+		<br/>
+		Sincerely,<br/>
+		Accent Realty Automated Services
+	</div>
+	<div class="email_footer">Accent Realty, LLC &copy; 2014</div>
+<%= render "shared/email_bottom" %>

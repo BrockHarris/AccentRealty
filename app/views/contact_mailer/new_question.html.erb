@@ -1,0 +1,14 @@
+<%= render "shared/email_top" %>
+	<div class="container">
+		Hi Inna,<br/><br/>
+		A new question from <strong><%= @question.email %></strong> has been asked:<br/>
+		<br/>
+		<strong>Q:</strong> "<%= @question.content %>"<br/>
+		<br/>
+		You can view this question and repsond to it <%= link_to "here", admin_questions_path %>.<br/>
+		<br/>
+		Sincerely,<br/>
+		Accent Realty Automated Services
+	</div>
+	<div class="email_footer">Accent Realty, LLC &copy; 2014</div>
+<%= render "shared/email_bottom" %>
