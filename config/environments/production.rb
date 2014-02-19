@@ -65,5 +65,5 @@ AccentRealty::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  SITE_URL_HOST = "www.accentrealtyus.com"
+  SITE_URL_HOST = "accentrealtytest.herokuapp.com"
 end

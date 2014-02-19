@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Search results for "<%= params[:search] %>"</h3>
+        <h3 class="panel-title"><%= @results.count %> Results for <u><%= params[:search] %></u></h3>
         <%= link_to "Back", (:back), :class=>"blog_back_link" %>
       </div>
       <div class="panel-body">

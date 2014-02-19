@@ -3,6 +3,7 @@ class ContactMailer < ActionMailer::Base
 
   def new_evaluation(evaluation)
     @evaluation = evaluation
+    @url = "#{SITE_URL_HOST}#{admin_evaluations_path}"
     mail(to: "btharris781@gmail.com", subject: "New Evaluation Request From: #{evaluation.firstname}")
     # mail(to: "inna@innarealestate.com", subject: "New Message From: #{message.name}")
   end
