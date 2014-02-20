@@ -24,6 +24,9 @@ class PagesController < ApplicationController
 		@evaluation = Evaluation.new
 	end
 
+	def disclaimer
+	end
+
 	def contact
 		@message = Message.new
 	end
