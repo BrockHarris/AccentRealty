@@ -31,7 +31,7 @@
     						<% end %>
 
     						<% unless partner.partner_email.blank? %>
-    							<b>Email:</b> <%= partner.partner_email %><br/>
+    							<b>Email:</b> <%= mail_to partner.partner_email %><br/>
     						<% end %>
 
     						<% unless partner.partner_link.blank? %>
