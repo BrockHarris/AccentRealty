@@ -48,7 +48,10 @@ module ApplicationHelper
     url.sub!(/https\:\/\/www./, '') if url.include? "https://www."
     url.sub!(/http\:\/\/www./, '')  if url.include? "http://www."
     url.sub!(/www./, '')            if url.include? "www."
-
     return url
+  end
+
+  def check_http(url)
+    /^http/.match(url) ? url : "http://#{url}"
   end
 end

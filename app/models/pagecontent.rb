@@ -6,12 +6,13 @@ class Pagecontent < ActiveRecord::Base
   has_attached_file :photo,
                     :styles => {
                     :thumb => "50x50#",
-                    :small=> "75x75#",
+                    :small=> "75x75!",
                     :medium=> "100x100#",
                     :large  => "136x136#" },
                     :storage => :s3,
                     :s3_credentials => "#{Rails.root}/config/s3.yml",
-                    :path => "/:style/:id/:filename" 
+                    :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
+                    :url => "/system/:attachment/:id/:style/:filename"
 
   before_save :handle_formatting
 

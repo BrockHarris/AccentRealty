@@ -27,6 +27,9 @@ class PagesController < ApplicationController
 	def disclaimer
 	end
 
+	def eop_disclaimer
+	end
+
 	def contact
 		@message = Message.new
 	end

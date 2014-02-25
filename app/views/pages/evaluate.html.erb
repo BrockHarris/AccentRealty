@@ -37,7 +37,7 @@
                 <%= f.text_field :city, :class => "form-control" %>
 
                 <%= f.label :state, "State" %>
-                <%= f.select(:state, ne_states, {}, { :class => 'form-control' }) %>
+                <%= f.select(:state, [['Connecticut', 'Connecticut']], {}, { :class => 'form-control' }) %>
 
                 <%= f.label :zip, "Zip" %>
                 <%= f.text_field :zip, :class => "form-control" %>

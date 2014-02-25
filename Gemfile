@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'pg'
+# gem 'pg'
 gem 'json'
 gem 'therubyracer'  # required for Bootstrap-rails #
 gem 'less-rails-bootstrap'
 gem 'nokogiri'
-gem 'paperclip'
+gem 'paperclip', '3.3.1'
 gem 'aws-s3'
 gem 'aws-sdk'
 gem 'jquery-ui-rails'

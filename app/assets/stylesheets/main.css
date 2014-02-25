@@ -286,6 +286,9 @@ body {
 .disclaimer_content {
   padding-bottom:20px;
 }
+.eop_image {
+  margin-top:5px;
+}
 
 /** User-facing Home Page **/
 
@@ -307,13 +310,13 @@ body {
   color:#DDD;
 }
 .carousel_item_stat {
-  font-size:11pt;
+  font-size:16px;
   color:#CCC;
 }
 
 .carousel_caption {
   padding:10px 15px 10px 15px;
-  font-weight: 200;
+  font-weight: 400;
   width:auto;
   background-color:rgba(0,0,0,0.6);
   left:0;
@@ -387,7 +390,7 @@ body {
   padding:5px;
   font-size: 16px;
   text-align: center;
-  font-weight: 200;
+  font-weight: 400;
   color:#FFF;
   background-color:rgba(0,0,0,0.5);
   border-radius: 0px 0px 6px 6px;
@@ -399,9 +402,6 @@ body {
   -webkit-transition: all 0.2s ;
   -moz-transition: all 0.2s ;
   transition: all 0.2s ;
-}
-.whychoose_image_label:hover {
-  padding:10px;
 }
 .whychoose_image {
   width:100%;
@@ -555,8 +555,16 @@ body {
   color:#F08024;
 }
 
-/** Listing Styles **/
+/** Embedded Listings **/
 
+.listings_embed {
+  margin:5px auto 0px auto;
+  width:755px;
+  display:block;
+
+}
+
+/** Listing Styles **/
 
 .search_panel {
   margin:15px;
@@ -837,12 +845,21 @@ body {
   border-radius: 3px;
   border: 1px solid #e3e3e3;
 }
+.partner_h {
+  font-size:21px;
+  color:#F08024;
+}
 .partner_name{
   font-size: 18px;
   font-weight: 400;
   padding:5px 0 2px 0;
   margin-bottom: 8px;
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid #eee;
+}
+.partner_logo_spacer {
+  float:left;
+  display: block;
+  margin:10px;
 }
 
 /** Resources Page **/

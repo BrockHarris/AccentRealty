@@ -12,15 +12,19 @@
 
 			<% @page_contents.group_by(&:partner_type).each do |partner_type, partners| %>
 			<div class="partner_groups">
-  			<h4 class="community_header"><%= partner_type.pluralize.titlecase %></h4>
+  			<h4 class="community_header partner_h"><%= partner_type.pluralize.titlecase %></h4>
   				
   			<% partners.each do |partner| %>
   				<div class="partner_wrapper">
   					<div class="partner_name"><%= partner.partner_name %></div>
   					<div class="row">
-  						<div class="col-xs-3">
-  							<%= render_partner_logo(partner, :small) %>
-  						</div>
+              <% if partner.photo.exists? %>
+  						  <div class="col-xs-3">
+  							  <%= render_partner_logo(partner, :small) %>
+  						  </div>
+              <% else %>
+                <div class="partner_logo_spacer"></div>
+              <% end %>
   						<div class="col-xs-9" style="padding-left:0; margin-left:-5px;">
   							<% unless partner.partner_phone.blank? %>
     							<b>Phone:</b> <%= partner.partner_phone %><br/>
@@ -31,7 +35,7 @@
     						<% end %>
 
     						<% unless partner.partner_link.blank? %>
-    							<b>Web:</b> <%= link_to strip_url(partner.partner_link), partner.partner_link %><br/>
+    							<b>Web:</b> <%= link_to strip_url(partner.partner_link), check_http(partner.partner_link) %><br/>
     						<% end %>
     					</div>
     				</div>

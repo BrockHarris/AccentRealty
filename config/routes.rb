@@ -27,6 +27,7 @@ AccentRealty::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match '/blog', :to => 'pages#blog'
   match '/disclaimer', :to => 'pages#disclaimer'
+  match '/eop_disclaimer', :to => 'pages#eop_disclaimer'
   match '/about', :to => 'pages#about'
   match '/evaluate', :to => 'pages#evaluate'
   match '/myaccount', :to => 'users#myaccount'
