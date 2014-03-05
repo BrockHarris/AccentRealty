@@ -788,12 +788,12 @@ body {
 
 /** Admin Panel **/
 
-.active {
+/** .active {
   z-index: 2;
   color: #ffffff;
   background-color: #F08024;
   border-color: #F08024;
-}
+} **/
 .panel_edit_link {
   float:right;
   margin-top:-17px;
