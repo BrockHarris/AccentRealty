@@ -16,23 +16,21 @@
   <div class="header_right">
     <div class="accent_slogan_container">
       <%= image_tag "accent_slogan.png", :class=>"accent_slogan_img" %>
-      <span class="accent_slogan_text"> | <span class="slogan_link">(860) 539-5885</span>
-      </span>
+      <span class="accent_slogan_text"> | <span class="slogan_link">(860) 539-5885</span></span>
     </div>
 
-    <!--<div class="header_icon_container">
-    <%= link_to (image_tag("facebook.png", :size => "40x40")), "https://facebook.com", :class=>"header_icon" %>
-    </div> -->
-
-    <div class="header_search_container">
-      <div class="input-group search_wrapper">
-        <%= text_field_tag :search, params[:search], :class=>"form-control header_form", :placeholder=>"Find Your Home" %>
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-        </span>
+    <div class="header_right_lower">
+      <div class="header_icon_group">
+        <div class="header_icon_bg">
+          <%= link_to (image_tag("email.png", :size => "35x35")), "#", :class=> "header_icon" %>
+        </div>
+        <div class="header_icon_bg">
+          <%= link_to (image_tag("facebook.png", :size => "35x35")), "#", :class=> "header_icon" %>
+        </div>
+        <div class="header_icon_bg">
+          <%= link_to (image_tag("twitter.png", :size => "35x35")), "#", :class=> "header_icon" %>
+        </div>
       </div>
-      <%= link_to "More Options", listings_path, :class=>"header_search_options" %>
-
       <%= render "shared/flash_messages" %>
     </div>
   </div>

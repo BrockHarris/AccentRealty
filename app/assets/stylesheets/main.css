@@ -159,9 +159,9 @@ body {
 #flash {
   min-width: 350px;
   white-space:nowrap;
-  height: auto;
+  min-height: 45px;
   float:right;
-  margin: 10px 0 0px 0;
+  margin: 20px 0 0px 0;
   padding: 15px;
   font-size:10pt;
   text-align:center;
@@ -200,7 +200,7 @@ body {
   margin:0;
 }
 .accent_slogan_container {
-  margin:5px 10px 10px 0;
+  margin:5px 10px 0px 0;
 }
 .accent_slogan_img {
   height:17px;
@@ -221,34 +221,45 @@ body {
 .slogan_link:hover {
   color:#555;
 }
-.header_search_container {
+.header_right_lower {
   width:250px;
   float:right;
+  height:50px;
 }
-.search_wrapper {
+.header_icon_group {
   margin-right: 10px;
+  margin-top: 5px;
+  float:right;
 }
-.header_search_options {
-  float: right;
-  font-size: 13px;
-  opacity: 1.0;
-  padding:3px 3px 0 0;
-  margin-right:8px;
-}
-.header_form {
-  opacity: 0.9;
-  filter:alpha(opacity=90); /* For IE8 and earlier */
-  -webkit-transform: translate3d(0, 0, 0); 
+.header_icon_bg {
+  float:right;
+  width:41px;
+  height:41px;
+  padding:2px 0 0 2px;
+  border-radius: 50%;
+  margin-left:10px;
+  background-color:#EFEFEF;
+  border:1px solid #ccc;
   -webkit-transition: all 0.2s ;
   -moz-transition: all 0.2s ;
   transition: all 0.2s ;
 }
-.header_form:focus {
-  opacity: 1.0;
-  filter:alpha(opacity=100); /* For IE8 and earlier */
-
+.header_icon_bg:hover {
+  border-color:#bbb;
+  background-color: #eee;
 }
-
+.header_icon {
+  opacity: 0.7;
+  -webkit-transition: all 0.2s ;
+  -moz-transition: all 0.2s ;
+  transition: all 0.2s ;
+}
+.header_icon:hover {
+  opacity: 0.9;
+}
+.header_icon:active {
+  opacity: 0.5;
+}
 .nav-wrapper {
   padding:3px 5px 0 5px;
   background: url(nav_bg.jpg) repeat-x;
@@ -355,8 +366,8 @@ body {
 }
 .carousel-indicators .active {
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   margin: 1px;
   text-indent: -999px;
   border: 1px solid rgba(125,125,125,0.9);
@@ -366,8 +377,8 @@ body {
 }
 .carousel-indicators li {
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   margin: 1px;
   text-indent: -999px;
   border: 1px solid rgba(125,125,125,0.9);
