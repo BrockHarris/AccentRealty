@@ -22,10 +22,10 @@
     <div class="header_right_lower">
       <div class="header_icon_group">
         <div class="header_icon_bg">
-          <%= link_to (image_tag("email.png", :size => "35x35")), "#", :class=> "header_icon" %>
+          <%= mail_to "ask@accentrealtyus.com", raw(image_tag("email.png", :size => "35x35", :class=> "header_icon")) %>
         </div>
         <div class="header_icon_bg">
-          <%= link_to (image_tag("facebook.png", :size => "35x35")), "#", :class=> "header_icon" %>
+          <%= link_to (image_tag("facebook.png", :size => "35x35")), "https://www.facebook.com/AccentRealtyUS", :class=> "header_icon" %>
         </div>
         <div class="header_icon_bg">
           <%= link_to (image_tag("twitter.png", :size => "35x35")), "#", :class=> "header_icon" %>
