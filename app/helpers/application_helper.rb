@@ -32,13 +32,13 @@ module ApplicationHelper
     if pagecontent.photo.exists?
       return image_tag pagecontent.photo.url(size)
     else
-      if size = "thumb"
+      if size == "thumb"
         image_tag "generic_logo.png", :size => "75x75", :class=>"generic_logo" 
-      elsif size = "small"
+      elsif size == "small"
         image_tag "generic_logo.png", :size => "75x75", :class=>"generic_logo"  
-      elsif size = "medium"
+      elsif size == "medium"
         image_tag "generic_logo.png", :size => "100x100", :class=>"generic_logo" 
-      elsif size = "large"
+      elsif size == "large"
         image_tag "generic_logo.png", :size => "136x136", :class=>"generic_logo" 
       end
     end
