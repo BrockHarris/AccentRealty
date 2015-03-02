@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218053152) do
+ActiveRecord::Schema.define(:version => 20150225155644) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -155,6 +155,15 @@ ActiveRecord::Schema.define(:version => 20140218053152) do
 
   add_index "questions", ["admin_id"], :name => "index_questions_on_admin_id"
   add_index "questions", ["category"], :name => "index_questions_on_category"
+
+  create_table "simple_captcha_data", :force => true do |t|
+    t.string   "key",        :limit => 40
+    t.string   "value",      :limit => 6
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "simple_captcha_data", ["key"], :name => "idx_key"
 
   create_table "users", :force => true do |t|
     t.string   "email"

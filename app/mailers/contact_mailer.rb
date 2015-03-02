@@ -10,7 +10,8 @@ class ContactMailer < ActionMailer::Base
   def new_message(message)
     @message = message
     @url = "http://www.accentrealtyus.com#{admin_messages_path}"
-    mail(to: "inna@innarealestate.com", subject: "New Message From: #{message.name}")
+    mail(to: "btharris781@gmail.com", subject: "New Message From: #{message.name}")
+    #mail(to: "inna@innarealestate.com", subject: "New Message From: #{message.name}")
   end
 
   def message_response(message)

@@ -134,10 +134,6 @@
               </div>
             </div>
 
-  
-                
-  
-
             <hr>
 
             <div class="row">
@@ -161,16 +157,23 @@
                 <%= f.label :request_agent_firstname, "If not, would you like to request a specific Accent Realty agent?" %>
               </div>
             </div>
+
             <div class="row">
               <div class="col-xs-12">
                 <%= f.text_field :request_agent_firstname, :class => "form-control eval_med_field", :placeholder => "First Name" %>
                 <%= f.text_field :request_agent_lastname, :class => "form-control eval_med_field eval_spc", :placeholder => "Last Name" %>
-                <%= f.submit "Submit", :class => "btn btn-warning pull-right eval_btn" %>
+                
               </div>
             </div>
             
             <hr>
 
+            <div class="row">
+              <div class="col-xs-12">
+                <%= recaptcha_tags :display => {:theme => "clean"} %>
+                <%= f.submit "Submit", :class => "btn btn-warning pull-right eval_btn" %>
+              </div>
+            </div>
           <% end %>
         </div>
       </div>

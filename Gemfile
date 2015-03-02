@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'json'
-gem 'therubyracer'  # required for Bootstrap-rails #
+gem 'therubyracer'  # Required for Bootstrap-rails 
 gem 'less-rails-bootstrap'
 gem 'nokogiri'
 gem 'paperclip', '3.3.1'
@@ -10,6 +10,7 @@ gem 'aws-s3'
 gem 'aws-sdk'
 gem 'pg'
 gem 'jquery-ui-rails'
+gem "recaptcha", :require => "recaptcha/rails"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-	
 	def create
     @message = Message.new(params[:message])
     if @message.valid?
@@ -9,10 +8,15 @@ class MessagesController < ApplicationController
         flash[:success] = "Newsletter successfully sent."
         redirect_to (:back)
       else
-        ContactMailer.new_message(@message).deliver
-        @message.save
-        flash[:success] = "Message sent. We'll get back to you shortly!"
-        redirect_to root_path
+        if verify_recaptcha(:message => "The captcha code you entered wasn't correct, please try again.")
+          ContactMailer.new_message(@message).deliver
+          @message.save
+          flash[:success] = "Message sent. We'll get back to you shortly!"
+          redirect_to root_path
+        else
+          flash[:error] = "The captcha code you entered wasn't correct, please try again."
+          redirect_to root_path
+        end
       end
     else
       flash[:error] = "Please make sure the entire form is complete."

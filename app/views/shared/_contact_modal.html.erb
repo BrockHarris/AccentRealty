@@ -23,8 +23,12 @@
           <%= f.text_field :subject, :class => "form-control" %>
 
           <%= f.label :body %>
-          <%= f.text_area :body, :rows =>"7", :class => "form-control" %>
-     
+          <%= f.text_area :body, :rows => "7", :class => "form-control" %>
+          
+          <%= recaptcha_tags :display => {:theme => "clean"} %>
+
+          <hr/>
+          
           <div class="pull-right margin_top_15">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             <%= f.submit "Send", :class => "btn btn-warning" %>
